@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>THE OPEN HAT</title>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  <%= stylesheet_link_tag    'style', 'css3','colorbox','avatar','heads','http://fonts.googleapis.com/css?family=Amatic+SC:400,700',:media => "all" %>
+  <%= javascript_include_tag 'jquery.min','jquery_ujs','jquery-ui', 'jquery.cycle', 'jquery.colorbox' ,'jquery.path','jquery.transit.min', 'jquery.validate.min.js', 'additional-methods.min.js', 'application' %>
+  <%= csrf_meta_tags %>
+  <meta name="title" content="TheOpenHat" />
+  <meta name="description" content="The online platform that brings performers and audiences together" />
+</head>
+<body>
+
+	<!-- start box -->
+	<section class="box">
+		<!-- start header -->
+	    <header id="header">
+	    	<!-- start logo -->
+	        <section id="logo">
+	        	<h1><%= link_to( image_tag('logo.png', :width => 408, :height => 74, :alt => 'THE OPEN HAT'), root_path, :title => 'THE OPEN HAT')%></h1>
+	        </section>
+	        <!-- end logo -->
+	        <!-- start header right -->
+	
+			<% if user_signed_in? %>
+              <% a = Character.find(:all, :conditions => ['user_id = ?', current_user.id]) %>
+			<section class="Account">
+	        	<section class="img-frame">&nbsp;</section>
+
+              <div class="thumb">
+                <%
+                   if a.count == 0
+                %>
+                    <div class="avatar preview avatar-head-1">
+                      <div class="avatar preview avatar-eyes-1"></div>
+                      <div class="avatar preview avatar-nose-1"></div>
+                      <div class="avatar preview avatar-mouth-1"></div>
+                    </div>
+                    <div class="avatar preview avatar-jacket-1"></div>
+
+
+                <% else %>
+
+                    <% a.each do |d| %>
+                        <% dd = d.section.split('-') %>
+                        <% if dd[1] == 'head' || dd[1] == 'jacket' %>
+                            <div class="avatar preview <%= d.section %>">
+                              <% if dd[1] == 'head' %>
+                                  <% a.each do |c| %>
+                                      <% dc = c.section.split('-') %>
+                                      <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                          <div class="avatar preview <%= c.section %>"></div>
+                                      <% end %>
+                                  <% end %>
+                              <% end %>
+                            </div>
+                        <% end %>
+                    <% end %>
+
+                <% end %>
+              </div>
+
+                <span class="back-avatar-hover"></span>
+                <span class="avatar-hover">
+                     <%= link_to "EDIT PROFILE", accounts_settings_path, :title => 'Edit Profile' %>
+                     <%= link_to "MESSAGES(0)", messages_path, :id => 'messanges' %>
+                     <%= link_to "BUY TOKENS", '/accounts_settings#tokens' %>
+                     <%= link_to "LOGOUT (X)", destroy_user_session_path, :method => :delete, :class => "logout" %>
+                </span>
+
+	            <section class="info">
+	            	<h2>Hi <span><%= current_user.name %></span></h2>
+	                <span class="link"><%= link_to 'My profile', profile_path, :title => 'My profile'%> / <%= link_to "Account settings", accounts_settings_path, :title => 'Account settings' %></span>
+	            </section>
+	        </section>
+			<% else %>
+	        <section id="header-right">
+	        		<%= link_to 'Login',  '/auth/facebook', :class => 'button', :title => 'Login'%>
+			
+				
+	        	<ul>
+	            	<li><%= link_to 'Login', login_path, :title => 'Login' %></li>
+	                <li><%= link_to 'Register', new_user_registration_path, :title => 'Register' %></li>
+	            </ul>
+	        </section>
+			<% end %>
+	        <!-- end header right -->
+	        <section class="clear"></section>
+	        <!-- start navigation -->
+	        <nav id="navigation">
+	        	<ul>
+	            	<li>HUBS:</li>
+					<% Category.find(:all).each do |e| %>
+						<li class="item-menu"><%= link_to e.name, category_path(e.name.downcase), :title => e.name %>
+
+                        </li>
+					<% end %>
+
+	                <li class="last"><a href="#" title="Rss">rss</a></li>
+                    <% if !current_user.nil? %>
+                      <% stage = Stage.find(:first, :conditions => ['user_id = ? and delete_status = 0', current_user.id]) %>
+                      <% if stage.nil? %>
+                      <li class="new"><a href="/create_performance" title="Create Stage" class="btn-newstage"></a></li>
+                      <% end %>
+                    <% end %>
+	            </ul>
+	        </nav>
+	        <!-- end navigation -->
+	    </header>
+	    <!-- end header -->
+	    <section class="clear"></section>
+</section>
+
+        <section class="box">
+           <!-- <%# if !flash[:notice].blank? %>
+            <div class="notice">
+                 <%#= flash[:notice] %>
+            </div>
+            <%# end %> -->
+            <% if current_user %>
+                  <%
+
+                   if !stage.nil?
+                     if controller_name == "home" && action_name == "index"
+                %>
+                  <div class="warning">
+                        <a class="close" href="#">X</a>
+                        <p>You have a stage running with 0 online viewers, please click <a href="/stage/<%=  Digest::MD5.hexdigest(stage.id.to_s)[0,11] %>">here</a> to start performing or click <a href="#<%=  Digest::MD5.hexdigest(stage.id.to_s)[0,11] %>" id="closeStage">here</a> to close your stage.</p>
+                       <!--<p>You have a performance programed at "<%= stage.live.strftime('%Y/%m/%d %H:%M') %>", that's in "<%= ((stage.live - DateTime.now)/ 1.hour).round  %> hours". Click <%= link_to 'here', stage_path(Digest::MD5.hexdigest(stage.id.to_s)) %> to go to you're stage.</p> -->
+                  </div>
+                <%
+                       end
+                   end
+                   if session[:warn_profile].nil?
+                   current_state = 0
+                   if !current_user.name.blank?
+                      current_state += 25
+                   end
+                   if !current_user.about.blank?
+                     current_state += 25
+                   end
+                   if !current_user.image.blank?
+                     current_state += 25
+                   end
+
+                   if a.count != 0
+                      current_state += 25
+                   end
+
+                   if current_state < 100
+                %>
+                   <div class="warning">
+                     <a class="close" href="#">X</a>
+                     <p>You're profile is <%= current_state %>% complete, <% if a.count == 0 %>You have not created your avatar, click <%= link_to 'here', '/accounts_settings#create_your_character'  %> for make you avatar or<% end %>  please click <%= link_to 'here','/accounts_settings#user_information' %> to add more information.</p>
+                   </div>
+                    <% session[:warn_profile] = '1' %>
+                <% end  %>
+                  <% end %>
+            <% end %>
+            <% if session[:error] %>
+              <div class="warning">
+                <a class="close" href="#">X</a>
+                <p><%= session[:error].html_safe %></p>
+              </div>
+                <% session[:error] = nil %>
+            <% end %>
+        </section>
+
+			<%= yield %>
+			
+			<section class="clear"></section>
+<!-- start footer -->
+<footer id="footer">
+	<!-- start box -->
+    <section class="box">
+    	<!-- start footer top -->
+        <section id="footer-top">
+            <!-- start footer link -->
+            <nav class="footer-link">
+                <h5>Learn About Us</h5>
+                <ul>
+                    <li><%= link_to 'Contact', pages_path('contact'), :title => "Contact" %></li>
+                    <li><%= link_to 'About Us', pages_path('about_us'), :title => "About Us" %></li>
+                    <li><%= link_to 'Media Kit', pages_path('media_kit'), :title => "Media Kit" %></li>
+                    <li><%= link_to 'Advertise', pages_path('advertise'), :title => "Advertise" %></li>
+                    <li><%= link_to 'Legal', pages_path('legal'), :title => "Legal" %></li>
+                </ul>
+            </nav>
+            <!-- end footer link -->
+            <!-- start footer link -->
+            <nav class="footer-link">
+                <h5>Get help</h5>
+                <ul>
+                    <li><a href="#" title="FAQ">FAQ</a></li>
+                    <li><a href="#" title="Website Support">Website Support</a></li>
+                    <li><a href="#" title="iPhone Support">iPhone Support</a></li>
+                    <li><a href="#" title="System Status">System Status</a></li>
+                </ul>
+            </nav>
+            <!-- end footer link -->
+            <!-- start search -->
+            <form action="#" class="search">
+                <input type="text" name="field" value="Search" class="input" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search'; }" />
+                <input name="submit" type="submit" value="" class="button" />
+            </form>
+            <!-- end search -->
+        </section>
+        <!-- end footer top -->
+        <!-- start footer mid -->
+        <section id="footer-mid">
+        	<span>All Material Copyright &copy; 2009-2012 The Main Stage INC. All music and performing arts &copy;</span>
+        </section>
+        <!-- end footer mid -->
+    </section>
+    <!-- end box -->
+  <!-- start footer bottom -->
+  <% if controller_name == "stages" && action_name == "index" %>
+  <section id="footer-bot">
+    <!-- start box -->
+      <!-- start chat-block -->
+      <section class="chat-block">
+
+      </section>
+      <!-- end chat-block -->
+      <ul class="list1">
+        <li><a href="#" class="globalchat" title="Global Chat"><%= image_tag 'ic_chat3.png', :alt => "chat" %>Global Chat</a></li>
+        <div class="line-bar"></div>
+        <li>Your chats</li>
+      </ul>
+
+    <!-- end box -->
+  </section>
+  <!-- end footer bottom -->
+
+
+  <% end %>
+</footer>
+    <% if controller_name == "stages" && action_name == "index" %>
+    <div class="shadown-left"></div>
+    <div class="shadown-top"></div>
+        <div class="shadown-layer">
+        </div>
+    <div class="shadown-right"></div>
+        <div class="shadown-bottom"></div>
+    <% end %>
+<!-- end footer -->
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Message:
+  fields:
+    default: body, sender, recipient
+    form: body, sender, recipient
+  relationships: 
+  application: Application

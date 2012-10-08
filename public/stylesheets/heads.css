@@ -1,0 +1,5451 @@
+/* css cabezas avatars */
+/* OJOS */
+.preview.avatar-head-1 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 41px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-1 ,.preview.avatar-head-3 .preview.avatar-eyes-1 ,.preview.avatar-head-4 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-2 ,.preview.avatar-head-3 .preview.avatar-eyes-2 ,.preview.avatar-head-4 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-3 ,.preview.avatar-head-3 .preview.avatar-eyes-3 ,.preview.avatar-head-4 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-4 ,.preview.avatar-head-3 .preview.avatar-eyes-4 ,.preview.avatar-head-4 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-5 ,.preview.avatar-head-3 .preview.avatar-eyes-5 ,.preview.avatar-head-4 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-6 ,.preview.avatar-head-3 .preview.avatar-eyes-6 ,.preview.avatar-head-4 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-7 ,.preview.avatar-head-3 .preview.avatar-eyes-7 ,.preview.avatar-head-4 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-8 ,.preview.avatar-head-3 .preview.avatar-eyes-8 ,.preview.avatar-head-4 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-9 ,.preview.avatar-head-3 .preview.avatar-eyes-9 ,.preview.avatar-head-4 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-10 ,.preview.avatar-head-3 .preview.avatar-eyes-10 ,.preview.avatar-head-4 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-eyes-11 ,.preview.avatar-head-3 .preview.avatar-eyes-11 ,.preview.avatar-head-4 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 41px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 41px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-1 ,.preview.avatar-head-7 .preview.avatar-eyes-1 ,.preview.avatar-head-8 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-2 ,.preview.avatar-head-7 .preview.avatar-eyes-2 ,.preview.avatar-head-8 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-3 ,.preview.avatar-head-7 .preview.avatar-eyes-3 ,.preview.avatar-head-8 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-4 ,.preview.avatar-head-7 .preview.avatar-eyes-4 ,.preview.avatar-head-8 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-5 ,.preview.avatar-head-7 .preview.avatar-eyes-5 ,.preview.avatar-head-8 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-6 ,.preview.avatar-head-7 .preview.avatar-eyes-6 ,.preview.avatar-head-8 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-7 ,.preview.avatar-head-7 .preview.avatar-eyes-7 ,.preview.avatar-head-8 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-8 ,.preview.avatar-head-7 .preview.avatar-eyes-8 ,.preview.avatar-head-8 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-9 ,.preview.avatar-head-7 .preview.avatar-eyes-9 ,.preview.avatar-head-8 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-10 ,.preview.avatar-head-7 .preview.avatar-eyes-10 ,.preview.avatar-head-8 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-eyes-11 ,.preview.avatar-head-7 .preview.avatar-eyes-11 ,.preview.avatar-head-8 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 47px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-1 ,.preview.avatar-head-10 .preview.avatar-eyes-1 ,.preview.avatar-head-11 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-2 ,.preview.avatar-head-10 .preview.avatar-eyes-2 ,.preview.avatar-head-11 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-3 ,.preview.avatar-head-10 .preview.avatar-eyes-3 ,.preview.avatar-head-11 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-4 ,.preview.avatar-head-10 .preview.avatar-eyes-4 ,.preview.avatar-head-11 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-5 ,.preview.avatar-head-10 .preview.avatar-eyes-5 ,.preview.avatar-head-11 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-6 ,.preview.avatar-head-10 .preview.avatar-eyes-6 ,.preview.avatar-head-11 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-7 ,.preview.avatar-head-10 .preview.avatar-eyes-7 ,.preview.avatar-head-11 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-8 ,.preview.avatar-head-10 .preview.avatar-eyes-8 ,.preview.avatar-head-11 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-9 ,.preview.avatar-head-10 .preview.avatar-eyes-9 ,.preview.avatar-head-11 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-10 ,.preview.avatar-head-10 .preview.avatar-eyes-10 ,.preview.avatar-head-11 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-eyes-11 ,.preview.avatar-head-10 .preview.avatar-eyes-11 ,.preview.avatar-head-11 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 47px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-1 ,.preview.avatar-head-13 .preview.avatar-eyes-1 ,.preview.avatar-head-14 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-2 ,.preview.avatar-head-13 .preview.avatar-eyes-2 ,.preview.avatar-head-14 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-3 ,.preview.avatar-head-13 .preview.avatar-eyes-3 ,.preview.avatar-head-14 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-4 ,.preview.avatar-head-13 .preview.avatar-eyes-4 ,.preview.avatar-head-14 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-5 ,.preview.avatar-head-13 .preview.avatar-eyes-5 ,.preview.avatar-head-14 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-6 ,.preview.avatar-head-13 .preview.avatar-eyes-6 ,.preview.avatar-head-14 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-7 ,.preview.avatar-head-13 .preview.avatar-eyes-7 ,.preview.avatar-head-14 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-8 ,.preview.avatar-head-13 .preview.avatar-eyes-8 ,.preview.avatar-head-14 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-9 ,.preview.avatar-head-13 .preview.avatar-eyes-9 ,.preview.avatar-head-14 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-10 ,.preview.avatar-head-13 .preview.avatar-eyes-10 ,.preview.avatar-head-14 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-eyes-11 ,.preview.avatar-head-13 .preview.avatar-eyes-11 ,.preview.avatar-head-14 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 50px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-1 ,.preview.avatar-head-16 .preview.avatar-eyes-1 ,.preview.avatar-head-17 .preview.avatar-eyes-1{
+    background-position: -18px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-2 ,.preview.avatar-head-16 .preview.avatar-eyes-2 ,.preview.avatar-head-17 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-3 ,.preview.avatar-head-16 .preview.avatar-eyes-3 ,.preview.avatar-head-17 .preview.avatar-eyes-3{
+    background-position: -223px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-4 ,.preview.avatar-head-16 .preview.avatar-eyes-4 ,.preview.avatar-head-17 .preview.avatar-eyes-4{
+    background-position: -312px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-5 ,.preview.avatar-head-16 .preview.avatar-eyes-5 ,.preview.avatar-head-17 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-6 ,.preview.avatar-head-16 .preview.avatar-eyes-6 ,.preview.avatar-head-17 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-7 ,.preview.avatar-head-16 .preview.avatar-eyes-7 ,.preview.avatar-head-17 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-8 ,.preview.avatar-head-16 .preview.avatar-eyes-8 ,.preview.avatar-head-17 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 25px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-9 ,.preview.avatar-head-16 .preview.avatar-eyes-9 ,.preview.avatar-head-17 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 24px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-10 ,.preview.avatar-head-16 .preview.avatar-eyes-10 ,.preview.avatar-head-17 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-eyes-11 ,.preview.avatar-head-16 .preview.avatar-eyes-11 ,.preview.avatar-head-17 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 51px;
+    right: 10px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-1 ,.preview.avatar-head-19 .preview.avatar-eyes-1 ,.preview.avatar-head-20 .preview.avatar-eyes-1{
+    background-position: -18px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-2 ,.preview.avatar-head-19 .preview.avatar-eyes-2 ,.preview.avatar-head-20 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-3 ,.preview.avatar-head-19 .preview.avatar-eyes-3 ,.preview.avatar-head-20 .preview.avatar-eyes-3{
+    background-position: -223px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-4 ,.preview.avatar-head-19 .preview.avatar-eyes-4 ,.preview.avatar-head-20 .preview.avatar-eyes-4{
+    background-position: -312px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-5 ,.preview.avatar-head-19 .preview.avatar-eyes-5 ,.preview.avatar-head-20 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-6 ,.preview.avatar-head-19 .preview.avatar-eyes-6 ,.preview.avatar-head-20 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-7 ,.preview.avatar-head-19 .preview.avatar-eyes-7 ,.preview.avatar-head-20 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-8 ,.preview.avatar-head-19 .preview.avatar-eyes-8 ,.preview.avatar-head-20 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 25px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-9 ,.preview.avatar-head-19 .preview.avatar-eyes-9 ,.preview.avatar-head-20 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 24px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-10 ,.preview.avatar-head-19 .preview.avatar-eyes-10 ,.preview.avatar-head-20 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-eyes-11 ,.preview.avatar-head-19 .preview.avatar-eyes-11 ,.preview.avatar-head-20 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 51px;
+    right: 10px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-1 ,.preview.avatar-head-22 .preview.avatar-eyes-1{
+    background-position: -18px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-2 ,.preview.avatar-head-22 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-3 ,.preview.avatar-head-22 .preview.avatar-eyes-3{
+    background-position: -223px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-4 ,.preview.avatar-head-22 .preview.avatar-eyes-4{
+    background-position: -312px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-5 ,.preview.avatar-head-22 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-6 ,.preview.avatar-head-22 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-7 ,.preview.avatar-head-22 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-8 ,.preview.avatar-head-22 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 25px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-9 ,.preview.avatar-head-22 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    right: 24px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-10 ,.preview.avatar-head-22 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-eyes-11 ,.preview.avatar-head-22 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 51px;
+    right: 10px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-1 ,.preview.avatar-head-24 .preview.avatar-eyes-1 ,.preview.avatar-head-25 .preview.avatar-eyes-1{
+    background-position: -18px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-2 ,.preview.avatar-head-24 .preview.avatar-eyes-2 ,.preview.avatar-head-25 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-3 ,.preview.avatar-head-24 .preview.avatar-eyes-3 ,.preview.avatar-head-25 .preview.avatar-eyes-3{
+    background-position: -223px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-4 ,.preview.avatar-head-24 .preview.avatar-eyes-4 ,.preview.avatar-head-25 .preview.avatar-eyes-4{
+    background-position: -312px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-5 ,.preview.avatar-head-24 .preview.avatar-eyes-5 ,.preview.avatar-head-25 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 60px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-6 ,.preview.avatar-head-24 .preview.avatar-eyes-6 ,.preview.avatar-head-25 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-7 ,.preview.avatar-head-24 .preview.avatar-eyes-7 ,.preview.avatar-head-25 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-8 ,.preview.avatar-head-24 .preview.avatar-eyes-8 ,.preview.avatar-head-25 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-9 ,.preview.avatar-head-24 .preview.avatar-eyes-9 ,.preview.avatar-head-25 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 58px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-10 ,.preview.avatar-head-24 .preview.avatar-eyes-10 ,.preview.avatar-head-25 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 59px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-eyes-11 ,.preview.avatar-head-24 .preview.avatar-eyes-11 ,.preview.avatar-head-25 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 56px;
+    right: 7px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-1 ,.preview.avatar-head-27 .preview.avatar-eyes-1 ,.preview.avatar-head-28 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-2 ,.preview.avatar-head-27 .preview.avatar-eyes-2 ,.preview.avatar-head-28 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-3 ,.preview.avatar-head-27 .preview.avatar-eyes-3 ,.preview.avatar-head-28 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-4 ,.preview.avatar-head-27 .preview.avatar-eyes-4 ,.preview.avatar-head-28 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-5 ,.preview.avatar-head-27 .preview.avatar-eyes-5 ,.preview.avatar-head-28 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 61px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-6 ,.preview.avatar-head-27 .preview.avatar-eyes-6 ,.preview.avatar-head-28 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-7 ,.preview.avatar-head-27 .preview.avatar-eyes-7 ,.preview.avatar-head-28 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 63px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-8 ,.preview.avatar-head-27 .preview.avatar-eyes-8 ,.preview.avatar-head-28 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-9 ,.preview.avatar-head-27 .preview.avatar-eyes-9 ,.preview.avatar-head-28 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-10 ,.preview.avatar-head-27 .preview.avatar-eyes-10 ,.preview.avatar-head-28 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-eyes-11 ,.preview.avatar-head-27 .preview.avatar-eyes-11 ,.preview.avatar-head-28 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 56px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-1 ,.preview.avatar-head-30 .preview.avatar-eyes-1 ,.preview.avatar-head-31 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-2 ,.preview.avatar-head-30 .preview.avatar-eyes-2 ,.preview.avatar-head-31 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-3 ,.preview.avatar-head-30 .preview.avatar-eyes-3 ,.preview.avatar-head-31 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-4 ,.preview.avatar-head-30 .preview.avatar-eyes-4 ,.preview.avatar-head-31 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-5 ,.preview.avatar-head-30 .preview.avatar-eyes-5 ,.preview.avatar-head-31 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 61px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-6 ,.preview.avatar-head-30 .preview.avatar-eyes-6 ,.preview.avatar-head-31 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-7 ,.preview.avatar-head-30 .preview.avatar-eyes-7 ,.preview.avatar-head-31 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 63px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-8 ,.preview.avatar-head-30 .preview.avatar-eyes-8 ,.preview.avatar-head-31 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-9 ,.preview.avatar-head-30 .preview.avatar-eyes-9 ,.preview.avatar-head-31 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-10 ,.preview.avatar-head-30 .preview.avatar-eyes-10 ,.preview.avatar-head-31 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-eyes-11 ,.preview.avatar-head-30 .preview.avatar-eyes-11 ,.preview.avatar-head-31 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 56px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 65px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 62px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 62px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 63px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 61px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 57px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-1 ,.preview.avatar-head-34 .preview.avatar-eyes-1 ,.preview.avatar-head-35 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-2 ,.preview.avatar-head-34 .preview.avatar-eyes-2 ,.preview.avatar-head-35 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-3 ,.preview.avatar-head-34 .preview.avatar-eyes-3 ,.preview.avatar-head-35 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-4 ,.preview.avatar-head-34 .preview.avatar-eyes-4 ,.preview.avatar-head-35 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-5 ,.preview.avatar-head-34 .preview.avatar-eyes-5 ,.preview.avatar-head-35 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 54px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-6 ,.preview.avatar-head-34 .preview.avatar-eyes-6 ,.preview.avatar-head-35 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 56px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-7 ,.preview.avatar-head-34 .preview.avatar-eyes-7 ,.preview.avatar-head-35 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 58px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-8 ,.preview.avatar-head-34 .preview.avatar-eyes-8 ,.preview.avatar-head-35 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 54px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-9 ,.preview.avatar-head-34 .preview.avatar-eyes-9 ,.preview.avatar-head-35 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 55px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-10 ,.preview.avatar-head-34 .preview.avatar-eyes-10 ,.preview.avatar-head-35 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-eyes-11 ,.preview.avatar-head-34 .preview.avatar-eyes-11 ,.preview.avatar-head-35 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 55px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 39px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 41px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-1 ,.preview.avatar-head-38 .preview.avatar-eyes-1 ,.preview.avatar-head-39 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-2 ,.preview.avatar-head-38 .preview.avatar-eyes-2 ,.preview.avatar-head-39 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 46px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-3 ,.preview.avatar-head-38 .preview.avatar-eyes-3 ,.preview.avatar-head-39 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 48px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-4 ,.preview.avatar-head-38 .preview.avatar-eyes-4 ,.preview.avatar-head-39 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 48px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-5 ,.preview.avatar-head-38 .preview.avatar-eyes-5 ,.preview.avatar-head-39 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 44px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-6 ,.preview.avatar-head-38 .preview.avatar-eyes-6 ,.preview.avatar-head-39 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 45px;
+    right: 18px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-7 ,.preview.avatar-head-38 .preview.avatar-eyes-7 ,.preview.avatar-head-39 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 46px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-8 ,.preview.avatar-head-38 .preview.avatar-eyes-8 ,.preview.avatar-head-39 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 43px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-9 ,.preview.avatar-head-38 .preview.avatar-eyes-9 ,.preview.avatar-head-39 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 44px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-10 ,.preview.avatar-head-38 .preview.avatar-eyes-10 ,.preview.avatar-head-39 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 43px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-eyes-11 ,.preview.avatar-head-38 .preview.avatar-eyes-11 ,.preview.avatar-head-39 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 43px;
+    right: 5px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-1 ,.preview.avatar-head-41 .preview.avatar-eyes-1 ,.preview.avatar-head-42 .preview.avatar-eyes-1{
+    background-position: -17px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 53px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-2 ,.preview.avatar-head-41 .preview.avatar-eyes-2 ,.preview.avatar-head-42 .preview.avatar-eyes-2{
+    background-position: -120px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 51px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-3 ,.preview.avatar-head-41 .preview.avatar-eyes-3 ,.preview.avatar-head-42 .preview.avatar-eyes-3{
+    background-position: -220px -109px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 51px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-4 ,.preview.avatar-head-41 .preview.avatar-eyes-4 ,.preview.avatar-head-42 .preview.avatar-eyes-4{
+    background-position: -311px -109px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 51px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-5 ,.preview.avatar-head-41 .preview.avatar-eyes-5 ,.preview.avatar-head-42 .preview.avatar-eyes-5{
+    background-position: -399px -106px;
+    width: 71px;
+    height: 20px;
+    position: absolute;
+    top: 48px;
+    right: 8px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-6 ,.preview.avatar-head-41 .preview.avatar-eyes-6 ,.preview.avatar-head-42 .preview.avatar-eyes-6{
+    background-position: -506px -106px;
+    width: 49px;
+    height: 14px;
+    position: absolute;
+    top: 48px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-7 ,.preview.avatar-head-41 .preview.avatar-eyes-7 ,.preview.avatar-head-42 .preview.avatar-eyes-7{
+    background-position: -600px -106px;
+    width: 47px;
+    height: 14px;
+    position: absolute;
+    top: 52px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-8 ,.preview.avatar-head-41 .preview.avatar-eyes-8 ,.preview.avatar-head-42 .preview.avatar-eyes-8{
+    background-position: -693px -106px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 48px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-9 ,.preview.avatar-head-41 .preview.avatar-eyes-9 ,.preview.avatar-head-42 .preview.avatar-eyes-9{
+    background-position: -784px -106px;
+    width: 44px;
+    height: 16px;
+    position: absolute;
+    top: 47px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-10 ,.preview.avatar-head-41 .preview.avatar-eyes-10 ,.preview.avatar-head-42 .preview.avatar-eyes-10{
+    background-position: -877px -106px;
+    width: 44px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-eyes-11 ,.preview.avatar-head-41 .preview.avatar-eyes-11 ,.preview.avatar-head-42 .preview.avatar-eyes-11{
+    background-position: -956px -106px;
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 46px;
+    right: 5px;
+    z-index: 0;
+    background-size: 5000px;
+}
+
+
+
+/* NARIZ */
+.preview.avatar-head-1 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-2{
+    background-position: -123px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-5{
+    background-position: -412px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-1 ,.preview.avatar-head-3 .preview.avatar-nose-1 ,.preview.avatar-head-4 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-2 ,.preview.avatar-head-3 .preview.avatar-nose-2 ,.preview.avatar-head-4 .preview.avatar-nose-2{
+    background-position: -123px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-3 ,.preview.avatar-head-3 .preview.avatar-nose-3 ,.preview.avatar-head-4 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-4 ,.preview.avatar-head-3 .preview.avatar-nose-4 ,.preview.avatar-head-4 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-5 ,.preview.avatar-head-3 .preview.avatar-nose-5 ,.preview.avatar-head-4 .preview.avatar-nose-5{
+    background-position: -412px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-6 ,.preview.avatar-head-3 .preview.avatar-nose-6 ,.preview.avatar-head-4 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-7 ,.preview.avatar-head-3 .preview.avatar-nose-7 ,.preview.avatar-head-4 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-8 ,.preview.avatar-head-3 .preview.avatar-nose-8 ,.preview.avatar-head-4 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-9 ,.preview.avatar-head-3 .preview.avatar-nose-9 ,.preview.avatar-head-4 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-10 ,.preview.avatar-head-3 .preview.avatar-nose-10 ,.preview.avatar-head-4 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-nose-11 ,.preview.avatar-head-3 .preview.avatar-nose-11 ,.preview.avatar-head-4 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-2{
+    background-position: -123px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-5{
+    background-position: -412px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-1 ,.preview.avatar-head-7 .preview.avatar-nose-1 ,.preview.avatar-head-8 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-2 ,.preview.avatar-head-7 .preview.avatar-nose-2 ,.preview.avatar-head-8 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-3 ,.preview.avatar-head-7 .preview.avatar-nose-3 ,.preview.avatar-head-8 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-4 ,.preview.avatar-head-7 .preview.avatar-nose-4 ,.preview.avatar-head-8 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-5 ,.preview.avatar-head-7 .preview.avatar-nose-5 ,.preview.avatar-head-8 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-6 ,.preview.avatar-head-7 .preview.avatar-nose-6 ,.preview.avatar-head-8 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-7 ,.preview.avatar-head-7 .preview.avatar-nose-7 ,.preview.avatar-head-8 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-8 ,.preview.avatar-head-7 .preview.avatar-nose-8 ,.preview.avatar-head-8 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-9 ,.preview.avatar-head-7 .preview.avatar-nose-9 ,.preview.avatar-head-8 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-10 ,.preview.avatar-head-7 .preview.avatar-nose-10 ,.preview.avatar-head-8 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-nose-11 ,.preview.avatar-head-7 .preview.avatar-nose-11 ,.preview.avatar-head-8 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-1 ,.preview.avatar-head-10 .preview.avatar-nose-1 ,.preview.avatar-head-11 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-2 ,.preview.avatar-head-10 .preview.avatar-nose-2 ,.preview.avatar-head-11 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-3 ,.preview.avatar-head-10 .preview.avatar-nose-3 ,.preview.avatar-head-11 .preview.avatar-nose-3{
+    background-position: -220px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-4 ,.preview.avatar-head-10 .preview.avatar-nose-4 ,.preview.avatar-head-11 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-5 ,.preview.avatar-head-10 .preview.avatar-nose-5 ,.preview.avatar-head-11 .preview.avatar-nose-5{
+    background-position: -412px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-6 ,.preview.avatar-head-10 .preview.avatar-nose-6 ,.preview.avatar-head-11 .preview.avatar-nose-6{
+    background-position: -509px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-7 ,.preview.avatar-head-10 .preview.avatar-nose-7 ,.preview.avatar-head-11 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-8 ,.preview.avatar-head-10 .preview.avatar-nose-8 ,.preview.avatar-head-11 .preview.avatar-nose-8{
+    background-position: -694px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-9 ,.preview.avatar-head-10 .preview.avatar-nose-9 ,.preview.avatar-head-11 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-10 ,.preview.avatar-head-10 .preview.avatar-nose-10 ,.preview.avatar-head-11 .preview.avatar-nose-10{
+    background-position: -877px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-nose-11 ,.preview.avatar-head-10 .preview.avatar-nose-11 ,.preview.avatar-head-11 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-1 ,.preview.avatar-head-13 .preview.avatar-nose-1 ,.preview.avatar-head-14 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-2 ,.preview.avatar-head-13 .preview.avatar-nose-2 ,.preview.avatar-head-14 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-3 ,.preview.avatar-head-13 .preview.avatar-nose-3 ,.preview.avatar-head-14 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-4 ,.preview.avatar-head-13 .preview.avatar-nose-4 ,.preview.avatar-head-14 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-5 ,.preview.avatar-head-13 .preview.avatar-nose-5 ,.preview.avatar-head-14 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-6 ,.preview.avatar-head-13 .preview.avatar-nose-6 ,.preview.avatar-head-14 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-7 ,.preview.avatar-head-13 .preview.avatar-nose-7 ,.preview.avatar-head-14 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-8 ,.preview.avatar-head-13 .preview.avatar-nose-8 ,.preview.avatar-head-14 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-9 ,.preview.avatar-head-13 .preview.avatar-nose-9 ,.preview.avatar-head-14 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-10 ,.preview.avatar-head-13 .preview.avatar-nose-10 ,.preview.avatar-head-14 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-nose-11 ,.preview.avatar-head-13 .preview.avatar-nose-11 ,.preview.avatar-head-14 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-1 ,.preview.avatar-head-16 .preview.avatar-nose-1 ,.preview.avatar-head-17 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-2 ,.preview.avatar-head-16 .preview.avatar-nose-2 ,.preview.avatar-head-17 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-3 ,.preview.avatar-head-16 .preview.avatar-nose-3 ,.preview.avatar-head-17 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-4 ,.preview.avatar-head-16 .preview.avatar-nose-4 ,.preview.avatar-head-17 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-5 ,.preview.avatar-head-16 .preview.avatar-nose-5 ,.preview.avatar-head-17 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-6 ,.preview.avatar-head-16 .preview.avatar-nose-6 ,.preview.avatar-head-17 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 61px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-7 ,.preview.avatar-head-16 .preview.avatar-nose-7 ,.preview.avatar-head-17 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-8 ,.preview.avatar-head-16 .preview.avatar-nose-8 ,.preview.avatar-head-17 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-9 ,.preview.avatar-head-16 .preview.avatar-nose-9 ,.preview.avatar-head-17 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-10 ,.preview.avatar-head-16 .preview.avatar-nose-10 ,.preview.avatar-head-17 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-nose-11 ,.preview.avatar-head-16 .preview.avatar-nose-11 ,.preview.avatar-head-17 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-1 ,.preview.avatar-head-19 .preview.avatar-nose-1 ,.preview.avatar-head-20 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-2 ,.preview.avatar-head-19 .preview.avatar-nose-2 ,.preview.avatar-head-20 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-3 ,.preview.avatar-head-19 .preview.avatar-nose-3 ,.preview.avatar-head-20 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-4 ,.preview.avatar-head-19 .preview.avatar-nose-4 ,.preview.avatar-head-20 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-5 ,.preview.avatar-head-19 .preview.avatar-nose-5 ,.preview.avatar-head-20 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-6 ,.preview.avatar-head-19 .preview.avatar-nose-6 ,.preview.avatar-head-20 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 61px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-7 ,.preview.avatar-head-19 .preview.avatar-nose-7 ,.preview.avatar-head-20 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-8 ,.preview.avatar-head-19 .preview.avatar-nose-8 ,.preview.avatar-head-20 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-9 ,.preview.avatar-head-19 .preview.avatar-nose-9 ,.preview.avatar-head-20 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-10 ,.preview.avatar-head-19 .preview.avatar-nose-10 ,.preview.avatar-head-20 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-nose-11 ,.preview.avatar-head-19 .preview.avatar-nose-11 ,.preview.avatar-head-20 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-1 ,.preview.avatar-head-22 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-2 ,.preview.avatar-head-22 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-3 ,.preview.avatar-head-22 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 24px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-4 ,.preview.avatar-head-22 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-5 ,.preview.avatar-head-22 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-6 ,.preview.avatar-head-22 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 61px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-7 ,.preview.avatar-head-22 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-8 ,.preview.avatar-head-22 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-9 ,.preview.avatar-head-22 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-10 ,.preview.avatar-head-22 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-nose-11 ,.preview.avatar-head-22 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-1 ,.preview.avatar-head-24 .preview.avatar-nose-1 ,.preview.avatar-head-25 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-2 ,.preview.avatar-head-24 .preview.avatar-nose-2 ,.preview.avatar-head-25 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-3 ,.preview.avatar-head-24 .preview.avatar-nose-3 ,.preview.avatar-head-25 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-4 ,.preview.avatar-head-24 .preview.avatar-nose-4 ,.preview.avatar-head-25 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-5 ,.preview.avatar-head-24 .preview.avatar-nose-5 ,.preview.avatar-head-25 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-6 ,.preview.avatar-head-24 .preview.avatar-nose-6 ,.preview.avatar-head-25 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-7 ,.preview.avatar-head-24 .preview.avatar-nose-7 ,.preview.avatar-head-25 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-8 ,.preview.avatar-head-24 .preview.avatar-nose-8 ,.preview.avatar-head-25 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-9 ,.preview.avatar-head-24 .preview.avatar-nose-9 ,.preview.avatar-head-25 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-10 ,.preview.avatar-head-24 .preview.avatar-nose-10 ,.preview.avatar-head-25 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-nose-11 ,.preview.avatar-head-24 .preview.avatar-nose-11 ,.preview.avatar-head-25 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-1 ,.preview.avatar-head-27 .preview.avatar-nose-1 ,.preview.avatar-head-28 .preview.avatar-nose-1{
+	background-position: -9px -105px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 64px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-2 ,.preview.avatar-head-27 .preview.avatar-nose-2 ,.preview.avatar-head-28 .preview.avatar-nose-2{
+    background-position: -94px -102px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-3 ,.preview.avatar-head-27 .preview.avatar-nose-3 ,.preview.avatar-head-28 .preview.avatar-nose-3{
+	background-position: -171px -102px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 61px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-4 ,.preview.avatar-head-27 .preview.avatar-nose-4 ,.preview.avatar-head-28 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-5 ,.preview.avatar-head-27 .preview.avatar-nose-5 ,.preview.avatar-head-28 .preview.avatar-nose-5{
+	background-position: -327px -106px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 64px;
+	right: 20px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-6 ,.preview.avatar-head-27 .preview.avatar-nose-6 ,.preview.avatar-head-28 .preview.avatar-nose-6{
+	background-position: -402px -101px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 60px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-7 ,.preview.avatar-head-27 .preview.avatar-nose-7 ,.preview.avatar-head-28 .preview.avatar-nose-7{
+	background-position: -476px -107px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 65px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-8 ,.preview.avatar-head-27 .preview.avatar-nose-8 ,.preview.avatar-head-28 .preview.avatar-nose-8{
+	background-position: -551px -106px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 63px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-9 ,.preview.avatar-head-27 .preview.avatar-nose-9 ,.preview.avatar-head-28 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-10 ,.preview.avatar-head-27 .preview.avatar-nose-10 ,.preview.avatar-head-28 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-nose-11 ,.preview.avatar-head-27 .preview.avatar-nose-11 ,.preview.avatar-head-28 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-1 ,.preview.avatar-head-30 .preview.avatar-nose-1 ,.preview.avatar-head-31 .preview.avatar-nose-1{
+	background-position: -9px -105px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 64px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-2 ,.preview.avatar-head-30 .preview.avatar-nose-2 ,.preview.avatar-head-31 .preview.avatar-nose-2{
+    background-position: -94px -102px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-3 ,.preview.avatar-head-30 .preview.avatar-nose-3 ,.preview.avatar-head-31 .preview.avatar-nose-3{
+	background-position: -171px -102px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 61px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-4 ,.preview.avatar-head-30 .preview.avatar-nose-4 ,.preview.avatar-head-31 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-5 ,.preview.avatar-head-30 .preview.avatar-nose-5 ,.preview.avatar-head-31 .preview.avatar-nose-5{
+	background-position: -327px -106px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 64px;
+	right: 20px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-6 ,.preview.avatar-head-30 .preview.avatar-nose-6 ,.preview.avatar-head-31 .preview.avatar-nose-6{
+	background-position: -402px -101px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 60px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-7 ,.preview.avatar-head-30 .preview.avatar-nose-7 ,.preview.avatar-head-31 .preview.avatar-nose-7{
+	background-position: -476px -107px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 65px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-8 ,.preview.avatar-head-30 .preview.avatar-nose-8 ,.preview.avatar-head-31 .preview.avatar-nose-8{
+	background-position: -551px -106px;
+	width: 43px;
+	height: 25px;
+	position: absolute;
+	top: 63px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-9 ,.preview.avatar-head-30 .preview.avatar-nose-9 ,.preview.avatar-head-31 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-10 ,.preview.avatar-head-30 .preview.avatar-nose-10 ,.preview.avatar-head-31 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-29 .preview.avatar-nose-11 ,.preview.avatar-head-30 .preview.avatar-nose-11 ,.preview.avatar-head-31 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 66px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 70px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-5{
+    background-position: -414px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 69px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 71px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 70px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 72px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-1 ,.preview.avatar-head-34 .preview.avatar-nose-1 ,.preview.avatar-head-35 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-2 ,.preview.avatar-head-34 .preview.avatar-nose-2 ,.preview.avatar-head-35 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-3 ,.preview.avatar-head-34 .preview.avatar-nose-3 ,.preview.avatar-head-35 .preview.avatar-nose-3{
+    background-position: -220px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-4 ,.preview.avatar-head-34 .preview.avatar-nose-4 ,.preview.avatar-head-35 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 62px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-5 ,.preview.avatar-head-34 .preview.avatar-nose-5 ,.preview.avatar-head-35 .preview.avatar-nose-5{
+    background-position: -412px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-6 ,.preview.avatar-head-34 .preview.avatar-nose-6 ,.preview.avatar-head-35 .preview.avatar-nose-6{
+    background-position: -509px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-7 ,.preview.avatar-head-34 .preview.avatar-nose-7 ,.preview.avatar-head-35 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 60px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-8 ,.preview.avatar-head-34 .preview.avatar-nose-8 ,.preview.avatar-head-35 .preview.avatar-nose-8{
+    background-position: -694px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-9 ,.preview.avatar-head-34 .preview.avatar-nose-9 ,.preview.avatar-head-35 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 64px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-10 ,.preview.avatar-head-34 .preview.avatar-nose-10 ,.preview.avatar-head-35 .preview.avatar-nose-10{
+    background-position: -877px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 65px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-nose-11 ,.preview.avatar-head-34 .preview.avatar-nose-11 ,.preview.avatar-head-35 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 63px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 51px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-2{
+    background-position: -123px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-5{
+    background-position: -412px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 52px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-1 ,.preview.avatar-head-38 .preview.avatar-nose-1 ,.preview.avatar-head-39 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 51px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-2 ,.preview.avatar-head-38 .preview.avatar-nose-2 ,.preview.avatar-head-39 .preview.avatar-nose-2{
+    background-position: -123px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-3 ,.preview.avatar-head-38 .preview.avatar-nose-3 ,.preview.avatar-head-39 .preview.avatar-nose-3{
+    background-position: -220px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-4 ,.preview.avatar-head-38 .preview.avatar-nose-4 ,.preview.avatar-head-39 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-5 ,.preview.avatar-head-38 .preview.avatar-nose-5 ,.preview.avatar-head-39 .preview.avatar-nose-5{
+    background-position: -412px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-6 ,.preview.avatar-head-38 .preview.avatar-nose-6 ,.preview.avatar-head-39 .preview.avatar-nose-6{
+    background-position: -509px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-7 ,.preview.avatar-head-38 .preview.avatar-nose-7 ,.preview.avatar-head-39 .preview.avatar-nose-7{
+    background-position: -600px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 50px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-8 ,.preview.avatar-head-38 .preview.avatar-nose-8 ,.preview.avatar-head-39 .preview.avatar-nose-8{
+    background-position: -694px -134px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 49px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-9 ,.preview.avatar-head-38 .preview.avatar-nose-9 ,.preview.avatar-head-39 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-10 ,.preview.avatar-head-38 .preview.avatar-nose-10 ,.preview.avatar-head-39 .preview.avatar-nose-10{
+    background-position: -877px -135px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 52px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-nose-11 ,.preview.avatar-head-38 .preview.avatar-nose-11 ,.preview.avatar-head-39 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-1 ,.preview.avatar-head-41 .preview.avatar-nose-1 ,.preview.avatar-head-42 .preview.avatar-nose-1{
+    background-position: -17px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-2 ,.preview.avatar-head-41 .preview.avatar-nose-2 ,.preview.avatar-head-42 .preview.avatar-nose-2{
+    background-position: -122px -133px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-3 ,.preview.avatar-head-41 .preview.avatar-nose-3 ,.preview.avatar-head-42 .preview.avatar-nose-3{
+    background-position: -220px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-4 ,.preview.avatar-head-41 .preview.avatar-nose-4 ,.preview.avatar-head-42 .preview.avatar-nose-4{
+    background-position: -315px -137px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 54px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-5 ,.preview.avatar-head-41 .preview.avatar-nose-5 ,.preview.avatar-head-42 .preview.avatar-nose-5{
+    background-position: -412px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 57px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-6 ,.preview.avatar-head-41 .preview.avatar-nose-6 ,.preview.avatar-head-42 .preview.avatar-nose-6{
+    background-position: -509px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-7 ,.preview.avatar-head-41 .preview.avatar-nose-7 ,.preview.avatar-head-42 .preview.avatar-nose-7{
+    background-position: -600px -136px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 56px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-8 ,.preview.avatar-head-41 .preview.avatar-nose-8 ,.preview.avatar-head-42 .preview.avatar-nose-8{
+    background-position: -694px -140px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-9 ,.preview.avatar-head-41 .preview.avatar-nose-9 ,.preview.avatar-head-42 .preview.avatar-nose-9{
+    background-position: -784px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 57px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-10 ,.preview.avatar-head-41 .preview.avatar-nose-10 ,.preview.avatar-head-42 .preview.avatar-nose-10{
+    background-position: -877px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 59px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-nose-11 ,.preview.avatar-head-41 .preview.avatar-nose-11 ,.preview.avatar-head-42 .preview.avatar-nose-11{
+    background-position: -968px -138px;
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    top: 57px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+
+
+/* BOCA */
+
+
+.preview.avatar-head-1 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-4{
+    background-position: -312px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-1 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-1 ,.preview.avatar-head-3 .preview.avatar-mouth-1 ,.preview.avatar-head-4 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-2 ,.preview.avatar-head-3 .preview.avatar-mouth-2 ,.preview.avatar-head-4 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-3 ,.preview.avatar-head-3 .preview.avatar-mouth-3 ,.preview.avatar-head-4 .preview.avatar-mouth-3{
+    background-position: -226px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-4 ,.preview.avatar-head-3 .preview.avatar-mouth-4 ,.preview.avatar-head-4 .preview.avatar-mouth-4{
+    background-position: -312px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-5 ,.preview.avatar-head-3 .preview.avatar-mouth-5 ,.preview.avatar-head-4 .preview.avatar-mouth-5{
+    background-position: -412px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-6 ,.preview.avatar-head-3 .preview.avatar-mouth-6 ,.preview.avatar-head-4 .preview.avatar-mouth-6{
+    background-position: -512px -170px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-7 ,.preview.avatar-head-3 .preview.avatar-mouth-7 ,.preview.avatar-head-4 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-8 ,.preview.avatar-head-3 .preview.avatar-mouth-8 ,.preview.avatar-head-4 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-9 ,.preview.avatar-head-3 .preview.avatar-mouth-9 ,.preview.avatar-head-4 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-2 .preview.avatar-mouth-10 ,.preview.avatar-head-3 .preview.avatar-mouth-10 ,.preview.avatar-head-4 .preview.avatar-mouth-10{
+    background-position: -886px -168px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-4{
+    background-position: -312px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-5 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-1 ,.preview.avatar-head-7 .preview.avatar-mouth-1 ,.preview.avatar-head-8 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-2 ,.preview.avatar-head-7 .preview.avatar-mouth-2 ,.preview.avatar-head-8 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 92px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-3 ,.preview.avatar-head-7 .preview.avatar-mouth-3 ,.preview.avatar-head-8 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-4 ,.preview.avatar-head-7 .preview.avatar-mouth-4 ,.preview.avatar-head-8 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-5 ,.preview.avatar-head-7 .preview.avatar-mouth-5 ,.preview.avatar-head-8 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-6 ,.preview.avatar-head-7 .preview.avatar-mouth-6 ,.preview.avatar-head-8 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 91px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-7 ,.preview.avatar-head-7 .preview.avatar-mouth-7 ,.preview.avatar-head-8 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-8 ,.preview.avatar-head-7 .preview.avatar-mouth-8 ,.preview.avatar-head-8 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-9 ,.preview.avatar-head-7 .preview.avatar-mouth-9 ,.preview.avatar-head-8 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-6 .preview.avatar-mouth-10 ,.preview.avatar-head-7 .preview.avatar-mouth-10 ,.preview.avatar-head-8 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-1 ,.preview.avatar-head-10 .preview.avatar-mouth-1 ,.preview.avatar-head-11 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-2 ,.preview.avatar-head-10 .preview.avatar-mouth-2 ,.preview.avatar-head-11 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-3 ,.preview.avatar-head-10 .preview.avatar-mouth-3 ,.preview.avatar-head-11 .preview.avatar-mouth-3{
+    background-position: -226px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 81px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-4 ,.preview.avatar-head-10 .preview.avatar-mouth-4 ,.preview.avatar-head-11 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-5 ,.preview.avatar-head-10 .preview.avatar-mouth-5 ,.preview.avatar-head-11 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 79px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-6 ,.preview.avatar-head-10 .preview.avatar-mouth-6 ,.preview.avatar-head-11 .preview.avatar-mouth-6{
+    background-position: -513px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 83px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-7 ,.preview.avatar-head-10 .preview.avatar-mouth-7 ,.preview.avatar-head-11 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-8 ,.preview.avatar-head-10 .preview.avatar-mouth-8 ,.preview.avatar-head-11 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-9 ,.preview.avatar-head-10 .preview.avatar-mouth-9 ,.preview.avatar-head-11 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 81px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-9 .preview.avatar-mouth-10 ,.preview.avatar-head-10 .preview.avatar-mouth-10 ,.preview.avatar-head-11 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 80px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-1 ,.preview.avatar-head-13 .preview.avatar-mouth-1 ,.preview.avatar-head-14 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-2 ,.preview.avatar-head-13 .preview.avatar-mouth-2 ,.preview.avatar-head-14 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 92px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-3 ,.preview.avatar-head-13 .preview.avatar-mouth-3 ,.preview.avatar-head-14 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-4 ,.preview.avatar-head-13 .preview.avatar-mouth-4 ,.preview.avatar-head-14 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-5 ,.preview.avatar-head-13 .preview.avatar-mouth-5 ,.preview.avatar-head-14 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-6 ,.preview.avatar-head-13 .preview.avatar-mouth-6 ,.preview.avatar-head-14 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 91px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-7 ,.preview.avatar-head-13 .preview.avatar-mouth-7 ,.preview.avatar-head-14 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-8 ,.preview.avatar-head-13 .preview.avatar-mouth-8 ,.preview.avatar-head-14 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-9 ,.preview.avatar-head-13 .preview.avatar-mouth-9 ,.preview.avatar-head-14 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-12 .preview.avatar-mouth-10 ,.preview.avatar-head-13 .preview.avatar-mouth-10 ,.preview.avatar-head-14 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-1 ,.preview.avatar-head-16 .preview.avatar-mouth-1 ,.preview.avatar-head-17 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-2 ,.preview.avatar-head-16 .preview.avatar-mouth-2 ,.preview.avatar-head-17 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-3 ,.preview.avatar-head-16 .preview.avatar-mouth-3 ,.preview.avatar-head-17 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-4 ,.preview.avatar-head-16 .preview.avatar-mouth-4 ,.preview.avatar-head-17 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-5 ,.preview.avatar-head-16 .preview.avatar-mouth-5 ,.preview.avatar-head-17 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-6 ,.preview.avatar-head-16 .preview.avatar-mouth-6 ,.preview.avatar-head-17 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-7 ,.preview.avatar-head-16 .preview.avatar-mouth-7 ,.preview.avatar-head-17 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-8 ,.preview.avatar-head-16 .preview.avatar-mouth-8 ,.preview.avatar-head-17 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-9 ,.preview.avatar-head-16 .preview.avatar-mouth-9 ,.preview.avatar-head-17 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-15 .preview.avatar-mouth-10 ,.preview.avatar-head-16 .preview.avatar-mouth-10 ,.preview.avatar-head-17 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-1 ,.preview.avatar-head-19 .preview.avatar-mouth-1 ,.preview.avatar-head-20 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-2 ,.preview.avatar-head-19 .preview.avatar-mouth-2 ,.preview.avatar-head-20 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-3 ,.preview.avatar-head-19 .preview.avatar-mouth-3 ,.preview.avatar-head-20 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-4 ,.preview.avatar-head-19 .preview.avatar-mouth-4 ,.preview.avatar-head-20 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-5 ,.preview.avatar-head-19 .preview.avatar-mouth-5 ,.preview.avatar-head-20 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-6 ,.preview.avatar-head-19 .preview.avatar-mouth-6 ,.preview.avatar-head-20 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-7 ,.preview.avatar-head-19 .preview.avatar-mouth-7 ,.preview.avatar-head-20 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-8 ,.preview.avatar-head-19 .preview.avatar-mouth-8 ,.preview.avatar-head-20 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-9 ,.preview.avatar-head-19 .preview.avatar-mouth-9 ,.preview.avatar-head-20 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-18 .preview.avatar-mouth-10 ,.preview.avatar-head-19 .preview.avatar-mouth-10 ,.preview.avatar-head-20 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-1 ,.preview.avatar-head-22 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-2 ,.preview.avatar-head-22 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-3 ,.preview.avatar-head-22 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-4 ,.preview.avatar-head-22 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-5 ,.preview.avatar-head-22 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-6 ,.preview.avatar-head-22 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-7 ,.preview.avatar-head-22 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-8 ,.preview.avatar-head-22 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-9 ,.preview.avatar-head-22 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-21 .preview.avatar-mouth-10 ,.preview.avatar-head-22 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 23px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-1 ,.preview.avatar-head-24 .preview.avatar-mouth-1 ,.preview.avatar-head-25 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-2 ,.preview.avatar-head-24 .preview.avatar-mouth-2 ,.preview.avatar-head-25 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-3 ,.preview.avatar-head-24 .preview.avatar-mouth-3 ,.preview.avatar-head-25 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-4 ,.preview.avatar-head-24 .preview.avatar-mouth-4 ,.preview.avatar-head-25 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-5 ,.preview.avatar-head-24 .preview.avatar-mouth-5 ,.preview.avatar-head-25 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-6 ,.preview.avatar-head-24 .preview.avatar-mouth-6 ,.preview.avatar-head-25 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-7 ,.preview.avatar-head-24 .preview.avatar-mouth-7 ,.preview.avatar-head-25 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-8 ,.preview.avatar-head-24 .preview.avatar-mouth-8 ,.preview.avatar-head-25 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-9 ,.preview.avatar-head-24 .preview.avatar-mouth-9 ,.preview.avatar-head-25 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 86px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-23 .preview.avatar-mouth-10 ,.preview.avatar-head-24 .preview.avatar-mouth-10 ,.preview.avatar-head-25 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-1 ,.preview.avatar-head-27 .preview.avatar-mouth-1 ,.preview.avatar-head-28 .preview.avatar-mouth-1{
+	background-position: -11px -138px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 87px;
+	right: 19px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-2 ,.preview.avatar-head-27 .preview.avatar-mouth-2 ,.preview.avatar-head-28 .preview.avatar-mouth-2{
+    background-position: -102px -135px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 20px;
+    z-index: 0;
+    background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-3 ,.preview.avatar-head-27 .preview.avatar-mouth-3 ,.preview.avatar-head-28 .preview.avatar-mouth-3{
+    background-position: -209px -160px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4700px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-4 ,.preview.avatar-head-27 .preview.avatar-mouth-4 ,.preview.avatar-head-28 .preview.avatar-mouth-4{
+	background-position: -208px -114px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 3440px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-5 ,.preview.avatar-head-27 .preview.avatar-mouth-5 ,.preview.avatar-head-28 .preview.avatar-mouth-5{
+	background-position: -366px -153px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-6 ,.preview.avatar-head-27 .preview.avatar-mouth-6 ,.preview.avatar-head-28 .preview.avatar-mouth-6{
+	background-position: -458px -153px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 85px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-7 ,.preview.avatar-head-27 .preview.avatar-mouth-7 ,.preview.avatar-head-28 .preview.avatar-mouth-7{
+	background-position: -477px -131px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 82px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-8 ,.preview.avatar-head-27 .preview.avatar-mouth-8 ,.preview.avatar-head-28 .preview.avatar-mouth-8{
+	background-position: -548px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 88px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-9 ,.preview.avatar-head-27 .preview.avatar-mouth-9 ,.preview.avatar-head-28 .preview.avatar-mouth-9{
+	background-position: -623px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 85px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-26 .preview.avatar-mouth-10 ,.preview.avatar-head-27 .preview.avatar-mouth-10 ,.preview.avatar-head-28 .preview.avatar-mouth-10{
+	background-position: -703px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-1 ,.preview.avatar-head-30 .preview.avatar-mouth-1 ,.preview.avatar-head-31 .preview.avatar-mouth-1{
+	background-position: -11px -138px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 87px;
+	right: 19px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-2 ,.preview.avatar-head-30 .preview.avatar-mouth-2 ,.preview.avatar-head-31 .preview.avatar-mouth-2{
+    background-position: -102px -135px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 20px;
+    z-index: 0;
+    background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-3 ,.preview.avatar-head-30 .preview.avatar-mouth-3 ,.preview.avatar-head-31 .preview.avatar-mouth-3{
+    background-position: -209px -160px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 85px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4700px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-4 ,.preview.avatar-head-30 .preview.avatar-mouth-4 ,.preview.avatar-head-31 .preview.avatar-mouth-4{
+	background-position: -208px -114px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 3440px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-5 ,.preview.avatar-head-30 .preview.avatar-mouth-5 ,.preview.avatar-head-31 .preview.avatar-mouth-5{
+	background-position: -366px -153px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-6 ,.preview.avatar-head-30 .preview.avatar-mouth-6 ,.preview.avatar-head-31 .preview.avatar-mouth-6{
+	background-position: -458px -153px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 85px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-7 ,.preview.avatar-head-30 .preview.avatar-mouth-7 ,.preview.avatar-head-31 .preview.avatar-mouth-7{
+	background-position: -477px -131px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 82px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-8 ,.preview.avatar-head-30 .preview.avatar-mouth-8 ,.preview.avatar-head-31 .preview.avatar-mouth-8{
+	background-position: -548px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 88px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-9 ,.preview.avatar-head-30 .preview.avatar-mouth-9 ,.preview.avatar-head-31 .preview.avatar-mouth-9{
+	background-position: -623px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 85px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-29 .preview.avatar-mouth-10 ,.preview.avatar-head-30 .preview.avatar-mouth-10 ,.preview.avatar-head-31 .preview.avatar-mouth-10{
+	background-position: -703px -135px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 92px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-4{
+    background-position: -271px -145px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4350px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 91px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 90px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 89px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-32 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 88px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-1 ,.preview.avatar-head-34 .preview.avatar-mouth-1 ,.preview.avatar-head-35 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-2 ,.preview.avatar-head-34 .preview.avatar-mouth-2 ,.preview.avatar-head-35 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 84px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-3 ,.preview.avatar-head-34 .preview.avatar-mouth-3 ,.preview.avatar-head-35 .preview.avatar-mouth-3{
+    background-position: -226px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 81px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-4 ,.preview.avatar-head-34 .preview.avatar-mouth-4 ,.preview.avatar-head-35 .preview.avatar-mouth-4{
+	background-position: -262px -140px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 84px;
+	right: 18px;
+	z-index: 0;
+	background-size: 4230px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-5 ,.preview.avatar-head-34 .preview.avatar-mouth-5 ,.preview.avatar-head-35 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 81px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-6 ,.preview.avatar-head-34 .preview.avatar-mouth-6 ,.preview.avatar-head-35 .preview.avatar-mouth-6{
+    background-position: -513px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 83px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-7 ,.preview.avatar-head-34 .preview.avatar-mouth-7 ,.preview.avatar-head-35 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-8 ,.preview.avatar-head-34 .preview.avatar-mouth-8 ,.preview.avatar-head-35 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 82px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-9 ,.preview.avatar-head-34 .preview.avatar-mouth-9 ,.preview.avatar-head-35 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 81px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-33 .preview.avatar-mouth-10 ,.preview.avatar-head-34 .preview.avatar-mouth-10 ,.preview.avatar-head-35 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 80px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-3{
+    background-position: -225px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-4{
+	background-position: -260px -140px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 77px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4200px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-6{
+    background-position: -512px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-7{
+    background-position: -602px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-8{
+    background-position: -693px -165px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-9{
+    background-position: -786px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-36 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 77px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-1 ,.preview.avatar-head-38 .preview.avatar-mouth-1 ,.preview.avatar-head-39 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 71px;
+    right: 22px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-2 ,.preview.avatar-head-38 .preview.avatar-mouth-2 ,.preview.avatar-head-39 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 70px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-3 ,.preview.avatar-head-38 .preview.avatar-mouth-3 ,.preview.avatar-head-39 .preview.avatar-mouth-3{
+    background-position: -226px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-4 ,.preview.avatar-head-38 .preview.avatar-mouth-4 ,.preview.avatar-head-39 .preview.avatar-mouth-4{
+	background-position: -246px -133px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 71px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-5 ,.preview.avatar-head-38 .preview.avatar-mouth-5 ,.preview.avatar-head-39 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 67px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-6 ,.preview.avatar-head-38 .preview.avatar-mouth-6 ,.preview.avatar-head-39 .preview.avatar-mouth-6{
+    background-position: -513px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-7 ,.preview.avatar-head-38 .preview.avatar-mouth-7 ,.preview.avatar-head-39 .preview.avatar-mouth-7{
+	background-position: -542px -149px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 70px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-8 ,.preview.avatar-head-38 .preview.avatar-mouth-8 ,.preview.avatar-head-39 .preview.avatar-mouth-8{
+	background-position: -580px -136px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 69px;
+	right: 21px;
+	z-index: 0;
+	background-size: 4200px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-9 ,.preview.avatar-head-38 .preview.avatar-mouth-9 ,.preview.avatar-head-39 .preview.avatar-mouth-9{
+    background-position: -706px -149px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 4500px;
+}
+.preview.avatar-head-37 .preview.avatar-mouth-10 ,.preview.avatar-head-38 .preview.avatar-mouth-10 ,.preview.avatar-head-39 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 68px;
+    right: 21px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-1 ,.preview.avatar-head-41 .preview.avatar-mouth-1 ,.preview.avatar-head-42 .preview.avatar-mouth-1{
+    background-position: -17px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 73px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-2 ,.preview.avatar-head-41 .preview.avatar-mouth-2 ,.preview.avatar-head-42 .preview.avatar-mouth-2{
+    background-position: -132px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 76px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-3 ,.preview.avatar-head-41 .preview.avatar-mouth-3 ,.preview.avatar-head-42 .preview.avatar-mouth-3{
+    background-position: -226px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 73px;
+    right: 19px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-4 ,.preview.avatar-head-41 .preview.avatar-mouth-4 ,.preview.avatar-head-42 .preview.avatar-mouth-4{
+	background-position: -220px -118px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 75px;
+	right: 21px;
+	z-index: 0;
+	background-size: 3600px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-5 ,.preview.avatar-head-41 .preview.avatar-mouth-5 ,.preview.avatar-head-42 .preview.avatar-mouth-5{
+    background-position: -411px -166px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 72px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-6 ,.preview.avatar-head-41 .preview.avatar-mouth-6 ,.preview.avatar-head-42 .preview.avatar-mouth-6{
+    background-position: -513px -169px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-7 ,.preview.avatar-head-41 .preview.avatar-mouth-7 ,.preview.avatar-head-42 .preview.avatar-mouth-7{
+	background-position: -542px -149px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 75px;
+	right: 19px;
+	z-index: 0;
+	background-size: 4500px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-8 ,.preview.avatar-head-41 .preview.avatar-mouth-8 ,.preview.avatar-head-42 .preview.avatar-mouth-8{
+	background-position: -580px -136px;
+	width: 44px;
+	height: 14px;
+	position: absolute;
+	top: 73px;
+	right: 18px;
+	z-index: 0;
+	background-size: 4200px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-9 ,.preview.avatar-head-41 .preview.avatar-mouth-9 ,.preview.avatar-head-42 .preview.avatar-mouth-9{
+    background-position: -706px -149px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 74px;
+    right: 19px;
+    z-index: 0;
+    background-size: 4500px;
+}
+.preview.avatar-head-40 .preview.avatar-mouth-10 ,.preview.avatar-head-41 .preview.avatar-mouth-10 ,.preview.avatar-head-42 .preview.avatar-mouth-10{
+    background-position: -886px -167px;
+    width: 44px;
+    height: 14px;
+    position: absolute;
+    top: 72px;
+    right: 20px;
+    z-index: 0;
+    background-size: 5000px;
+}

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  parent: 1
+  img_front: MyString
+  img_back: MyString
+  free: false
+  gender: MyString
+  group: MyString
+
+two:
+  name: MyString
+  parent: 1
+  img_front: MyString
+  img_back: MyString
+  free: false
+  gender: MyString
+  group: MyString

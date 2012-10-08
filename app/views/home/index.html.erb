@@ -1,0 +1,88 @@
+<!-- start showcase -->
+<section class="box">
+<section id="showcase">
+	<!-- start showcase left -->
+	<section id="showcase-left">
+    	<h2>Welcome to the online platform that brings <a href="#" title="performers">performers</a> and <a href="#" title="audiences together">audiences together</a></h2>
+        <section class="clear"></section>
+        <% if current_user.nil? %>
+            <%= link_to 'Register now', new_user_registration_path, :class => 'button', :title => 'Register Now' %>
+         <% end %>
+        <a href="#" class="watch" title="Watch the intro" rel="modal"><span></span>Watch the intro</a>
+    </section>
+    <!-- end showcase left -->
+    <!-- start showcase right -->
+	<section id="showcase-right">
+    	<section class="object">&nbsp;</section>
+        <section class="audio">&nbsp;</section>
+   	  	<section class="screen">
+               <section class="screen-frame">
+                &nbsp;
+               </section>
+               <div class="slide-home">
+                 <img src="images/img_lady_singer.jpg" width="283" height="212" alt="screen" />
+                 <img src="images/img_queen.jpg" width="283" height="212" alt="screen" />
+               </div>
+        </section>
+  	</section>
+    <!-- end showcase right -->
+    <section class="saprater">&nbsp;</section>
+</section>	
+<!-- end showcase -->
+<section class="clear"></section>
+</section>
+<!-- start container -->
+<article id="container">
+	<!-- start box -->
+    <section class="box">
+   		<!-- start video-block -->
+  	<section class="video-block">
+		<h3 class="title"><span></span>Streaming now <a href="#" title="view all">(view all)</a></h3>
+   	  	<ul class="list1">
+            <% ti = 0 %>
+            <% @performance.each do |p| %>
+                <li <%= (ti == 2)? 'class=last' : '' %>>
+                    <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="Video" class="video">Video</a>
+                    <img src="<% if !p.image_file_size.nil? %><%=  p.image(:thumb) %> <% else %> <%= p.user.image(:normal) %> <% end %>" width="241" height="175" alt="video" class="img_sn" />
+                    <p>Watch now: <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="<%= p.room_name %>"><%= p.room_name %></a></p>
+                </li>
+                <% ti = ti + 1 %>
+
+            <% end %>
+	  	</ul>
+      	<section class="clear"></section>
+    </section>
+    <!-- end video-block -->
+    <!-- start breadcrumb -->
+
+	<!-- end box -->
+
+      <!-- end arrow-button -->
+      <section class="clear"></section>
+      <!-- start bottom-link -->
+      <nav class="bottom-link">
+        <ul>
+          <li>random performers:</li>
+          <li><a href="#" title="SNL Club">SNL Club</a></li>
+          <li>/</li>
+          <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+          <li>/</li>
+          <li><a href="#" title="Kanye west">Kanye west</a></li>
+          <li>/</li>
+          <li><a href="#" title="Theatre club">Theatre club</a></li>
+          <li>/</li>
+          <li><a href="#" title="Comedy Club">Comedy Club</a></li>
+          <li>/</li>
+          <li><a href="#" title="Björk">Björk</a></li>
+          <li>/</li>
+          <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
+          <li>/</li>
+          <li><a href="#" title="GOW">GOW</a></li>
+          <li>/</li>
+          <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+        </ul>
+        <section class="clear"></section>
+      </nav>
+      <!-- end bottom-link -->
+    </section>
+</article>

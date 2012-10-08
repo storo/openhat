@@ -1,0 +1,145 @@
+class HomeController < ApplicationController
+  include ActiveMerchant::Billing::Integrations
+  ActionView::Base.send(:include,ActiveMerchant::Billing::Integrations::ActionViewHelper)
+    def index
+        @last_users = User.find(:all, :conditions => ['sign_in_count > 0'], :order => 'created_at DESC')
+        @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status = 0'])
+    end
+    
+    def profile
+      if current_user
+          @followers = Follower.find(:all, :conditions => ['leader = ?', Digest::MD5.hexdigest(current_user.id.to_s)])
+          @activities = Activity.find(:all, :conditions => ['user_id = ?', current_user.id])
+          @avatar = Avatar.find(:first, :conditions => ['user_id = ?', current_user.id ])
+          @stage = Stage.find(:first, :conditions => ['user_id = ? AND status = "enabled"', current_user.id])
+          @character = Character.find(:all, :conditions => ['user_id = ?', current_user])
+
+          tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
+          @t = 0
+          tokens.each do |d|
+            if d.operation.nil?
+              @t += d.amount.to_i
+            else
+              @t -= d.amount.to_i
+            end
+          end
+
+      else
+        flash[:notice] = "error 403" 
+        redirect_to root_url
+      end 
+    end
+    
+    def public_profile
+        if current_user 
+          if Digest::MD5.hexdigest(current_user.id.to_s) == params[:id]
+            redirect_to profile_url
+          end
+        else
+         
+        end   
+        @user = User.find(:first, :conditions =>['MD5(id) = ?', params[:id]])
+        @followers = Follower.find(:all, :conditions => ['leader = ?', params[:id]])
+        @activities = Activity.find(:all, :conditions => ['md5(user_id) = ?', params[:id]])
+        @avatar = Avatar.find(:first, :conditions => ['md5(user_id) = ?', params[:id] ])
+        @character = Character.find(:all, :conditions => ['user_id = ?', params[:id]])
+        #@stage = Stage.find(:first, :conditions => ['user_id = ? AND status = "enabled"', current_user.id])
+    end
+    
+    def follow
+        if current_user
+          f = Follower.new
+          f.leader = params[:id]
+          f.user_id = current_user.id
+          f.save!
+          #flash[:notice] = "Add Follower #" + params[:id].to_s
+        else
+          #flash[:notice] = "error 403"
+        end
+
+        render :text => 'follow'
+    end
+    
+    def unfollow
+        if current_user
+          Follower.delete_all(['user_id = ? AND leader = ?', current_user.id, params[:id]])  
+          flash[:notice] = "unfollow #" + params[:id].to_s
+        else
+          flash[:notice] = "error 403" 
+        end
+
+        render :text => 'unfollow'
+    end
+    def accounts_settings
+      if current_user
+        @character = Character.find(:all, :conditions => ['user_id = ?', current_user])
+        @tokens = Token.find(:all)
+        _user = {:first_name => "saran", :last_name => "v", :email => "some_per@gmail.com", :address1 => "awesome ln", :city => "Austin", :state => "TX", :zip => "78759", :country => "USA", :phone => "5120070070" }
+
+        tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
+        @t = 0
+        tokens.each do |d|
+          if d.operation.nil?
+            @t += d.amount.to_i
+          else
+            @t -= d.amount.to_i
+          end
+
+        end
+
+        #using openstruct to access the hash by a dot notation
+        @user = OpenStruct.new _user
+        @currency = "USD"
+        #a random invoice number for test.
+        @invoice = Integer rand(1000)
+
+      else
+        flash[:notice] = "error 403"
+        redirect_to root_url
+      end
+    end
+
+    def changeimage
+
+      render :layout => false
+    end
+
+    def savecharacter
+      if current_user
+
+          Character.delete_all(['user_id = ?', current_user.id])
+          params[:data].each do |d|
+            p = Character.new
+            p.section = d
+            p.user_id = current_user.id
+            p.save!
+          end
+
+          render :text => 'character save'
+      else
+          render :text => 'error 403'
+      end
+    end
+
+    def saveinformation
+      if current_user
+          p = User.find(current_user.id)
+          if params[:user][:image].nil?
+              p.update_attributes({:name => params[:user][:name], :about => params[:user][:about], :gender => params[:user][:gender], :interest => params[:user][:interest], :hometown => params[:user][:hometown], :birthdate => params[:user][:birthdate] })
+          else
+              p.update_attributes({:name => params[:user][:name],:image => params[:user][:image], :about => params[:user][:about], :gender => params[:user][:gender], :interest => params[:user][:interest], :hometown => params[:user][:hometown], :birthdate => params[:user][:birthdate] })
+          end
+
+          session[:save] =  'Your changes have been save'
+          redirect_to accounts_settings_url
+      else
+          redirect_to accounts_settings_url
+      end
+    end
+
+  def share
+    @id =  params[:id]
+    render :layout => false
+  end
+
+end

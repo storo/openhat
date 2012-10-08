@@ -1,0 +1,34 @@
+<style>
+  .box-conv{
+      float: left;
+      width: 470px;
+      height: auto;
+      border-bottom: 5px solid black;
+  }
+</style>
+<div class="content">
+	<h3>Messages with: <span><%= (current_user.id != @sender.id)? @sender.name : @recipient.name %></span></h3>
+    <div class="box-allconv">
+
+           <% @messages.each do |c| %>
+               <div class="box-conv">
+                 <% if c.sender == @sender.id %> <%= image_tag('img_head.jpg', :class => 'right')%> <% end %>
+                 <% if c.sender == @recipient.id %> <%= image_tag('img_head.jpg', :class => 'left') %> <% end %>
+                 <h4><%= (c.sender == current_user.id)? 'YOU:' : @sender.name  %> <%= c.sender %></h4>
+                 <p><%= c.body %></p>
+               </div>
+
+
+           <% end %>
+
+    </div>
+		 <div class="box-sendmsn">
+         <%= form_tag('/message/send', :method=>'post', :multipart => false) do %>
+						<input type="hidden" name="user[recipient]" value="<%= @sender.email %>" />
+						<label>body</label>
+						<textarea name="user[body]" id="body"></textarea>
+
+						<%= submit_tag 'send', :id => 'new_message' %>
+					<% end %>
+         </div>
+</div>

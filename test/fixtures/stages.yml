@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  category_id: 1
+  sub_category_id: 1
+  room_name: MyString
+  language_content: MyString
+  rate: MyString
+  status: MyString
+
+two:
+  type: 
+  category_id: 1
+  sub_category_id: 1
+  room_name: MyString
+  language_content: MyString
+  rate: MyString
+  status: MyString

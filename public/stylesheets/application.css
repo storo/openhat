@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+#me-avatar{
+	border: 3px dotted #000;
+	float: left;
+	height: 300px;
+	width: 400px;
+	margin: 10px;
+}
+#me-avatar div{
+	border: 1px solid #ddd;
+	margin: 0 auto;
+}
+#me-head{
+	width: 100%;
+	height: 200px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#me-eyes{
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: 20;
+}
+#me-nose{
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: 10;
+}
+/* AVATAR SECTIONS */
+
+
+#tabs{
+	border: 1px solid #666;
+	width:500px;
+	float:left;
+}
+#tabs ul{
+	list-style: none;
+}
+#tabs > ul > li{
+	float: left;
+	padding: 10px;
+}
+#tabs > div{
+	display:none;
+	border: 1px solid #ddd;
+	float:left;
+	height: auto;
+	width: 480px;
+	margin: 10px;
+}
+#tabs > div.active{
+	display:block;
+}
+#tabs > div h2{
+	clear:both;
+}
+#tabs > div .box{
+	float:left;
+	width: auto;
+}
+#tabs > div .content{
+	border: 3px dotted #000;	
+	height: 105px;
+	width: 105px;
+	padding: 5px;
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	float:left;
+}
+
+#tabs > div .content *{
+	vertical-align: middle;
+}
+#tabs > div .content span{
+	display: inline-block;
+	height: 100%;
+	width: 1px;
+}
+#tabs > div .content img{
+	display:none;
+}
+#tabs > div .content img.active{
+	display: inline;
+}
+a.left{
+	float:left;
+	width:32px;
+	height: 32px;
+	background-image: url(../images/left.png);
+}
+a.right{
+	float:left;
+	width:32px;
+	height: 32px;
+	background-image: url(../images/right.png);
+}

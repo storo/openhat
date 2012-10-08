@@ -1,0 +1,39 @@
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#recipient').autocomplete({
+            source: '/messages/new.json'
+        });
+
+        $('#new_message').click(function(){
+            if($('#body').val().length == 0){
+
+                alert('Message required!');
+                return false;
+            }
+
+            if($('#recipient').val().length == 0){
+
+                alert('recipient required!');
+                return false;
+            }
+
+
+        });
+    });
+</script>
+<div class="content">
+	<%= form_tag('/message/send', :method=>'post', :multipart => false) do %>
+		<label>User</label>
+		<input type="text" name="user[recipient]" id="recipient" />
+		<br />
+		<label>body</label>
+		<textarea name="user[body]" id="body"></textarea>
+		
+		<%= submit_tag 'send', :id => 'new_message'  %>
+	<% end %>
+</div>
+

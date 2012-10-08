@@ -1,0 +1,36 @@
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+    <!-- start breadcrumb -->
+    <section class="breadcrumb inner">
+      <ul>
+        <li class="first"> <%= link_to(image_tag('ic_home.png', :alt => 'home'),root_path, :title => 'Home') %></li>
+        <li><%= link_to 'Login', login_path, :title => 'Login' %></li>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end breadcrumb -->
+    <!-- start register-form -->
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'register-form'}) do |f| %>
+        <section class="rowline">
+          <h2>Welcome to the stage</h2>
+          <p>Curtain call! Make your way to the stage by simply logging in via FaceBook connect or filing in your account details below.</p>
+          <p>Don’t have an account? <a href="/register">Register now</a></p>
+        </section>
+        <%= f.email_field :email, :class => 'input', :placeholder => 'email' %>
+        <%= f.password_field :password, :class => 'input', :placeholder => 'Password' %>
+
+        <input name="submit" type="submit" value="Login" class="button">
+    <% end %>
+    <!-- end register-form -->
+    <!-- start design-block -->
+    <section class="design-block">
+      <%=  image_tag 'img_cartoon2.png', :alt => 'cartoon' %>
+      <h3>Design your character!</h3>
+      <p>Everyone has their own unique personality and you can reflect that in The Open Hat. Once logged in go to the settings tab to design a character that represents you.</p>
+    </section>
+    <!-- end design-block -->
+    <section class="clear"></section>
+
+  </section>
+</article>

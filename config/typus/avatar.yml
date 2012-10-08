@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Avatar:
+  fields:
+    default: user_id, gender
+    form: user_id, gender
+  relationships: 
+  application: Application

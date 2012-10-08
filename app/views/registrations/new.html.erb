@@ -1,0 +1,161 @@
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+    <!-- start breadcrumb -->
+    <section class="breadcrumb inner">
+      <ul>
+        <li class="first"> <%= link_to(image_tag('ic_home.png', :alt => 'home'),root_path, :title => 'Home') %></li>
+        <li><%= link_to 'Register', new_user_registration_path, :title => 'Register' %></li>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end breadcrumb -->
+    <!-- start register-form -->
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'register-form litle'}) do |f| %>
+      <section class="rowline">
+        <h2>Register</h2>
+        <p>Before you make your way to the stage you will either need to connect your facebook account or create an account with us by submitting your email and password below.</p>
+        <p>Now you <a href="#" title="can share yours">can share yours</a>.</p>
+      </section>
+      <%= f.email_field :email, :class => 'form-input-litle', :placeholder => 'email' %>
+        <% if @user.password_required? %>
+            <%= f.password_field :password, :class => 'form-input-litle', :placeholder => 'Password' %>
+            <%= f.password_field :password_confirmation, :class => 'form-input-litle', :placeholder => 'Repeat' %>
+        <% end %>
+
+      <input name="submit" type="submit" value="Register" class="button" style="margin-left: 125px !important;">
+      <p>* You haven’t personalized your character, you can either do this now or from the settings tab later on.</p>
+    <% end %>
+    <!-- end register-form -->
+    <!-- start design-block -->
+    <section class="creative-block" style="float:left;">
+      <section class="icons">&nbsp;</section>
+      <h3>Create your character</h3>
+      <p>Let the world see who you really are, flip through the character customization until you get one that reflects your personality...</p>
+      <section class="clear"></section>
+      <ul class="tabnav2">
+        <li class="active"><a href="#Body" title="Body">Body</a></li>
+        <li><a href="#Head" title="Head">Head</a></li>
+      </ul>
+      <section class="clear"></section>
+      <!-- start tab-content2 -->
+      <section class="tab-content2">
+        <!-- start tab1 -->
+        <div id="Body" class="tab-detail2">
+          <!-- start left -->
+          <section class="Left-side">
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+
+
+                  <div class="avatar box-avatar avatar-head-1"></div>
+
+
+            </section>
+            <!-- end slide1 -->
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+
+                  <div class="avatar box-avatar avatar-jacket-1"></div>
+
+            </section>
+            <!-- end slide1 -->
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+
+                  <div class="avatar box-avatar avatar-legs-1"></div>
+
+            </section>
+            <!-- end slide1 -->
+          </section>
+          <!-- end left -->
+          <!-- start right -->
+          <section class="Right-side">
+            <!-- start imgb -->
+            <section class="imgb">
+
+              <div class="avatar preview avatar-head-1">
+                <div class="avatar preview avatar-eyes-1"></div>
+                <div class="avatar preview avatar-nose-1"></div>
+                <div class="avatar preview avatar-mouth-1"></div>
+              </div>
+              <div class="avatar preview avatar-jacket-1"></div>
+              <div class="avatar preview avatar-legs-1"></div>
+              <div class="avatar preview avatar-feet-1"></div>
+
+            </section>
+            <!-- end imgb -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+
+                  <div class="avatar box-avatar avatar-feet-1"></div>
+
+            </section>
+          </section>
+          <!-- end right -->
+        </div>
+        <!-- end tab1 -->
+        <!-- start tab1 -->
+        <div id="Head" class="tab-detail2">
+          <!-- start left -->
+          <section class="Left-side">
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+              <div class="avatar box-avatar avatar-eyes-1"></div>
+            </section>
+            <!-- end slide1 -->
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+              <div class="avatar box-avatar avatar-nose-1"></div>
+            </section>
+            <!-- end slide1 -->
+            <!-- start slide1 -->
+            <section class="slide1">
+              <a href="#" class="left" title="Pervious">prev</a>
+              <a href="#" class="right" title="Next">next</a>
+              <div class="avatar box-avatar avatar-mouth-1"></div>
+            </section>
+            <!-- end slide1 -->
+          </section>
+          <!-- end left -->
+          <!-- start right -->
+          <section class="Right-side">
+            <!-- start imgb -->
+            <section class="imgb">
+
+              <div class="avatar preview avatar-head-1">
+                <div class="avatar preview avatar-eyes-1"></div>
+                <div class="avatar preview avatar-nose-1"></div>
+                <div class="avatar preview avatar-mouth-1"></div>
+              </div>
+              <div class="avatar preview avatar-jacket-1"></div>
+              <div class="avatar preview avatar-legs-1"></div>
+              <div class="avatar preview avatar-feet-1"></div>
+
+            </section>
+            <!-- end imgb -->
+          </section>
+          <!-- end right -->
+        </div>
+        <!-- end tab1 -->
+      </section>
+      <!-- end tab-content2 -->
+      <section class="clear"></section>
+
+    </section>
+    <!-- end design-block -->
+    <section class="clear"></section>
+
+     </section>
+</article>

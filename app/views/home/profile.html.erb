@@ -1,0 +1,154 @@
+<article id="container">
+	<!-- start box -->
+    <section class="box">
+   		<!-- start left side -->
+        <section class="Left-side">
+        	<!-- start img-block -->
+            <section class="img-block">
+            	<a href="/changeimage" class="icon" id="changeImage"><%= image_tag 'ic_image.png', :alt => 'icon' %></a>
+				<section class="frame">&nbsp;</section>
+                <% if !current_user.image_fb.nil? %>
+                    <%= image_tag current_user.image_fb.gsub("square", "large"), :width => 298, :height => 350, :alt => current_user.name %>
+                <% else %>
+				    <%= image_tag current_user.image('normal'), :width => 298, :height => 350, :alt => current_user.name %>
+                <% end %>
+            </section>
+            <!-- end img-block -->
+            <section class="clear"></section>
+            <!-- start follow us -->
+          	<section class="follow-us">
+           		<h3><%= @followers.count%>  followers</h3>
+            	<%
+					if @followers.count > 0
+						@followers.each do |f|
+				%>
+						<div class="follower">
+							<%= link_to(image_tag(f.user.image, :alt => f.user.name), public_profile_path( Digest::MD5.hexdigest(f.user.id.to_s)))  %>
+						</div>
+				<% 		end
+					else
+				%>
+				
+				<% end %>
+            </section>
+            <!-- end follow us -->
+        </section>
+        <!-- end left side -->
+        <!-- start right side -->
+        <section class="Right-side">
+        	<!-- start profile -->
+            <section class="profile" rel="<%= current_user.id %>">
+              <div style="position: absolute;right: 70px;">
+                <%
+                   if @character.count == 0
+                %>
+                    <div class="avatar preview avatar-head-1">
+                      <div class="avatar preview avatar-eyes-1"></div>
+                      <div class="avatar preview avatar-nose-1"></div>
+                      <div class="avatar preview avatar-mouth-1"></div>
+                    </div>
+                    <div class="avatar preview avatar-jacket-1"></div>
+                    <div class="avatar preview avatar-legs-1"></div>
+                    <div class="avatar preview avatar-feet-1"></div>
+
+                <% else %>
+                    <% @character.each do |d| %>
+                        <% dd = d.section.split('-') %>
+                        <% if dd[1] == 'head' || dd[1] == 'jacket' || dd[1] == 'legs' || dd[1] == 'feet' %>
+                            <div class="avatar preview <%= d.section %>">
+                              <% if dd[1] == 'head' %>
+                                  <% @character.each do |c| %>
+                                      <% dc = c.section.split('-') %>
+                                      <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                          <div class="avatar preview <%= c.section %>"></div>
+                                      <% end %>
+                                  <% end %>
+                              <% end %>
+                            </div>
+                        <% end %>
+                    <% end %>
+
+
+
+                <% end %>
+                <%= link_to '(Edit your avatar)', '/accounts_settings#create_your_character', :class => 'edit_avatar' %>
+              </div>
+ 				<section class="rowline">
+                	<h2><%= current_user.name%> <%= link_to '(Edit your profile)', '/accounts_settings#user_information', :class => 'edit_profile' %></h2>
+            		<span><img src="images/ic_location.png" width="18" height="27" alt="location">Bristol <img src="images/img_doller.png" width="29" height="23" alt="doller" class="doller"><%= @t %> available tokens <%= link_to '(buy more)', '/accounts_settings#tokens', :title => 'buy more' %></span>
+                    <h3>About me</h3>
+                    <p><%= current_user.about%> </p>
+          		</section>
+               <!-- <section class="button"><a href="#" title="follow">follow</a></section>
+                <section class="button button2"><a href="#" title="send message">send message</a></section> -->
+                <section class="clear"></section>
+            </section>
+            <!-- end profile -->
+            <!-- start activity -->
+          	<section class="activity">
+           		<h3>Recent activiy</h3>
+              	<ul>
+               	  	<li>
+               	  		<img src="images/img_activity.jpg" width="100" height="75" alt="activity">
+                        <span class="date">6 days ago</span>
+                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
+                        <section class="clear"></section>
+                  	</li>
+                    <li>
+               	  		<img src="images/img_activity2.jpg" width="100" height="75" alt="activity">
+                        <span class="date">6 days ago</span>
+                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
+                        <section class="clear"></section>
+                  	</li>
+                    <li>
+               	  		<img src="images/img_activity3.jpg" width="100" height="75" alt="activity">
+                        <span class="date">6 days ago</span>
+                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
+                        <section class="clear"></section>
+                  	</li>
+                    <li>
+               	  		<img src="images/img_activity4.jpg" width="100" height="75" alt="activity">
+                        <span class="date">6 days ago</span>
+                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
+                        <section class="clear"></section>
+                  	</li>
+                    <li>
+               	  		<img src="images/img_activity.jpg" width="100" height="75" alt="activity">
+                        <span class="date">6 days ago</span>
+                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
+                        <section class="clear"></section>
+                  	</li>
+              	</ul>
+            </section>
+            <!-- end activity -->
+      	</section>
+        <!-- end right side -->
+        <section class="clear"></section>
+        <!-- start bottom-link -->
+        <nav class="bottom-link">
+            <ul>
+                <li>random performers:</li>
+                <li><a href="#" title="SNL Club">SNL Club</a></li>
+                <li>/</li>
+                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+                <li>/</li>
+                <li><a href="#" title="Kanye west">Kanye west</a></li>
+                <li>/</li>
+                <li><a href="#" title="Theatre club">Theatre club</a></li>
+                <li>/</li>
+                <li><a href="#" title="Comedy Club">Comedy Club</a></li>
+                <li>/</li>
+                <li><a href="#" title="Björk">Björk</a></li>
+                <li>/</li>
+                <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
+                <li>/</li>
+                <li><a href="#" title="GOW">GOW</a></li>
+                <li>/</li>
+                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+            </ul>
+            <section class="clear"></section>
+        </nav>
+        <!-- end bottom-link -->
+    </section>
+	<!-- end box -->
+</article>

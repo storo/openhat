@@ -1,0 +1,101 @@
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" >
+  $(document).ready(function(){
+        $('.button').click(function(){
+            var _dataTosend = {'data' : {'id': <%= @id %>, 'tokens' : $('.text').val(), 'sender' :<%= current_user.id %>, 'stage' : '<%= @stage %>' }};
+            var request = $.ajax({
+                type: "GET",
+                url: "/sendtip",
+                dataType: "text",
+                data: _dataTosend,
+                success: function(data){
+                    $('.text-tip span').html(parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
+                   $('.text').attr('rel',parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
+                    parent.$(parent.document).trigger("sendTips");
+                }
+            });
+
+
+            return false;
+        });
+  });
+</script>
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+    .box-title{
+        margin: 0 auto;
+        width: 145px;
+    }
+    .box-title img{
+        float: left;
+        padding-right: 12px;
+    }
+    .box-title h2{
+        font-size: 38px;
+        line-height: 32px;
+        margin-left: 12px;
+    }
+    p{
+        font-size: 25px;
+        margin: 0px auto;
+        width: 440px;
+    }
+
+    p.text-tip{
+       color: #D94601;
+    }
+
+    a.buy_more{
+        color: #D94601;
+    }
+    .text{
+        background: url(/images/img_sprite.png) no-repeat -658px -387px;
+        width: 218px;
+        height: 60px;
+        float: left;
+        border: none;
+        padding: 9px 8px 6px 14px;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        font-size: 25px;
+        margin-left: 20px;
+    }
+    .box-form{
+        float:left;
+        margin-top: 50px;
+        width: 450px;
+    }
+    .button{
+        background: url(/images/img_sprite.png) no-repeat -660px -338px;
+        width: 100px;
+        height: 49px;
+        float: right;
+        border: none;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 22px;
+        margin-top: 5px;
+    }
+</style>
+<div class="box-fr">
+  <div class="box-title">
+    <img src="/images/ic_doller.png" width="29" height="29" alt="doller">
+    <h2>SEND TIPS</h2>
+  </div>
+  <p class="text-tip">You Have <span><%= @t %></span> tokens available (<a href="#" class="buy_more">buy more</a>)</p>
+  <p>Support this performer, by simply adding the amount you would like to tip in the box below</p>
+
+  <div class="box-form">
+    <input type="text" name="tip"  placeholder="AMOUNT" class="text" value="1"  rel="<%= @t %>" />
+
+    <button class="button">Tip!</button>
+
+  </div>
+
+
+</div>

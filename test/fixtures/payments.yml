@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: MyString
+  amount: 1.5
+  transaction_number: MyString
+  order_id: 1
+
+two:
+  status: MyString
+  amount: 1.5
+  transaction_number: MyString
+  order_id: 1

@@ -1,0 +1,96 @@
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+    <!-- start breadcrumb -->
+    <section class="breadcrumb inner">
+      <ul>
+        <li class="first"> <%= link_to(image_tag('ic_home.png', :alt => 'home'),root_path, :title => 'Home') %></li>
+        <li><%= link_to 'Create Performance', create_performance_path, :title => 'Create Performance' %></li>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end breadcrumb -->
+    <!-- start register-form -->
+    <%= form_tag("/stage/create", :method => "post", :class => 'register-form', :id => 'makeStage',:multipart => true)  do %>
+        <section class="rowline">
+          <h2>Create Performance</h2>
+          <p>Its easy to start sharing your performances with the world. Just fill in the following forms and you’re ready to go.</p>
+        </section>
+
+
+        <%= text_field_tag("stage[room_name]",nil,:class => 'form-input-medio required', :placeholder => 'Room Name') %>
+        <section class="rowline" style="margin: -29px 0px 16px 0px;">
+          <section class="row">
+            <section class="td1 left" style="width:200px; margin-left: 10px;">Start show right now</section>
+            <section class="td2 left" style="width:200px;">
+              <label><span class="checkbox"><input name="stage[shownow]"  class="shownow" type="radio" value="yes" checked="checked"></span>YES</label>
+              <section class="clear"></section>
+              <label><span class="checkbox"><input name="stage[shownow]" class="shownow" type="radio" value="no"></span><span class="brown">NO</span></label>
+            </section>
+            <section class="clear"></section>
+          </section>
+          <section class="row" style="margin-top:-28px;" id="livebox">
+            <section class="td1 left" style="width:430px;">Time 'till live </br>
+              <%=  datetime_select("stage", "live", :prompt => true) %>
+            </section>
+            <section class="clear"></section>
+          </section>
+        </section>
+        <%= select_tag("stage[type]", options_for_select([['Private', 'private'], ['Invitation', 'invitation'], ['Public', 'public']]), :prompt => 'Type Performance', :class => 'form-input-select required') %>
+        <%= select_tag("stage[type_ticket]", options_for_select([['Free', 'free'], ['Paid', 'paid']]), :prompt => 'Type Ticket', :class => 'form-input-select required') %>
+        <%= text_field_tag("stage[ticket_price]",nil,:class => 'form-input-medio  required', :placeholder => 'Ticket Price') %>
+        <%= select_tag("stage[limit_seats]", options_for_select([['unlimited','unlimited'],['1','1'],['10', '10'], ['20', '20'], ['30', '30'], ['50', '50'], ['100', '100'], ['120', '120'], ['160', '160'], ['200', '200']]), :prompt => 'Limited Seats', :class => 'form-input-select required') %>
+        <%= file_field_tag 'stage[performance_image]', :class => 'upload' %>
+        <%= text_field_tag 'stage[performance_image_fake]',nil, :class => 'form-input-file', :placeholder => 'Performance Image' %>
+        <%= collection_select(:stage,:category_id, Category.all, :id, :name, {:prompt => 'Category'}, {:class => 'form-input-select required'}) %>
+        <%= select_tag("stage[sub_category_id]",options_for_select([['subcategorie 1', '1'], ['subcategorie 2', '2']]), :prompt => 'Sub Category', :class => 'form-input-select') %>
+        <%= select_tag("stage[rate]", options_for_select([['General Audiences', 'general audiences'], ['Parental Guidance Suggested', 'parental guidance suggested'], ['Parents Strongly Cautioned', 'parents strongly cautioned'],['Restricted','restricted'],['No One 17 and Under Admitted','no one 17 and under admitted']]), :prompt => 'Content Rate', :class => 'form-input-select required') %>
+         <%= collection_select(:stage,:language_content , Language.all, :id, :name, {:prompt => 'Content Language'}, {:class => 'form-input-select required'}) %>
+
+
+
+        <%# text_field_tag("stage[alive]",nil,:class => 'input', :placeholder => 'Time \'till live') %>
+
+
+        <input type="hidden" name="stage[design]" id="stage_design" value="1" />
+        <input name="submit" type="submit" value="Create" class="button">
+    <% end %>
+    <!-- end register-form -->
+    <!-- start design-block -->
+    <section class="design-block">
+      <h3>Design your stage</h3>
+      <p>Make your performance unique. Pimp your stage with our different designs. </p>
+      <section class="rowline">
+        <div class="form-information">
+        <section class="row">
+          <section class="td1 left" style="width:130px;">Design</section>
+          <section class="td2 left" style="width:200px;">
+            <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="1" checked="checked"></span><%= image_tag('ec-1.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
+            <section class="clear"></section>
+            <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="2"></span><span class="brown"><%= image_tag('ec-2.png', :width => 160,:style => 'float: right;') %></span></label>
+            <section class="clear" style="height: 20px;"></section>
+            <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0"></span><span><strong>no design</strong></span></label>
+
+          </section>
+
+
+          <section class="clear"></section>
+        </section>
+        </div>
+
+
+      </section>
+    </section>
+    <!-- end design-block -->
+    <section class="clear"></section>
+
+  </section>
+</article>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.design').click(function(){
+            $('#stage_design').val($(this).val());
+      });
+  });
+</script>

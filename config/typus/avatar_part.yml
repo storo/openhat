@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+AvatarPart:
+  fields:
+    default: avatar_id, section_id
+    form: avatar_id, section_id
+  relationships: 
+  application: Application

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Section:
+  fields:
+    default: name, parent, img_front, img_back, free, gender, group
+    form: name, parent, img_front, img_back, free, gender, group
+  relationships: 
+  application: Application

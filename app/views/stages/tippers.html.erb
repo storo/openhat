@@ -1,0 +1,168 @@
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<link href="/stylesheets/avatar.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/heads.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+    .box-title{
+        margin: 0 auto;
+        width: 150px;
+    }
+    .box-title img{
+        float: left;
+        padding-right: 12px;
+    }
+    .box-title h2{
+        font-size: 38px;
+        line-height: 32px;
+        margin-left: 12px;
+    }
+    p{
+        font-size: 25px;
+        margin: 0px auto;
+        width: 440px;
+    }
+
+    p.text-tip{
+        color: #D94601;
+    }
+
+    a.buy_more{
+        color: #D94601;
+    }
+    .text{
+        background: url('../images/sprite-forms.png') -17px -221px no-repeat;
+        width: 339px;
+        border: none;
+        height: 62px;
+        padding: 0px 5px 0px 15px;
+        font-size: 21px;
+        margin-bottom: 13px;
+        margin-left: 9px;
+        -webkit-appearance: none;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+    }
+    .box-form{
+        float:left;
+        margin-top: -15px;
+        width: 450px;
+        margin-left: 14px;
+    }
+    .button{
+        background: url(../images/img_sprite.png) no-repeat -660px -338px;
+        width: 100px;
+        height: 49px;
+        float: right;
+        border: none;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 22px;
+        margin-top: 5px;
+    }
+    .box-tipper{
+        display: block;
+        position: relative;
+        height: 57px;
+        border-bottom: 1px solid black;
+    }
+    .box-tipper .thumb{
+        top: -35px;
+        left: 0px;
+    }
+    .box-tipper p{
+        float: left;
+        margin: 12px 0px 0px 125px;
+        width: 150px;
+    }
+    .box-tipper p.us{
+        float: left;
+        margin: 12px 0px 0px 60px;
+        width: 150px;
+    }
+    .box-tipper span{
+        float: left;
+        margin: 12px 0px 0px 10px;
+        width: 20px;
+        font-size: 25px
+    }
+    .box-tipper div.us{
+        float: left;
+        margin: 12px 0px 0px 40px;
+        width: 20px;
+        font-size: 25px
+    }
+</style>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/jquery.transit.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.thumb').each(function(k,v){
+
+          $('.thumb').eq(k).css({ scale: [0.5] });
+      });
+
+      $('.thumb').show();
+  });
+
+</script>
+<div class="box-fr">
+  <div class="box-title">
+    <h2>YOUR TIPPERS</h2>
+
+  </div>
+
+  <div class="box-form">
+    <div class="box-tipper">
+       <span>#</span>
+       <div class="us">User</div>
+       <p class="us">Tokens</p>
+    </div>
+    <% e = 1 %>
+    <% @tippers.each do |d| %>
+        <div class="box-tipper">
+          <% a = Character.find(:all, :conditions => ['user_id = ?', d.sender]) %>
+          <span><%= e %></span>
+          <div class="thumb" style="float:left;">
+            <%
+               if a.count == 0
+            %>
+                <div class="avatar preview avatar-head-1">
+                  <div class="avatar preview avatar-eyes-1"></div>
+                  <div class="avatar preview avatar-nose-1"></div>
+                  <div class="avatar preview avatar-mouth-1"></div>
+                </div>
+
+
+
+            <% else %>
+
+                <% a.each do |d| %>
+                    <% dd = d.section.split('-') %>
+                    <% if dd[1] == 'head' %>
+                        <div class="avatar preview <%= d.section %>">
+                          <% if dd[1] == 'head' %>
+                              <% a.each do |c| %>
+                                  <% dc = c.section.split('-') %>
+                                  <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                      <div class="avatar preview <%= c.section %>"></div>
+                                  <% end %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+
+            <% end %>
+          </div>
+          <p><%=  d.token.to_i %></p>
+        </div>
+        <% e = e + 1 %>
+    <% end %>
+  </div>
+
+
+</div>

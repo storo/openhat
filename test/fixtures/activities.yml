@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyText
+  type: 
+  event_id: 1
+  user_id: 1
+  artist: 1
+
+two:
+  description: MyText
+  type: 
+  event_id: 1
+  user_id: 1
+  artist: 1

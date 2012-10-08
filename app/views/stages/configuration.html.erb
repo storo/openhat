@@ -1,0 +1,102 @@
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<script src="/javascripts/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.button').click(function(){
+            parent.$(parent.document).trigger("ChangeBackground", [$('.design:checked').val(), '<%= @id %>']);
+            return false;
+        });
+
+    });
+
+</script>
+
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+    .box-title{
+        margin: 0 auto;
+        width: 235px;
+    }
+    .box-title img{
+        float: left;
+        padding-right: 12px;
+    }
+    .box-title h2{
+        font-size: 33px;
+        line-height: 14px;
+        margin-left: 12px;
+    }
+    p{
+        font-size: 21px;
+        margin: 0px auto;
+        width: 440px;
+        margin-top: -10px;
+        padding: 0px;
+    }
+
+    p.text-tip{
+        color: #D94601;
+    }
+
+    a.buy_more{
+        color: #D94601;
+    }
+    .text{
+        background: url('../images/sprite-forms.png') -17px -221px no-repeat;
+        width: 339px;
+        border: none;
+        height: 62px;
+        padding: 0px 5px 0px 15px;
+        font-size: 21px;
+        margin-bottom: 13px;
+        margin-left: 9px;
+        -webkit-appearance: none;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+    }
+    .box-form{
+        float:left;
+        margin-top: 50px;
+        width: 450px;
+    }
+    .button{
+        background: url(../images/img_sprite.png) no-repeat -660px -338px;
+        width: 100px;
+        height: 49px;
+        float: right;
+        border: none;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 22px;
+        margin-top: 5px;
+    }
+    .clear{
+        clear: both;
+        height: 2px;
+    }
+</style>
+<div class="box-fr">
+  <div class="box-title">
+    <h2>STAGE CONFIGURATION</h2>
+  </div>
+  <p>Change stage background.</p>
+  <div class="box-form">
+    <section class="td2 left" style="width:200px;margin-top: -42px;margin-left: 94px;">
+      <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="1" <% if @stage.design.to_i == 1 %>checked="checked"<% end %>></span><%= image_tag('ec-1.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
+      <section class="clear"></section>
+      <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="2" <% if @stage.design.to_i == 2 %>checked="checked"<% end %>></span><span class="brown"><%= image_tag('ec-2.png', :width => 160,:style => 'float: right;') %></span></label>
+      <section class="clear" style="height: 20px;"></section>
+      <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0" <% if @stage.design.to_i == 0 %>checked="checked"<% end %>></span><span><strong>no design</strong></span></label>
+
+    </section>
+
+    <button class="button">Change!</button>
+
+  </div>
+
+
+</div>

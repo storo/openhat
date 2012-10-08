@@ -1,0 +1,52 @@
+<article id="container">
+<!-- start box -->
+<section class="box">
+<!-- start breadcrumb -->
+<section class="breadcrumb inner">
+  <ul>
+    <li class="first"><%= link_to(image_tag('ic_home.png'), root_path)  %></li>
+    <li><%= link_to @page.title, pages_path(@page.title.gsub(" ", "_").downcase), :title => @page.title %></li>
+  </ul>
+  <section class="clear"></section>
+</section>
+<!-- end breadcrumb -->
+<!-- start register-form -->
+<section class="profile">
+  <section class="rowline">
+    <h2><%= @page.title %></h2>
+    <%= @page.content.html_safe %>
+
+  </section>
+
+</section>
+
+<!-- end creative-block -->
+<section class="clear"></section>
+<!-- start bottom-link -->
+<nav class="bottom-link">
+  <ul>
+    <li>random performers:</li>
+    <li><a href="#" title="SNL Club">SNL Club</a></li>
+    <li>/</li>
+    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+    <li>/</li>
+    <li><a href="#" title="Kanye west">Kanye west</a></li>
+    <li>/</li>
+    <li><a href="#" title="Theatre club">Theatre club</a></li>
+    <li>/</li>
+    <li><a href="#" title="Comedy Club">Comedy Club</a></li>
+    <li>/</li>
+    <li><a href="#" title="Björk">Björk</a></li>
+    <li>/</li>
+    <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
+    <li>/</li>
+    <li><a href="#" title="GOW">GOW</a></li>
+    <li>/</li>
+    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+  </ul>
+  <section class="clear"></section>
+</nav>
+<!-- end bottom-link -->
+</section>
+<!-- end box -->
+</article>

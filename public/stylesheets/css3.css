@@ -1,0 +1,23 @@
+.link {
+    font-family: 'Amatic SC', cursive;
+    font-weight:400;
+}
+#header-right li, #header-right .button,.register-form .row, #showcase-left h2, #showcase-left .button, #showcase-left a.watch, h3.title, ul.list1 li p, .breadcrumb, .perfomance-block .caption, .bottom-link, .Account, .follow-us h3, .profile h2, .profile span, .profile h3, .profile .button, .activity h3, .register-form h2, .register-form .button, .design-block h3, .tab-nav li, .form-information h3, .form-information .row, input, .creative-block h3, ul.tabnav2 li, .creative-block a.button, .story-col, .stage-block, .bubble, .chat-messanger h4, .chat-messanger a.close  {
+    font-family: 'Amatic SC', cursive;
+    font-weight:800;
+
+}
+@font-face {
+    font-family: 'OstrichSansBlack';
+    src: url('../fonts/ostrich-black-webfont.eot');
+    src: url('../fonts/ostrich-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ostrich-black-webfont.woff') format('woff'),
+    url('../fonts/ostrich-black-webfont.ttf') format('truetype'),
+    url('../fonts/ostrich-black-webfont.svg#OstrichSansBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.tip{
+    font-family: 'OstrichSansBlack';
+}
