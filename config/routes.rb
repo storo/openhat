@@ -45,6 +45,8 @@ Openhat::Application.routes.draw do
   match 'totaltips/:id' => 'stages#totaltips'
   match 'savecharacter' => "home#savecharacter", :as => 'savecharacter', :via => 'post'
   match 'saveinformation' => "home#saveinformation", :as => 'saveinformation', :via => 'post'
+  match 'buy/:heckle/:tokens/:amount' => "tokens#buytokens"
+  match 'discountHeckle/:heckle' => 'tokens#discountHeckle'
 
   root :to => 'home#index'
 

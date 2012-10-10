@@ -37,7 +37,7 @@ class StagesController < ApplicationController
         @stage.types = params[:stage][:type]
         @stage.room_name = params[:stage][:room_name]
         @stage.category_id = params[:stage][:category_id]
-        @stage.sub_category_id = params[:stage][:sub_category_id]
+        #@stage.sub_category_id = params[:stage][:sub_category_id]
         @stage.language_content = params[:stage][:language_content]
         @stage.rate = params[:stage][:rate]
         @stage.user_id = current_user.id

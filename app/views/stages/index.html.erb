@@ -35,6 +35,62 @@
               multiShot: false,
               volume: 50
           });
+          soundManager.createSound({
+              id: 'chicken',
+              url: 'http://beta.theopenhat.com/chicken.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'flower',
+              url: 'http://beta.theopenhat.com/flower.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'pants',
+              url: 'http://beta.theopenhat.com/pants.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'tip1',
+              url: 'http://beta.theopenhat.com/tip1.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'tip2',
+              url: 'http://beta.theopenhat.com/tip2.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'tip3',
+              url: 'http://beta.theopenhat.com/tip3.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
+          soundManager.createSound({
+              id: 'tip4',
+              url: 'http://beta.theopenhat.com/tip4.ogg',
+              autoLoad: true,
+              autoPlay: false,
+              multiShot: false,
+              volume: 50
+          });
 
       });
 
@@ -203,7 +259,7 @@
           if(data.id != me ){
 
             var indice = getIndicePlayer(data.id);
-            var t = $('<span class="heckle" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+            var t = $('<span class="tomato" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
 
             var bezier_params = {
               start: {
@@ -261,7 +317,7 @@
               },2500,function(){
                   var ss = $(this);
                   $(this).addClass('splash');
-                  //soundManager.play('splat');
+                  soundManager.play('flower');
                   $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
@@ -269,6 +325,74 @@
           }
       });
 
+      socket.on('launchPants',function(data){
+          if(data.id != me ){
+
+              var indice = getIndicePlayer(data.id);
+              var t = $('<span class="pants" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+              var bezier_params = {
+                  start: {
+                      x: data.heckle.start.x,
+                      y: data.heckle.start.y,
+                      angle: data.heckle.start.angle
+                  },
+                  end: {
+                      x:data.heckle.end.x,
+                      y:data.heckle.end.y,
+                      angle: data.heckle.end.angle,
+                      length: data.heckle.end.length
+                  }
+              }
+
+              soundManager.play('shoot');
+              $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              $('#playground').append(t).find(t).animate({
+                  path : new $.path.bezier(bezier_params)
+              },2500,function(){
+                  var ss = $(this);
+                  $(this).addClass('splash');
+                  soundManager.play('pants');
+                  $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                      $(this).fadeOut(2000, function(){ $(this).remove();});
+                  })
+              });
+          }
+      });
+      socket.on('launchChicken',function(data){
+          if(data.id != me ){
+
+              var indice = getIndicePlayer(data.id);
+              var t = $('<span class="chicken" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+              var bezier_params = {
+                  start: {
+                      x: data.heckle.start.x,
+                      y: data.heckle.start.y,
+                      angle: data.heckle.start.angle
+                  },
+                  end: {
+                      x:data.heckle.end.x,
+                      y:data.heckle.end.y,
+                      angle: data.heckle.end.angle,
+                      length: data.heckle.end.length
+                  }
+              }
+
+              soundManager.play('shoot');
+              $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              $('#playground').append(t).find(t).animate({
+                  path : new $.path.bezier(bezier_params)
+              },2500,function(){
+                  var ss = $(this);
+                  $(this).addClass('splash');
+                  soundManager.play('chicken');
+                  $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                      $(this).fadeOut(2000, function(){ $(this).remove();});
+                  })
+              });
+          }
+      });
       function getIndicePlayer(id){
           for(var i=0;i<players.length;i++){
               if(players[i].id == id){
@@ -417,7 +541,7 @@
           };
           this.shoot = function(){
 
-              var t = $('<span class="heckle" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              var t = $('<span class="tomato" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
               var bezier_params = {
                   start: {
                       x: (parseInt(this.x)+15),
@@ -473,7 +597,73 @@
               },2500,function(){
                   var ss = $(this);
                   $(this).addClass('splash');
-                  //soundManager.play('splat');
+                  soundManager.play('flower');
+                  $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                      $(this).fadeOut(2000, function(){ $(this).remove();});
+                  })
+              });
+
+
+          };
+          this.shootPants = function(){
+
+              var t = $('<span class="pants" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              var bezier_params = {
+                  start: {
+                      x: (parseInt(this.x)+15),
+                      y: (parseInt(this.y)-15),
+                      angle: 90
+                  },
+                  end: {
+                      x:getRandomArbitary(117,607),
+                      y:getRandomArbitary(-2,30),
+                      angle: 0,
+                      length: 0.25
+                  }
+              }
+
+              socket.emit('sendPants',{id: this.id, h:bezier_params});
+              $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              soundManager.play('shoot');
+              $('#playground').append(t).find(t).animate({
+                  path : new $.path.bezier(bezier_params)
+              },2500,function(){
+                  var ss = $(this);
+                  $(this).addClass('splash');
+                  soundManager.play('pants');
+                  $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                      $(this).fadeOut(2000, function(){ $(this).remove();});
+                  })
+              });
+
+
+          };
+          this.shootChicken = function(){
+
+              var t = $('<span class="chicken" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              var bezier_params = {
+                  start: {
+                      x: (parseInt(this.x)+15),
+                      y: (parseInt(this.y)-15),
+                      angle: 90
+                  },
+                  end: {
+                      x:getRandomArbitary(117,607),
+                      y:getRandomArbitary(-2,30),
+                      angle: 0,
+                      length: 0.25
+                  }
+              }
+
+              socket.emit('sendChicken',{id: this.id, h:bezier_params});
+              $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              soundManager.play('shoot');
+              $('#playground').append(t).find(t).animate({
+                  path : new $.path.bezier(bezier_params)
+              },2500,function(){
+                  var ss = $(this);
+                  $(this).addClass('splash');
+                  soundManager.play('chicken');
                   $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
@@ -487,8 +677,35 @@
 
       $(document).bind('fireTomato',function(e){
           $.colorbox.close();
+          $.ajax({
+              type: "GET",
+              url: "/discountHeckle/tomato"
+          });
           setTimeout(function() {
               player.shoot();
+          }, 2000);
+
+      });
+
+      $(document).bind('firePants',function(e){
+          $.colorbox.close();
+          $.ajax({
+              type: "GET",
+              url: "/discountHeckle/pants"
+          });
+          setTimeout(function() {
+              player.shootPants();
+          }, 2000);
+
+      });
+      $(document).bind('fireChicken',function(e){
+          $.colorbox.close();
+          $.ajax({
+              type: "GET",
+              url: "/discountHeckle/chicken"
+          });
+          setTimeout(function() {
+              player.shootChicken();
           }, 2000);
 
       });
@@ -513,6 +730,10 @@
 
       $(document).bind('fireFlower',function(e){
           $.colorbox.close();
+          $.ajax({
+              type: "GET",
+              url: "/discountHeckle/flower"
+          });
           setTimeout(function() {
               player.shootFlower();
           }, 2000);

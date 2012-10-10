@@ -306,12 +306,26 @@ $(document).ready(function() {
     $("ul.tabnav2 li:first").addClass("active").show(); //Activate first tab
     $(".tab-detail2:first").show(); //Show first tab content
 
+    $(".tab-detail3").hide(); //Hide all content
+    $("ul.tabnav3 li:first").addClass("active").show(); //Activate first tab
+    $(".tab-detail3:first").show(); //Show first tab content
+
     //On Click Event
     $("ul.tabnav2 li").click(function() {
 
         $("ul.tabnav2 li").removeClass("active"); //Remove any "active" class
         $(this).addClass("active"); //Add "active" class to selected tab
         $(".tab-detail2").hide(); //Hide all tab content
+
+        var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+        $(activeTab).fadeIn(); //Fade in the active ID content
+        return false;
+    });
+    $("ul.tabnav3 li").click(function() {
+
+        $("ul.tabnav3 li").removeClass("active"); //Remove any "active" class
+        $(this).addClass("active"); //Add "active" class to selected tab
+        $(".tab-detail3").hide(); //Hide all tab content
 
         var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
         $(activeTab).fadeIn(); //Fade in the active ID content
@@ -356,6 +370,27 @@ $(document).ready(function() {
             data: _dataTosend
         }).done(function( msg ) {
             alert( msg );
+        });
+
+        return false;
+    });
+
+    $('.buy_heckle').click(function(){
+        var cp = $(this).attr('href').split('#')[1].split('-');
+        $.ajax({
+            type: "GET",
+            url: "/buy/"+cp[0]+"/"+cp[1]+"/"+cp[2],
+            success: function(data){
+               if(data == '300'){
+                    alert('Sorry, but you have no tokens');
+               }else if(data == '500'){
+                    alert('You are not authorized');
+               }else if(data == '200'){
+                    alert('You now have new items to heckle');
+               }
+
+            }
+
         });
 
         return false;

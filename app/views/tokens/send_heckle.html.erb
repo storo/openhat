@@ -10,6 +10,14 @@
           parent.$(parent.document).trigger("fireFlower");
           return false;
       });
+      $('.pants').click(function(){
+          parent.$(parent.document).trigger("firePants");
+          return false;
+      });
+      $('.chicken').click(function(){
+          parent.$(parent.document).trigger("fireChicken");
+          return false;
+      });
   });
 
 </script>
@@ -73,16 +81,26 @@
     <p>Show the performer that you like the show, or let them know that you're not amused</p>
 
   <div class="buttons">
-        <a href="#" class="button flower">
-            <img src="images/ic_heckle.png" width="30" height="28" alt="heckle">
-            Through flower (22 left)
-        </a>
-        <a href="#" class="button tomato">
-            <img src="images/ic_apple.png" width="23" height="28" alt="heckle">
-            Through tomato (02 left)
+
+        <% @Heckles.each do |d| %>
+        <a href="#" class="button <%= d.types %>">
+            <% if d.types == 'tomato' %>
+              <img src="images/ic_apple.png" width="23" height="28" alt="heckle">
+            <% end %>
+            <% if d.types == 'flower' %>
+              <img src="images/ic_heckle.png" width="30" height="28" alt="heckle">
+            <% end %>
+            <% if d.types == 'pants' %>
+              <img src="images/ic_heckle.png" width="30" height="28" alt="heckle">
+            <% end %>
+            <% if d.types == 'chicken' %>
+              <img src="images/ic_heckle.png" width="30" height="28" alt="heckle">
+            <% end %>
+            Through <%= d.types %> (<%= d.total.to_i %> left)
         </a>
 
-        <a href="#" class="buy_more">BUY MORE THINGS TO HECKLE</a>
+        <% end %>
+        <a href="/accounts_settings#tokens" class="buy_more" target="_blank">BUY MORE THINGS TO HECKLE</a>
   </div>
 
 

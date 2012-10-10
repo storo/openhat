@@ -918,10 +918,10 @@ ul.list1 li.last, .video-block.second li.last {
     line-height:17px;
     padding:0 130px 45px 5px;
 }
-ul.tabnav2 {
+ul.tabnav2 ,ul.tabnav3{
     padding:0 0 0 18px;
 }
-ul.tabnav2 li {
+ul.tabnav2 li, ul.tabnav3 li {
     background:url(../images/img_sprite.png) no-repeat -425px -68px;
     width:168px;
     height:57px;
@@ -931,21 +931,21 @@ ul.tabnav2 li {
     line-height:57px;
     font-size:30px;
 }
-ul.tabnav2 li a {
+ul.tabnav2 li a, ul.tabnav3 li a {
     display:block;
     position:relative;
     z-index:10;
 }
-ul.tabnav2 li:hover a, ul.tabnav2 li.active a {
+ul.tabnav2 li:hover a, ul.tabnav2 li.active a, ul.tabnav3 li:hover a, ul.tabnav3 li.active a {
     color:#fff;
 }
-ul.tabnav2 li:hover {
+ul.tabnav2 li:hover, ul.tabnav3 li:hover  {
     background-position: -595px -61px;
 }
-ul.tabnav2 li.active {
+ul.tabnav2 li.active, ul.tabnav3 li.active {
     background-position: -512px -2px;
 }
-.tab-content2 {
+.tab-content2, .tab-content3 {
     background:url(../images/bg_tab_content2.png) no-repeat;
     width:566px;
     height:438px;
@@ -1971,7 +1971,7 @@ input.form-litle{
         left: 50px !important;
     }
 
-    .heckle{
+    .tomato{
         background-image: url(../images/sprite-heckle.png);
         background-repeat: no-repeat;
         display: block;
@@ -1982,29 +1982,64 @@ input.form-litle{
         background-position: -13px -13px;
 
     }
-    .heckle.splash{
+    .tomato.splash{
         background-position: -48px -8px;
         width: 35px;
         height: 35px;
     }
 .flower{
-    background-image: url(../images/sprite-flor.png);
+    background-image: url(../images/sprite-elements.png);
     background-repeat: no-repeat;
     display: block;
-    z-index:9999999999999999999;
-    width: 33px;
-    height: 33px;
+    z-index: 9999999999999999999;
+    width: 27px;
+    height: 65px;
     position: absolute;
-    background-position: -9px -7px;
+    background-position: -127px -12px;
 
 }
 .flower.splash{
-    background-position: -50px -7px;
+    background-position: -158px -8px;
     width: 33px;
-    height: 33px;
+    height: 50px;
 }
 
-    .shine{
+.pants{
+    background-image: url(../images/sprite-elements.png);
+    background-repeat: no-repeat;
+    display: block;
+    z-index: 9999999999999999999;
+    width: 27px;
+    height: 30px;
+    position: absolute;
+    background-position: -75px -8px;
+}
+.pants.splash{
+    background-position: -9px -12px;
+    width: 49px;
+    height: 31px;
+}
+
+.chicken{
+    background-image: url(../images/sprite-elements.png);
+    background-repeat: no-repeat;
+    display: block;
+    z-index: 9999999999999999999;
+    width: 40px;
+    height: 66px;
+    position: absolute;
+    background-position: -199px -8px;
+
+}
+.chicken.splash{
+    background-position: -234px -8px;
+    width: 40px;
+    height: 50px;
+}
+
+
+
+.shine{
         text-shadow: 0px 0px 20px rgba(0,255,0,1);
     }
 
@@ -2059,6 +2094,13 @@ input.form-litle{
         padding-bottom: 20px;
 
     }
+    .token_item.tabs{
+        margin: 8px 15px 4px 17px;
+        height: 140px;
+    }
+    .token_item.tabs span{
+        margin-left: 52px;
+    }
     .token_item p{
         font-family: 'Amatic SC', cursive;
         font-weight: 800;
@@ -2066,3 +2108,11 @@ input.form-litle{
         padding: 15px 0px 5px 0px;
         text-align: center;
     }
+
+    .box-textbottom{
+        margin-top: 66px;
+    }
+
+.now_tokens{
+    font-size: 38px !important;
+}

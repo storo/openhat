@@ -39,11 +39,11 @@
         <%= select_tag("stage[type]", options_for_select([['Private', 'private'], ['Invitation', 'invitation'], ['Public', 'public']]), :prompt => 'Type Performance', :class => 'form-input-select required') %>
         <%= select_tag("stage[type_ticket]", options_for_select([['Free', 'free'], ['Paid', 'paid']]), :prompt => 'Type Ticket', :class => 'form-input-select required') %>
         <%= text_field_tag("stage[ticket_price]",nil,:class => 'form-input-medio  required', :placeholder => 'Ticket Price') %>
-        <%= select_tag("stage[limit_seats]", options_for_select([['unlimited','unlimited'],['1','1'],['10', '10'], ['20', '20'], ['30', '30'], ['50', '50'], ['100', '100'], ['120', '120'], ['160', '160'], ['200', '200']]), :prompt => 'Limited Seats', :class => 'form-input-select required') %>
+        <%= select_tag("stage[limit_seats]", options_for_select([['Unlimited','Unlimited'],['1','1'],['10', '10'], ['20', '20'], ['30', '30'], ['50', '50'], ['100', '100'], ['120', '120'], ['160', '160'], ['200', '200']]), :prompt => 'Limited Seats', :class => 'form-input-select required') %>
         <%= file_field_tag 'stage[performance_image]', :class => 'upload' %>
         <%= text_field_tag 'stage[performance_image_fake]',nil, :class => 'form-input-file', :placeholder => 'Performance Image' %>
         <%= collection_select(:stage,:category_id, Category.all, :id, :name, {:prompt => 'Category'}, {:class => 'form-input-select required'}) %>
-        <%= select_tag("stage[sub_category_id]",options_for_select([['subcategorie 1', '1'], ['subcategorie 2', '2']]), :prompt => 'Sub Category', :class => 'form-input-select') %>
+        <%#= select_tag("stage[sub_category_id]",options_for_select([['subcategorie 1', '1'], ['subcategorie 2', '2']]), :prompt => 'Sub Category', :class => 'form-input-select') %>
         <%= select_tag("stage[rate]", options_for_select([['General Audiences', 'general audiences'], ['Parental Guidance Suggested', 'parental guidance suggested'], ['Parents Strongly Cautioned', 'parents strongly cautioned'],['Restricted','restricted'],['No One 17 and Under Admitted','no one 17 and under admitted']]), :prompt => 'Content Rate', :class => 'form-input-select required') %>
          <%= collection_select(:stage,:language_content , Language.all, :id, :name, {:prompt => 'Content Language'}, {:class => 'form-input-select required'}) %>
 
@@ -71,10 +71,12 @@
             <section class="clear" style="height: 20px;"></section>
             <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0"></span><span><strong>no design</strong></span></label>
 
+            <section class="clear"></section>
+            <a href="/accounts_settings#tokens" style="margin-top: 20px;display:block;">Buy more stage designs</a>
           </section>
 
 
-          <section class="clear"></section>
+
         </section>
         </div>
 

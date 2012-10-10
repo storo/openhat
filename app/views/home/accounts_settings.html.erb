@@ -430,7 +430,7 @@
               <h3>Tokens, Stores and Statement</h3>
               <p>You can use credits to tip or heckle performers and to purchase other fun stuff on The Open Hat. Below is your current credit balance and statement...</p>
 
-              <p>You have (<%= @t %>) credits</p>
+              <p class="now_tokens">You have (<%= @t %>) credits</p>
 
               <h3>Buy Tokens</h3>
               <p>select package of tokens to buy</p>
@@ -452,7 +452,60 @@
                     <% end %>
                   </section>
               <% end %>
+              <section class="clear"></section>
+              <h3>Store</h3>
+              <ul class="tabnav3">
+                <li class="active"><a href="#heckles" title="Heckles">Heckles</a></li>
+                <li><a href="#stages" title="Stages">Stages</a></li>
+              </ul>
+              <section class="clear"></section>
+              <!-- start tab-content2 -->
+              <section class="tab-content3">
+              <!-- start tab1 -->
+                <div id="heckles" class="tab-detail3">
+                    <section class="token_item tabs">
+                        <p>Flowers</p>
+                        <span class="flower"></span>
+                        <div class="box-textbottom">
+                          <p>10 Flowers x 1 Token</p>
+                          <a href="#flower-1-10" class="buy_heckle">Buy</a>
+                        </div>
 
+                    </section>
+                    <section class="token_item tabs">
+                        <p>Tomatos</p>
+                        <span class="tomato"></span>
+                        <div class="box-textbottom">
+                            <p>10 Tomatos x 1 Token</p>
+                            <a href="#tomato-1-10" class="buy_heckle">Buy</a>
+                        </div>
+                    </section>
+                    <section class="token_item tabs">
+                        <p>Pants</p>
+                        <span class="pants"></span>
+                        <div class="box-textbottom">
+                            <p>10 Pants x 1 Token</p>
+                            <a href="#pants-1-10" class="buy_heckle">Buy</a>
+                        </div>
+                    </section>
+                    <section class="token_item tabs">
+                        <p>Chickens</p>
+                        <span class="chicken"></span>
+                        <div class="box-textbottom">
+                            <p>10 Chickens x 1 Token</p>
+                            <a href="#chicken-1-10" class="buy_heckle">Buy</a>
+                        </div>
+                    </section>
+                </div>
+              <!-- end tab1 -->
+              <!-- start tab1 -->
+                <div id="stages" class="tab-detail3">
+
+
+                </div>
+              <!-- end tab1 -->
+              </section>
+              <!-- end tab-content2 -->
 
 
             </section>

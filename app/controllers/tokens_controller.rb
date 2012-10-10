@@ -53,6 +53,8 @@ class TokensController < ApplicationController
 
 
   def send_heckle
+    @Heckles = ElementStage.find(:all, :select => 'types, sum(amount) as total', :group => 'types', :conditions => ['user_id = ?', current_user.id])
+
     render :layout => false
   end
   def send_tips
@@ -72,4 +74,56 @@ class TokensController < ApplicationController
     end
      render :layout => false
   end
+
+  def buytokens
+    if current_user
+        tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
+        @t = 0
+        tokens.each do |d|
+            if d.operation.nil?
+                @t += d.amount.to_i
+            else
+                @t -= d.amount.to_i
+            end
+        end
+
+        if @t <= 0
+            text = '300'
+        else
+            if @t >= params[:tokens].to_i
+                element = ElementStage.new
+                element.types = params[:heckle]
+                element.user_id = current_user.id
+                element.amount = params[:amount]
+                element.save!
+
+                mytoken = MyToken.new
+                mytoken.amount = params[:tokens]
+                mytoken.user_id = current_user.id
+                mytoken.operation = '-'
+                mytoken.description  = 'buy heckle "' + params[:heckle] + '"  '+ params[:amount] +' x ' + params[:tokens]
+                mytoken.save!
+
+                text = '200'
+            else
+                text = '300'
+            end
+        end
+    else
+        text = '500'
+    end
+
+    render :text => text
+  end
+
+  def discountHeckle
+      element = ElementStage.new
+      element.types = params[:heckle]
+      element.user_id = current_user.id
+      element.amount = -1
+      element.save!
+
+      render :text => '200'
+  end
+
 end
