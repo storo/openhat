@@ -133,6 +133,7 @@
           var indice = getIndicePlayer(d.f);
           $('#user-'+ d.f).append('<div class="tipped" id="t-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
           $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+          soundManager.play('tip'+getRandomArbitary(1,4));
           $('#t-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
       });
 

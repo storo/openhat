@@ -1,18 +1,15 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
-
-
 $(function() {
+
+
+    var options = $('#stage_language_content').find('option');
+    $('#stage_language_content').html('');
+    options.each(function(k, v){
+        if(k == 6){
+            $('#stage_language_content').append('<optgroup label="----------------------"></optgroup>')
+        }
+        $('#stage_language_content').append(options[k]);
+    });
+
     $('.slide-home').cycle('fade');
     $('.profile .preview').click(function(){
         window.location.href = '/accounts_settings#create_your_character';
@@ -53,6 +50,16 @@ $(function() {
             $('.avatar-hover').css('visibility','hidden');
         }
     });
+
+    $('.register-submit').click(function(){
+
+        if($('.check-condition').attr('checked') != 'checked'){
+            alert('Read the terms & conditions');
+            return false;
+        }
+
+    });
+
 
     $('.perfomer').click(function(){
          var title  = $(this).attr('title');
@@ -142,7 +149,7 @@ $(function() {
 
 
 	$("a.watch").colorbox({close:'X',html: '<iframe src="http://player.vimeo.com/video/47028824" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'});
-    $("#heckle").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
+    $("#heckle").colorbox({iframe:true, innerWidth:500, innerHeight:444,close:'X'});
     $("#tips").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
     $("#report").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
     $("#changeImage").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});

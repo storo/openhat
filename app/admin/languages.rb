@@ -5,6 +5,7 @@ ActiveAdmin.register Language do
        f.inputs "Details" do
          f.input :code
          f.input :name
+         f.input :orden
       end
        f.buttons
     end
@@ -12,6 +13,7 @@ ActiveAdmin.register Language do
     index do
         column :code
         column :name
+        column :orden
         column "Options" do |fdf|
             links = link_to "Edit", edit_admin_language_path(fdf)
             links += " | "

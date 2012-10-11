@@ -2116,3 +2116,16 @@ input.form-litle{
 .now_tokens{
     font-size: 38px !important;
 }
+
+.condition{
+    font-size: 23px !important;
+    margin: 15px 10px;
+}
+.condition label.error{
+    display:none !important;
+}
+
+.condition.re{
+    font-size: 18px !important;
+    margin: 15px 0px;
+}

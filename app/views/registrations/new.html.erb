@@ -22,8 +22,10 @@
             <%= f.password_field :password, :class => 'form-input-litle', :placeholder => 'Password' %>
             <%= f.password_field :password_confirmation, :class => 'form-input-litle', :placeholder => 'Repeat' %>
         <% end %>
-
-      <input name="submit" type="submit" value="Register" class="button" style="margin-left: 125px !important;">
+        <section class="rowline">
+          <p class="condition re"><input type="checkbox" name="condition" value="1" class="check-condition" /> I have read the <a href="http://beta.theopenhat.com/pages/legal" target="_blank">terms & conditions</a></p>
+        </section>
+      <input name="submit" type="submit" value="Register" class="button register-submit" style="margin-left: 125px !important;">
       <p>* You haven’t personalized your character, you can either do this now or from the settings tab later on.</p>
     <% end %>
     <!-- end register-form -->

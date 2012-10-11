@@ -45,12 +45,14 @@
         <%= collection_select(:stage,:category_id, Category.all, :id, :name, {:prompt => 'Category'}, {:class => 'form-input-select required'}) %>
         <%#= select_tag("stage[sub_category_id]",options_for_select([['subcategorie 1', '1'], ['subcategorie 2', '2']]), :prompt => 'Sub Category', :class => 'form-input-select') %>
         <%= select_tag("stage[rate]", options_for_select([['General Audiences', 'general audiences'], ['Parental Guidance Suggested', 'parental guidance suggested'], ['Parents Strongly Cautioned', 'parents strongly cautioned'],['Restricted','restricted'],['No One 17 and Under Admitted','no one 17 and under admitted']]), :prompt => 'Content Rate', :class => 'form-input-select required') %>
-         <%= collection_select(:stage,:language_content , Language.all, :id, :name, {:prompt => 'Content Language'}, {:class => 'form-input-select required'}) %>
+         <%= collection_select(:stage,:language_content , Language.find(:all, :order => 'orden DESC'), :id, :name, {:prompt => 'Content Language'}, {:class => 'form-input-select required'}) %>
 
 
 
         <%# text_field_tag("stage[alive]",nil,:class => 'input', :placeholder => 'Time \'till live') %>
-
+        <section class="rowline">
+          <p class="condition"><input type="checkbox" name="condition" value="1" class="required" /> I have read the <a href="http://beta.theopenhat.com/pages/legal" target="_blank">terms & conditions</a></p>
+        </section>
 
         <input type="hidden" name="stage[design]" id="stage_design" value="1" />
         <input name="submit" type="submit" value="Create" class="button">
@@ -72,7 +74,7 @@
             <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0"></span><span><strong>no design</strong></span></label>
 
             <section class="clear"></section>
-            <a href="/accounts_settings#tokens" style="margin-top: 20px;display:block;">Buy more stage designs</a>
+            <a href="/accounts_settings#tokens" style="margin-top: 20px;display:block;color:#D94601;">Buy more stage designs</a>
           </section>
 
 
