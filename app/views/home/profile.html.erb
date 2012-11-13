@@ -10,7 +10,7 @@
                 <% if !current_user.image_fb.nil? %>
                     <%= image_tag current_user.image_fb.gsub("square", "large"), :width => 298, :height => 350, :alt => current_user.name %>
                 <% else %>
-				    <%= image_tag current_user.image('normal'), :width => 298, :height => 350, :alt => current_user.name %>
+				    <%= image_tag current_user.image('profile'), :width => 298, :height => 350, :alt => current_user.name %>
                 <% end %>
             </section>
             <!-- end img-block -->
@@ -23,7 +23,7 @@
 						@followers.each do |f|
 				%>
 						<div class="follower">
-							<%= link_to(image_tag(f.user.image, :alt => f.user.name), public_profile_path( Digest::MD5.hexdigest(f.user.id.to_s)))  %>
+							<%= link_to(image_tag(f.user.image('thumb'), :alt => f.user.name, :width =>'50'), public_profile_path( Digest::MD5.hexdigest(f.user.id.to_s)))  %>
 						</div>
 				<% 		end
 					else
@@ -88,36 +88,21 @@
           	<section class="activity">
            		<h3>Recent activiy</h3>
               	<ul>
-               	  	<li>
-               	  		<img src="images/img_activity.jpg" width="100" height="75" alt="activity">
-                        <span class="date">6 days ago</span>
-                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-                        <section class="clear"></section>
-                  	</li>
-                    <li>
-               	  		<img src="images/img_activity2.jpg" width="100" height="75" alt="activity">
-                        <span class="date">6 days ago</span>
-                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-                        <section class="clear"></section>
-                  	</li>
-                    <li>
-               	  		<img src="images/img_activity3.jpg" width="100" height="75" alt="activity">
-                        <span class="date">6 days ago</span>
-                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-                        <section class="clear"></section>
-                  	</li>
-                    <li>
-               	  		<img src="images/img_activity4.jpg" width="100" height="75" alt="activity">
-                        <span class="date">6 days ago</span>
-                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-                        <section class="clear"></section>
-                  	</li>
-                    <li>
-               	  		<img src="images/img_activity.jpg" width="100" height="75" alt="activity">
-                        <span class="date">6 days ago</span>
-                        <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-                        <section class="clear"></section>
-                  	</li>
+                    <%
+                       activity = Activity.find(:all, :limit => 5, :conditions => ['user_id = ?', current_user.id])
+                       activity.each do |act|
+                         sss = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', act.stage_id ])
+                    %>
+                        <li>
+                          <img src="<%= sss.image(:thumb) %>" width="100" height="75" alt="activity">
+                          <span class="date">6 days ago</span>
+                          <p><%= act.description.html_safe %></p>
+                          <section class="clear"></section>
+                        </li>
+
+                    <% end %>
+
+
               	</ul>
             </section>
             <!-- end activity -->
@@ -125,29 +110,7 @@
         <!-- end right side -->
         <section class="clear"></section>
         <!-- start bottom-link -->
-        <nav class="bottom-link">
-            <ul>
-                <li>random performers:</li>
-                <li><a href="#" title="SNL Club">SNL Club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-                <li>/</li>
-                <li><a href="#" title="Kanye west">Kanye west</a></li>
-                <li>/</li>
-                <li><a href="#" title="Theatre club">Theatre club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Comedy Club">Comedy Club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Björk">Björk</a></li>
-                <li>/</li>
-                <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
-                <li>/</li>
-                <li><a href="#" title="GOW">GOW</a></li>
-                <li>/</li>
-                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-            </ul>
-            <section class="clear"></section>
-        </nav>
+
         <!-- end bottom-link -->
     </section>
 	<!-- end box -->

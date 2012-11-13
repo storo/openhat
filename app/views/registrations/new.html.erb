@@ -14,8 +14,8 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'register-form litle'}) do |f| %>
       <section class="rowline">
         <h2>Register</h2>
-        <p>Before you make your way to the stage you will either need to connect your facebook account or create an account with us by submitting your email and password below.</p>
-        <p>Now you <a href="#" title="can share yours">can share yours</a>.</p>
+        <p>Before you make your way to the stage you will either need to <a href="/auth/facebook" title="Connect Your Facebook Account">connect your facebook account</a> or create an account with us by submitting your email and password below.</p>
+
       </section>
       <%= f.email_field :email, :class => 'form-input-litle', :placeholder => 'email' %>
         <% if @user.password_required? %>
@@ -23,7 +23,7 @@
             <%= f.password_field :password_confirmation, :class => 'form-input-litle', :placeholder => 'Repeat' %>
         <% end %>
         <section class="rowline">
-          <p class="condition re"><input type="checkbox" name="condition" value="1" class="check-condition" /> I have read the <a href="http://beta.theopenhat.com/pages/legal" target="_blank">terms & conditions</a></p>
+          <p class="condition re"><input type="checkbox" name="condition" value="1" class="check-condition" /> I have read the <a href="http://beta.theopenhat.com/pages/terms_&_conditions/modal" class="modaltc">terms & conditions</a></p>
         </section>
       <input name="submit" type="submit" value="Register" class="button register-submit" style="margin-left: 125px !important;">
       <p>* You haven’t personalized your character, you can either do this now or from the settings tab later on.</p>

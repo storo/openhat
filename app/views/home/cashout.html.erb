@@ -1,0 +1,105 @@
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $('.button').click(function(){
+            var _dataTosend = {'data' : {'id': <%= @id %>, 'tokens' : $('.text').val(), 'sender' :<%= current_user.id %>, 'stage' : '<%= @stage %>' }};
+            var request = $.ajax({
+                type: "GET",
+                url: "/sendtip",
+                dataType: "text",
+                data: _dataTosend,
+                success: function(data){
+                    $('.text-tip span').html(parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
+                    $('.text').attr('rel',parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
+                    parent.$(parent.document).trigger("sendTips");
+                }
+            });
+
+
+            return false;
+        });
+    });
+</script>
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+    .box-title{
+        margin: 0 auto;
+        width: 210px;
+    }
+    .box-title img{
+        float: left;
+        padding-right: 12px;
+    }
+    .box-title h2{
+        font-size: 38px;
+        line-height: 32px;
+        margin-left: 12px;
+    }
+    p{
+        font-size: 25px;
+        margin: 0px auto;
+        width: 440px;
+        display: block;
+        clear: both;
+    }
+
+    p.text-tip{
+        color: #D94601;
+    }
+
+    a.buy_more{
+        color: #D94601;
+    }
+    .text{
+        background: url(/images/img_sprite.png) no-repeat -288px -137px;
+        width: 470px;
+        height: 63px;
+        float: left;
+        border: none;
+        padding: 4px 8px 6px 14px;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        font-size: 30px;
+        margin-left: 12px;
+    }
+    .box-form{
+        float:left;
+        margin-top: 5px;
+        width: 450px;
+    }
+    .button{
+        background: url(/images/img_sprite.png) no-repeat -660px -338px;
+        width: 100px;
+        height: 49px;
+        float: right;
+        border: none;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+        font-size: 17px;
+        margin-top: 5px;
+    }
+
+
+
+</style>
+<div class="box-fr">
+  <div class="box-title">
+    <h2>CASH OUT TOKENS</h2>
+  </div>
+
+  <div class="box-form">
+    <p>You have <%= @t %> tokens, that's $US <%= ((@t.to_i / 80) * 10).to_f %> , How many tokens do you want to cash out</p>
+    <input type="text" name="dolar"  class="text" value="<%= @t %>"  rel="<%= @t %>" />
+
+    <button class="button">Send me the cash</button>
+
+    <p>This payment will be sent to your PayPal account <!-- --> on the "<%= (Date.new(Date.today.year,Date.today.mon + 1, 1) -1).mday  %>" of "<%= Date.new(Date.today.year,Date.today.mon, Date.today.mday).strftime('%B')  %>". </p>
+  </div>
+
+
+</div>

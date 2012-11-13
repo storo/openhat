@@ -4,12 +4,13 @@ class HomeController < ApplicationController
     def index
         @last_users = User.find(:all, :conditions => ['sign_in_count > 0'], :order => 'created_at DESC')
         @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status = 0'])
+        @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
     end
     
     def profile
       if current_user
           @followers = Follower.find(:all, :conditions => ['leader = ?', Digest::MD5.hexdigest(current_user.id.to_s)])
-          @activities = Activity.find(:all, :conditions => ['user_id = ?', current_user.id])
+          #@activities = Activity.find(:all, :conditions => ['user_id = ?', current_user.id])
           @avatar = Avatar.find(:first, :conditions => ['user_id = ?', current_user.id ])
           @stage = Stage.find(:first, :conditions => ['user_id = ? AND status = "enabled"', current_user.id])
           @character = Character.find(:all, :conditions => ['user_id = ?', current_user])
@@ -74,6 +75,9 @@ class HomeController < ApplicationController
       if current_user
         @character = Character.find(:all, :conditions => ['user_id = ?', current_user])
         @tokens = Token.find(:all)
+        @stage_item = StageItem.find(:all, :conditions => ['user_id = ?', current_user.id])
+        @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
+
         _user = {:first_name => "saran", :last_name => "v", :email => "some_per@gmail.com", :address1 => "awesome ln", :city => "Austin", :state => "TX", :zip => "78759", :country => "USA", :phone => "5120070070" }
 
         tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
@@ -137,8 +141,61 @@ class HomeController < ApplicationController
       end
     end
 
+    def saveprivacy
+
+      if current_user
+        f = Privacy.new
+        f.user_id = current_user.id
+        f.option1 = params[:privacy][:option1]
+        f.option2 = params[:privacy][:option2]
+        f.option3 = params[:privacy][:option3]
+        f.option4 = params[:privacy][:option4]
+        f.option5 = params[:privacy][:option5]
+        f.option6 = params[:privacy][:option6]
+        f.save!
+
+
+        session[:saveprivacy] =  'Your changes have been save'
+        redirect_to '/accounts_settings#privacy'
+      else
+        redirect_to '/accounts_settings#privacy'
+      end
+
+    end
+
+
   def share
     @id =  params[:id]
+    render :layout => false
+  end
+
+  def saveimage
+
+
+    p = User.find(current_user.id)
+    p.update_attributes({:image => params[:imagen], :image_fb => '' })
+
+
+    render :layout => false
+  end
+
+
+  def cashout
+    tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
+    @t = 0
+    tokens.each do |d|
+      if d.operation.nil?
+        @t += d.amount.to_i
+      else
+        @t -= d.amount.to_i
+      end
+
+    end
+    render :layout => false
+  end
+
+  def beta
+
     render :layout => false
   end
 

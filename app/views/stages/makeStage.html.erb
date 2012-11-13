@@ -51,10 +51,10 @@
 
         <%# text_field_tag("stage[alive]",nil,:class => 'input', :placeholder => 'Time \'till live') %>
         <section class="rowline">
-          <p class="condition"><input type="checkbox" name="condition" value="1" class="required" /> I have read the <a href="http://beta.theopenhat.com/pages/legal" target="_blank">terms & conditions</a></p>
+          <p class="condition"><input type="checkbox" name="condition" value="1" class="required" /> I have read the <a href="http://beta.theopenhat.com/pages/terms_&_conditions/moodal" class="modaltc">terms & conditions</a></p>
         </section>
 
-        <input type="hidden" name="stage[design]" id="stage_design" value="1" />
+        <input type="hidden" name="stage[design]" id="stage_design" value="4" />
         <input name="submit" type="submit" value="Create" class="button">
     <% end %>
     <!-- end register-form -->
@@ -67,12 +67,25 @@
         <section class="row">
           <section class="td1 left" style="width:130px;">Design</section>
           <section class="td2 left" style="width:200px;">
-            <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="1" checked="checked"></span><%= image_tag('ec-1.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
+            <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="4" checked="checked"></span><%= image_tag('ec-4.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
+            <section class="clear"></section>
+            <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="1" ></span><%= image_tag('ec-1.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
             <section class="clear"></section>
             <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="2"></span><span class="brown"><%= image_tag('ec-2.png', :width => 160,:style => 'float: right;') %></span></label>
             <section class="clear" style="height: 20px;"></section>
+            <% pool = 0 %>
+            <% if !@stage_item.nil? %>
+                <% @stage_item.each do |si| %>
+                    <% if si.item.to_i == 3 %>
+                        <% pool = 1 %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <% if pool == 1 %>
+                <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="3"></span><span class="brown"><%= image_tag('ec-3.png', :width => 160,:style => 'float: right;') %></span></label>
+                <section class="clear" style="height: 20px;"></section>
+            <% end %>
             <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0"></span><span><strong>no design</strong></span></label>
-
             <section class="clear"></section>
             <a href="/accounts_settings#tokens" style="margin-top: 20px;display:block;color:#D94601;">Buy more stage designs</a>
           </section>

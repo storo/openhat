@@ -7,13 +7,13 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
   <%= stylesheet_link_tag    'style', 'css3','colorbox','avatar','heads','http://fonts.googleapis.com/css?family=Amatic+SC:400,700',:media => "all" %>
-  <%= javascript_include_tag 'jquery.min','jquery_ujs','jquery-ui', 'jquery.cycle', 'jquery.colorbox' ,'jquery.path','jquery.transit.min', 'jquery.validate.min.js', 'additional-methods.min.js', 'application' %>
+  <%= javascript_include_tag 'jquery.min','jquery_ujs','jquery-ui', 'jquery.cycle', 'jquery.colorbox' ,'jquery.path','jquery.transit.min', 'jquery.validate.min.js', 'additional-methods.min.js', 'jquery.raty.min.js', 'application' %>
   <%= csrf_meta_tags %>
   <meta name="title" content="TheOpenHat" />
   <meta name="description" content="The online platform that brings performers and audiences together" />
 </head>
 <body>
-
+    <%#= current_user.sign_in_count %>
 	<!-- start box -->
 	<section class="box">
 		<!-- start header -->
@@ -120,7 +120,39 @@
                  <%#= flash[:notice] %>
             </div>
             <%# end %> -->
+          <% if session[:save] %>
+              <div class="warning">
+                <a class="close" href="#">X</a>
+                <p><%=  session[:save] %></p>
+              </div>
+              <% session[:save] = nil %>
+          <% end %>
             <% if current_user %>
+                  <%
+                     gift = MyToken.find(:first, :conditions => ['user_id = ? AND description = "initial gift"', current_user.id])
+
+                     if gift.nil?
+                       element = ElementStage.new
+                       element.types = 'flower'
+                       element.user_id = current_user.id
+                       element.amount = 200
+                       element.save!
+
+                       element = ElementStage.new
+                       element.types = 'tomato'
+                       element.user_id = current_user.id
+                       element.amount = 200
+                       element.save!
+
+                       g = MyToken.new
+                       g.amount = 0
+                       g.user_id = current_user.id
+                       g.operation = '-'
+                       g.description  = 'initial gift'
+                       g.save!
+                     end
+                  %>
+
                   <%
 
                    if !stage.nil?
@@ -186,7 +218,7 @@
                     <li><%= link_to 'About Us', pages_path('about_us'), :title => "About Us" %></li>
                     <li><%= link_to 'Media Kit', pages_path('media_kit'), :title => "Media Kit" %></li>
                     <li><%= link_to 'Advertise', pages_path('advertise'), :title => "Advertise" %></li>
-                    <li><%= link_to 'Terms & Conditions', pages_path('legal'), :title => "Terms & Conditions" %></li>
+                    <li><%= link_to 'Terms & Conditions', pages_path('terms_&_conditions'), :title => "Terms & Conditions" %></li>
                     <li><%= link_to 'Privacy Policy', pages_path('privacy_policy'), :title => "Privacy Policy" %></li>
                 </ul>
             </nav>
@@ -195,10 +227,10 @@
             <nav class="footer-link">
                 <h5>Get help</h5>
                 <ul>
-                    <li><a href="#" title="FAQ">FAQ</a></li>
-                    <li><a href="#" title="Website Support">Website Support</a></li>
-                    <li><a href="#" title="iPhone Support">iPhone Support</a></li>
-                    <li><a href="#" title="System Status">System Status</a></li>
+                    <li><%= link_to 'FAQ', pages_path('faq'), :title => "FAQ" %></li>
+                    <li><%= link_to 'Website Support', pages_path('website_support'), :title => "Website Support" %></li>
+                    <li><%= link_to 'iPhone Support', pages_path('iphone_support'), :title => "iPhone Support" %></li>
+                    <li><%= link_to 'System Status', pages_path('system_status'), :title => "System Status" %></li>
                 </ul>
             </nav>
             <!-- end footer link -->

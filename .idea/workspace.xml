@@ -22,55 +22,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2125" column="24" selection-start="43975" selection-end="43975" vertical-scroll-proportion="-20.192308">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/stages/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="56" selection-start="5334" selection-end="5334" vertical-scroll-proportion="-3.2100313">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accounts_settings.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/accounts_settings.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="494" column="46" selection-start="22181" selection-end="22181" vertical-scroll-proportion="-18.56">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="css3.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/css3.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="29" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="send_heckle.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/tokens/send_heckle.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="19" selection-start="1180" selection-end="1180" vertical-scroll-proportion="17.48">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="stages_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/stages_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="9" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0">
+            <state line="22" column="9" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index2.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/stages/index2.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="52" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.93430656">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2220" column="23" selection-start="45578" selection-end="45578" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stage.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/stage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="90" column="423" selection-start="3129" selection-end="3129" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,22 +68,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/stages/tippers.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/messages/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/tokens_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/registrations/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/stages/makeStage.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/share.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/categories_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/categories/all.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/stages_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/tokens/send_heckle.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/accounts_settings.html.erb" />
-        <option value="$PROJECT_DIR$/public/stylesheets/css3.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/app/views/registrations/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/admin/languages.rb" />
-        <option value="$PROJECT_DIR$/app/models/language.rb" />
-        <option value="$PROJECT_DIR$/app/views/stages/makeStage.html.erb" />
-        <option value="$PROJECT_DIR$/public/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/stage.js" />
         <option value="$PROJECT_DIR$/app/views/stages/index.html.erb" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/app/views/stages/index2.html.erb" />
       </list>
     </option>
   </component>
@@ -191,25 +173,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="stylesheets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -242,10 +206,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tokens" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,68 +244,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="registrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -362,24 +260,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openhat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,6 +294,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/categories" />
+      <recent name="$PROJECT_DIR$/app/views/pages" />
+      <recent name="$PROJECT_DIR$/app/admin" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/app/controllers" />
     </key>
@@ -576,11 +459,11 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67105263" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827586" sideWeight="0.63209075" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24230146" sideWeight="0.6648276" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25283632" sideWeight="0.67172414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28687197" sideWeight="0.8689655" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -647,106 +530,96 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/yarn.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/devise/passwords/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="2" selection-start="34" selection-end="34" vertical-scroll-proportion="0.022922637" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/messages_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="44" selection-start="438" selection-end="438" vertical-scroll-proportion="0.023357663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="23" selection-start="2510" selection-end="2524" vertical-scroll-proportion="0.8767908" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/tokens_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="20" selection-start="3082" selection-end="3096" vertical-scroll-proportion="0.66423357" />
+        <state line="19" column="18" selection-start="758" selection-end="758" vertical-scroll-proportion="0.46060607" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="75" selection-start="8624" selection-end="8624" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/accounts_settings.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="494" column="46" selection-start="22181" selection-end="22181" vertical-scroll-proportion="-18.56">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/css3.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/language.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="153" selection-end="153" vertical-scroll-proportion="0.1183432">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/languages.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="312" selection-end="312" vertical-scroll-proportion="0.35502958">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/stages_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="9" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tokens/send_heckle.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="19" selection-start="1180" selection-end="1180" vertical-scroll-proportion="17.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="287" selection-end="287" vertical-scroll-proportion="0.19306184">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/registrations/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="106" selection-start="1463" selection-end="1478" vertical-scroll-proportion="0.62695926">
-          <folding />
-        </state>
+        <state line="220" column="79" selection-start="9777" selection-end="9777" vertical-scroll-proportion="0.24848485" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/stages/makeStage.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="73" selection-start="3838" selection-end="3838" vertical-scroll-proportion="1.1786834">
+        <state line="53" column="200" selection-start="4299" selection-end="4299" vertical-scroll-proportion="0.3939394" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/registrations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="209" selection-start="1562" selection-end="1569" vertical-scroll-proportion="0.4121212" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/share.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="103" selection-start="3495" selection-end="3495" vertical-scroll-proportion="0.75151515" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/categories/all.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="25" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.53333336" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="66" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.27272728" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="111" selection-start="310" selection-end="412" vertical-scroll-proportion="0.11678832" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/categories_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="9" selection-start="410" selection-end="410" vertical-scroll-proportion="0.23357664" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="424" column="24" selection-start="14694" selection-end="14732" vertical-scroll-proportion="0.719708">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2125" column="24" selection-start="43975" selection-end="43975" vertical-scroll-proportion="-20.192308">
+        <state line="13" column="27" selection-start="504" selection-end="504" vertical-scroll-proportion="0.1833811">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/stages/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="56" selection-start="5334" selection-end="5334" vertical-scroll-proportion="-3.2100313">
+        <state line="1069" column="0" selection-start="46411" selection-end="46411" vertical-scroll-proportion="0.34545454">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/stage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="423" selection-start="3129" selection-end="3129" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2220" column="23" selection-start="45578" selection-end="45578" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/stages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="9" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/stages/index2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="52" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.93430656">
           <folding />
         </state>
       </provider>

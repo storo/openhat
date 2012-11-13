@@ -1,0 +1,33 @@
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+    .box-title{
+        margin: 0 auto;
+        width: 150px;
+    }
+    .box-title img{
+        float: left;
+        padding-right: 12px;
+    }
+    .box-title h2{
+        font-size: 38px;
+        line-height: 32px;
+        margin-left: 12px;
+    }
+    p{
+        font-size: 25px;
+        margin: 0px auto;
+        width: 440px;
+    }
+</style>
+<div class="box-fr">
+  <div class="box-title">
+    <h2><%= @page.title %></h2>
+  </div>
+  <%= @page.content.html_safe %>
+
+
+</div>

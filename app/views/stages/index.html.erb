@@ -21,7 +21,7 @@
           // -- shoot
           soundManager.createSound({
               id: 'shoot',
-              url: 'http://beta.theopenhat.com/through.ogg',
+              url: 'http://beta.theopenhat.com/through.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -29,7 +29,7 @@
           });
           soundManager.createSound({
               id: 'splat',
-              url: 'http://beta.theopenhat.com/splat.ogg',
+              url: 'http://beta.theopenhat.com/splat.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -37,7 +37,7 @@
           });
           soundManager.createSound({
               id: 'chicken',
-              url: 'http://beta.theopenhat.com/chicken.ogg',
+              url: 'http://beta.theopenhat.com/chicken.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -45,7 +45,7 @@
           });
           soundManager.createSound({
               id: 'flower',
-              url: 'http://beta.theopenhat.com/flower.ogg',
+              url: 'http://beta.theopenhat.com/flower.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -53,7 +53,7 @@
           });
           soundManager.createSound({
               id: 'pants',
-              url: 'http://beta.theopenhat.com/pants.ogg',
+              url: 'http://beta.theopenhat.com/pants.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -61,7 +61,7 @@
           });
           soundManager.createSound({
               id: 'tip1',
-              url: 'http://beta.theopenhat.com/tip1.ogg',
+              url: 'http://beta.theopenhat.com/tip1.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -69,7 +69,7 @@
           });
           soundManager.createSound({
               id: 'tip2',
-              url: 'http://beta.theopenhat.com/tip2.ogg',
+              url: 'http://beta.theopenhat.com/tip2.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -77,7 +77,7 @@
           });
           soundManager.createSound({
               id: 'tip3',
-              url: 'http://beta.theopenhat.com/tip3.ogg',
+              url: 'http://beta.theopenhat.com/tip3.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -85,7 +85,7 @@
           });
           soundManager.createSound({
               id: 'tip4',
-              url: 'http://beta.theopenhat.com/tip4.ogg',
+              url: 'http://beta.theopenhat.com/tip4.mp3',
               autoLoad: true,
               autoPlay: false,
               multiShot: false,
@@ -109,8 +109,6 @@
      // }
 
       socket.on('connect', function() {
-         // socket.json.send('<%= Digest::MD5.hexdigest(current_user.id.to_s) %>')
-         //
           socket.emit('room',room);
           socket.emit('meId');
           console.log('Connected!');
@@ -131,12 +129,16 @@
 
       socket.on('sendTips', function(d){
           var indice = getIndicePlayer(d.f);
+          var _number =   getRandomInt(1,4);
           $('#user-'+ d.f).append('<div class="tipped" id="t-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
-          $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
-          soundManager.play('tip'+getRandomArbitary(1,4));
+          //$('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+          soundManager.play('tip'+_number);
           $('#t-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
       });
 
+      function getRandomInt (min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
       socket.on('cloudChat', function(d){
           $('#user-'+ d.f).append('<div class="writing" id="w-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
           $('#w-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
@@ -147,6 +149,9 @@
           var indice = getIndicePlayer(d.f);
           $('.globalchat').addClass('shine');
           $('#footer-bot').find('#chat-general').find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+          $('#chat-general .face_left').each(function(k,v){
+              $('#chat-general .face_left').eq(k).css({ scale: [0.5] });
+          });
           var objDiv = $('#footer-bot').find('#chat-general').find('.scroll');
           objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
 
@@ -186,6 +191,10 @@
 
                       socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
                       $(this).val('').focus();
+
+                      $('.face_right').each(function(k,v){
+                          $('.face_right').eq(k).css({ scale: [0.5] });
+                      });
                   }
               })
           }else{
@@ -203,6 +212,14 @@
           }
           var objDiv = $('.chat-block').find('#cc-'+ d.f).find('.scroll');
           objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+
+          $('.face_left').each(function(k,v){
+              $('.face_left').eq(k).css({ scale: [0.5] });
+          })
+
+          $('.face_right').each(function(k,v){
+              $('.face_right').eq(k).css({ scale: [0.5] });
+          });
 
       });
 
@@ -428,12 +445,12 @@
           this.name = '';
           this.width = 99;
           this.height = 131;
-          this.animation = 14;
+          this.animation = 13;
           this.headgiro = 0;
           this.paso = 0;
           this.sentido = 0;
           this.activado = 0;
-          this.scale = 1.0;
+          this.scale = 0.5;
           this.head = 1;
           this.jacket = 1;
           this.legs = 1;
@@ -516,13 +533,18 @@
                   if($('#playground').find('#user-'+ this.id).length == 0){
                       if(this.room == '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>') {
                           $('#playground').append('<div class="players" name="'+this.name+'" id="user-' + this.id +'"style="width:223px; position: absolute; left:'+ this.x +'px; top:' + this.y + 'px; z-index:'+(parseInt(this.id)+1)+'"><div class="avatar preview avatar-head-'+this.head+'" style="-webkit-transform: rotate('+this.headgiro+'deg)"></div><div class="avatar preview avatar-jacket-'+this.jacket+'" ></div><div class="avatar preview avatar-legs-'+this.legs+'"></div><div class="avatar preview avatar-feet-'+this.feet+'" style="-webkit-transform: rotate('+this.step()+'deg)"></div></div>');
+                          if(this.id == player.id){
+                              $('#user-'+this.id).append('<div class="keyboard"  style="top:10px;left:60%;display:block;"></div>');
+                              $('.keyboard').css({ scale: [2] });
+                          }
+
                       }
 
                   }else{
 
                       $('#playground').find('#user-'+ this.id).attr('name', this.name);
                       $('#playground').find('#user-'+ this.id).css({ scale: [this.scale] });
-
+                      $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').css({ rotate: [this.headgiro] });
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').removeClass().addClass('avatar preview avatar-head-'+this.head);
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-jacket-]').removeClass().addClass('avatar preview avatar-jacket-'+this.jacket);
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-legs-]').removeClass().addClass('avatar preview avatar-legs-'+this.legs);
@@ -675,7 +697,9 @@
 
 
       };
-
+      $('.keyboard').live('click',function(){
+          $('.keyboard').css('background', 'none');
+      });
       $(document).bind('fireTomato',function(e){
           $.colorbox.close();
           $.ajax({
@@ -743,9 +767,13 @@
 
       $(document).bind('sendTips',function(e){
           $.colorbox.close();
+          player.animation = 14;
           setTimeout(function() {
               socket.emit('sendTips',{c:me});
           }, 2000);
+          setTimeout(function() {
+              player.animation = 13;
+          }, 4000);
 
 
       });
@@ -761,7 +789,7 @@
               if(player.x > 2){
                 player.x -= 2;
                 player.activado = 1;
-
+                  $('.keyboard').css('background', 'none');
               }
           }
 
@@ -769,6 +797,8 @@
               if(player.x <851){
                 player.x += 2;
                 player.activado = 1;
+                  $('.keyboard').css('background', 'none');
+
               }
           }
 
@@ -785,6 +815,8 @@
                   player.y += 2;
                   player.activado = 1;
                   player.scale += sc;
+                  $('.keyboard').css('background', 'none');
+
               }
 
           }
@@ -892,6 +924,10 @@
 
                      socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
                      $(this).val('').focus();
+                     //alert($(this).parent().parent().find('.scroll').find('.face_right').length);
+                     $('.face_right').each(function(k,v){
+                         $('.face_right').eq(k).css({ scale: [0.5] });
+                     })
                  }
              })
          }
@@ -959,18 +995,23 @@
                     type: "GET",
                     url: "/totaltips/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>",
                     success: function(data){
-                        $('.number_tips').html(parseInt(data));
+                        if(data){
+                            $('.number_tips').html(parseInt(data));
+                        }else{
+                            $('.number_tips').html(0);
+                        }
+
                     }
                 });
             }, 5000);
 
-            var flashvars = {fmsUrl : "rtmp://ec2-79-125-44-52.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>" };
+            var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>" };
             var params = { allowscriptaccess: "always"};
 
             swfobject.embedSWF("http://beta.theopenhat.com/stageSender.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
       <% else %>
-            $(document).scrollTop(800);
-            var flashvars = {fmsUrl : "rtmp://ec2-79-125-44-52.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>"};
+            $(document).scrollTop(700);
+            var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>"};
             var params = { allowscriptaccess: "always", allowFullScreen: "true"};
 
             swfobject.embedSWF("http://beta.theopenhat.com/stagePlayer.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
@@ -988,7 +1029,7 @@
               $(this).html('<img src="/images/ic_play.png" width="30" height="26" alt="fullscreen">Resume performance');
           }if($(this).attr('title') == 'Start performance'){
               $(this).attr('title', 'Pause performance');
-              $(this).html('<img src="/images/ic_pause.png" width="30" height="26" alt="fullscreen">Pausea performance');
+              $(this).html('<img src="/images/ic_pause.png" width="30" height="26" alt="fullscreen">Pause performance');
           }
           var flashObj = $('#imgb');
           flashObj[0].sstext();
@@ -1014,14 +1055,19 @@
           $('.shadown-bottom').css('visibility','hidden' );
       });
 
+      $('.featured').each(function(k,v){
+          $('.featured').eq(k).css({ scale: [0.5] });
+      })
 
+      $('.featured').click(function(){
 
-
+          return false;
+      });
 
   });
 
 </script>
-<%= javascript_include_tag 'stage' %>
+
 <article id="container">
 	<!-- start box -->
     <section class="box">
@@ -1047,8 +1093,8 @@
           </section>
           <% if @stage %>
               <% if current_user.id != @stage.user_id %>
-                  <% f = Follower.find(:first, :conditions => ['leader = ? AND user_id = ?', @stage.user_id, current_user.id]) %>
-                  <a href="#" rel="<%= @stage.user_id %>" class="perfomer" title="<%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %>"><%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %></a>
+                  <% f = Follower.find(:first, :conditions => ['leader = ? AND user_id = ?', Digest::MD5.hexdigest(@stage.user_id.to_s), current_user.id]) %>
+                  <a href="#" rel="<%= Digest::MD5.hexdigest(@stage.user_id.to_s) %>" class="perfomer" title="<%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %>"><%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %></a>
 
               <% end %>
           <% end %>
@@ -1056,7 +1102,7 @@
            		<h3>Share this »</h3>
               	<ul>
                	 	 <li>
-                           <a href="https://twitter.com/share?text=I'm performing live in TheOpenHat" title="twitter" onclick="javascript:window.open(this.href,
+                           <a href="https://twitter.com/share?text=I'm performing live ON TheOpenHat" title="twitter" onclick="javascript:window.open(this.href,
                                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" class="twitter-share-button"><img src="/images/ic_twitter.png" width="18" height="26" alt="twitter">
                      </li>
                      <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.theopenhat.com/stage/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" onclick="javascript:window.open(this.href,
@@ -1087,7 +1133,7 @@
                           <li><a href="#" title="chat room" class="chatroom"><img src="/images/ic_chat.png" width="30" height="26" alt="chat">chat room</a></li>
                           <li><a href="<%= send_tips_url(@stage.user_id,@id ) %>" title="send tips" id="tips"><img src="/images/ic_doller.png" width="29" height="29" alt="doller">send tips</a></li>
                           <li><a href="<%= send_heckle_url %>" title="Heckle" id="heckle"><img src="/images/ic_heckle.png" width="30" height="28" alt="heckle">Heckle<!--<img src="/images/ic_apple.png" width="23" height="28" alt="apple" class="right">--></a></li>
-                          <li class="last"><a href="/report" title="Report user" id="report"><img src="/images/ic_report.png" width="30" height="26" alt="camera">report user</a></li>
+                          <li class="last"><a href="/report/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Report user" id="report"><img src="/images/ic_report.png" width="30" height="26" alt="camera">report user</a></li>
                       <% else %>
                           <li><a href="#" title="Start performance" id="playstage"><img src="/images/ic_play.png" width="30" height="26" alt="fullscreen">Start performance</a></li>
                           <li><a href="/configuration/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Configuration" id="configuration"><img src="/images/ic_config.png" width="30" height="26" alt="fullscreen">Configuration</a></li>
@@ -1108,8 +1154,42 @@
                	  <h3>Featured users</h3>
 
                   <% if !@tippers.nil? %>
+
                           <% @tippers.each do |d| %>
-                          <a href="#"><img src="/images/img_user.png" width="44" height="39" alt="user"></a>
+                            <%
+                               ch = Character.find(:all, :conditions => ['user_id = ?', d.sender])
+                            %>
+
+                          <%
+                             if ch.count == 0
+                          %>
+                          <div class="featured">
+                              <div class="avatar preview avatar-head-1">
+                                <div class="avatar preview avatar-eyes-1"></div>
+                                <div class="avatar preview avatar-nose-1"></div>
+                                <div class="avatar preview avatar-mouth-1"></div>
+                              </div>
+                          </div>
+
+                          <% else %>
+                              <div class="featured">
+                              <% ch.each do |c| %>
+                                  <% dd = c.section.split('-') %>
+                                  <% if dd[1] == 'head' %>
+                                      <div class="avatar preview <%= c.section %>">
+                                        <% if dd[1] == 'head' %>
+                                            <% ch.each do |f| %>
+                                                <% dc = f.section.split('-') %>
+                                                <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                                    <div class="avatar preview <%= f.section %>"></div>
+                                                <% end %>
+                                            <% end %>
+                                        <% end %>
+                                      </div>
+                                  <% end %>
+                              <% end %>
+                              </div>
+                          <% end %>
                           <% end %>
                   <% end %>
 
@@ -1146,33 +1226,27 @@
             <section class="clear"></section>
         </section>
         <!-- end video-block -->
-        <section class="clear"></section>
+
     	<section class="clear"></section>
-      	<!-- start bottom-link -->
-        <nav class="bottom-link">
+      <% if !@performance_random.nil? %>
+          <!-- start bottom-link -->
+
+          <nav class="bottom-link">
             <ul>
-                <li>random performers:</li>
-                <li><a href="#" title="SNL Club">SNL Club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-                <li>/</li>
-                <li><a href="#" title="Kanye west">Kanye west</a></li>
-                <li>/</li>
-                <li><a href="#" title="Theatre club">Theatre club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Comedy Club">Comedy Club</a></li>
-                <li>/</li>
-                <li><a href="#" title="Björk">Björk</a></li>
-                <li>/</li>
-                <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
-                <li>/</li>
-                <li><a href="#" title="GOW">GOW</a></li>
-                <li>/</li>
-                <li><a href="#" title="Lykke Li">Lykke Li</a></li>
+              <li>random performers:</li>
+              <% countRandom = 1 %>
+              <%  @performance_random.each do |rp| %>
+                  <li><a href="/profile/<%= Digest::MD5.hexdigest(rp.user_id.to_s) %>" title="<%= rp.user.name %>"><%= rp.user.name %></a></li>
+                  <% if @performance_random.count !=  countRandom %>
+                      <li>/</li>
+                  <% end %>
+                  <% countRandom = countRandom + 1 %>
+              <% end %>
             </ul>
             <section class="clear"></section>
-        </nav>
-        <!-- end bottom-link -->
+          </nav>
+          <!-- end bottom-link -->
+      <% end %>
     </section>
 	<!-- end box -->
 </article>

@@ -8,7 +8,7 @@ class StagesController < ApplicationController
             @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status  = 0'])
             @tippers = Tip.find(:all, :conditions => ['stage_id = ?', @id], :group => 'sender', :limit => 4, :order => 'SUM(tokens) DESC', :select => 'sender, SUM(tokens) as tokens')
             @character = Character.find(:all, :conditions => ['user_id = ?', current_user.id])
-
+            @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
           else
             flash[:notice] = "error 403"
             redirect_to root_url
@@ -19,10 +19,26 @@ class StagesController < ApplicationController
       end
   end
   
-  
+  def index2
+     if current_user
+
+        @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])
+        @id = params[:id]
+        @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status  = 0'])
+        @tippers = Tip.find(:all, :conditions => ['stage_id = ?', @id], :group => 'sender', :limit => 4, :order => 'SUM(tokens) DESC', :select => 'sender, SUM(tokens) as tokens')
+        @character = Character.find(:all, :conditions => ['user_id = ?', current_user.id])
+        @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
+
+
+
+     end
+  end
+
+
+
   def makeStage
       if current_user
-
+          @stage_item = StageItem.find(:all, :conditions => ['user_id = ?', current_user.id])
       else
           flash[:notice] = "error 403"
           redirect_to root_url
@@ -78,13 +94,27 @@ class StagesController < ApplicationController
   end
 
   def report
-
+    @id = params[:id]
     render :layout => false
   end
+
+  def savereport
+
+    # params[:id] params[:report] params[:sender]
+    re = Report.new
+    re.stage = params[:id]
+    re.reason = params[:report]
+    re.user_id = params[:sender]
+    re.save!
+
+    render :text => '0'
+  end
+
 
   def configuration
     @id = params[:id]
     @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])
+    @stage_item = StageItem.find(:all, :conditions => ['user_id = ?', current_user.id])
     render :layout => false
   end
 

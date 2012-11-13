@@ -15,38 +15,97 @@
   <section class="rowline">
     <h2><%= @page.title %></h2>
     <%= @page.content.html_safe %>
+    <% if @page.title == 'Contact' %>
+        <%= form_tag("/contact", :method => "post", :class => 'form-information', :id => 'form-user-information')  do %>
+        <section class="rowline">
+          <section class="row">
+            <section class="td1 left">Name:</section>
+            <section class="td2 left">
+              <input type="text" id="contact_name" name="contact[name]"  style="margin-left: 2px;" class="form-input-medio"  />
 
+            </section>
+            <section class="clear"></section>
+          </section>
+          <section class="row">
+            <section class="td1 left">Email:</section>
+            <section class="td2 left">
+              <input type="text" id="contact_email" name="contact[email]"  style="margin-left: 2px;" class="form-input-medio"  />
+
+            </section>
+            <section class="clear"></section>
+          </section>
+          <section class="row">
+            <section class="td1 left">Rate your experience:</section>
+            <section class="td2 left">
+              <select class="form-input-select" id="contact_rate" name="contact[rate]" style="margin-left: 2px;">
+                <option>Select Rate</option>
+                <option value="Awful">Awful</option>
+                <option value="Regular">Regular</option>
+                <option value="Great">Great</option>
+                <option value="Best-idea-ever!">Best-idea-ever!</option>
+              </select>
+            </section>
+            <section class="clear"></section>
+          </section>
+          <section class="row">
+            <section class="td1 left">Subject:</section>
+            <section class="td2 left">
+              <select class="form-input-select" id="contact_subject" name="contact[subject]" style="margin-left: 2px;">
+                <option>Select Subject</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Bug Report">Bug Report</option>
+                <option value="Beta Tester">Beta Tester</option>
+                <option value="Complaint">Complaint</option>
+              </select>
+            </section>
+            <section class="clear"></section>
+          </section>
+
+
+          <section class="row">
+            <section class="td1 left">Message:</section>
+            <section class="td2 left">
+              <textarea id="contact_message" name="contact[message]" class="form-textarea" ></textarea>
+            </section>
+            <section class="clear"></section>
+          </section>
+
+
+
+        </section>
+        <% end %>
+        <section class="creative-block">
+          <section class="clear"></section>
+
+          <a href="#" class="button button2" title="Submit" onclick="document.getElementById('form-user-information').submit();">Submit</a>
+        </section>
+
+    <% end %>
   </section>
 
 </section>
 
 <!-- end creative-block -->
 <section class="clear"></section>
-<!-- start bottom-link -->
-<nav class="bottom-link">
-  <ul>
-    <li>random performers:</li>
-    <li><a href="#" title="SNL Club">SNL Club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-    <li>/</li>
-    <li><a href="#" title="Kanye west">Kanye west</a></li>
-    <li>/</li>
-    <li><a href="#" title="Theatre club">Theatre club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Comedy Club">Comedy Club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Björk">Björk</a></li>
-    <li>/</li>
-    <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
-    <li>/</li>
-    <li><a href="#" title="GOW">GOW</a></li>
-    <li>/</li>
-    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-  </ul>
-  <section class="clear"></section>
-</nav>
-<!-- end bottom-link -->
+  <% if !@performance_random.nil? %>
+      <!-- start bottom-link -->
+
+      <nav class="bottom-link">
+        <ul>
+          <li>random performers:</li>
+          <% countRandom = 1 %>
+          <%  @performance_random.each do |rp| %>
+              <li><a href="/profile/<%= Digest::MD5.hexdigest(rp.user_id.to_s) %>" title="<%= rp.user.name %>"><%= rp.user.name %></a></li>
+              <% if @performance_random.count !=  countRandom %>
+                  <li>/</li>
+              <% end %>
+              <% countRandom = countRandom + 1 %>
+          <% end %>
+        </ul>
+        <section class="clear"></section>
+      </nav>
+      <!-- end bottom-link -->
+  <% end %>
 </section>
 <!-- end box -->
 </article>

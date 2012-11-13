@@ -27,8 +27,11 @@ Openhat::Application.routes.draw do
   match 'create_performance' => 'stages#makeStage', :as => 'create_performance'
   match 'stage' => 'stages#index'
   match 'stage/:id' => 'stages#index', :as => 'stage'
+  match 'stage2/:id' => 'stages#index2', :as => 'stage2'
   match 'category/:id' => 'categories#index', :as => 'category'
+  match 'all' => 'categories#all', :as => 'all'
   match '/pages/:page' => "pages#page", :as => 'pages'
+  match '/pages/:page/modal' => "pages#modal", :as => 'page_modal'
   match 'buy_tokens' => "tokens#buy", :as => 'buy_tokens'
   match 'buy_show' => "tokens#show"
   match 'buy_cancel' => "tokens#cancel"
@@ -36,7 +39,7 @@ Openhat::Application.routes.draw do
   match 'send_heckle'  => "tokens#send_heckle", :as => 'send_heckle'
   match 'sendtip' => "tokens#sendtip"
   match 'changeimage' => "home#changeimage"
-  match 'report' => "stages#report"
+  match 'report/:id' => "stages#report"
   match 'share/:id' => "home#share"
   match 'close/:id' => "stages#close"
   match 'configuration/:id' => "stages#configuration"
@@ -45,9 +48,17 @@ Openhat::Application.routes.draw do
   match 'totaltips/:id' => 'stages#totaltips'
   match 'savecharacter' => "home#savecharacter", :as => 'savecharacter', :via => 'post'
   match 'saveinformation' => "home#saveinformation", :as => 'saveinformation', :via => 'post'
-  match 'buy/:heckle/:tokens/:amount' => "tokens#buytokens"
-  match 'discountHeckle/:heckle' => 'tokens#discountHeckle'
+  match 'saveprivacy' => "home#saveprivacy", :as => 'saveprivacy', :via => 'post'
 
+  match 'saveimage' => "home#saveimage", :as => 'saveimage', :via => 'post'
+
+  match 'savereport/:id/:report/:sender' => 'stages#savereport', :as => 'savereport'
+  match 'buy/:heckle/:tokens/:amount' => "tokens#buytokens"
+  match 'buystage/:stage/:item/:tokens' => "tokens#buystages"
+  match 'discountHeckle/:heckle' => 'tokens#discountHeckle'
+  match 'beta' => 'home#beta'
+  match 'contact' => "pages#contact", :as => 'contact', :via => 'post'
+  match 'cashout' => 'home#cashout'
   root :to => 'home#index'
 
 

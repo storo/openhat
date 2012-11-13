@@ -1,3 +1,18 @@
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" >
+    $(document).ready(function(){
+
+        $('.text').click(function(){
+           $('.imagen').click();
+        });
+        $('.imagen').change(function(){
+            $('.text').val($(this).val());
+        });
+        $('.button').click(function(){
+            $('.frm').submit();
+        });
+    });
+</script>
 <link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
 <style>
     .box-fr{
@@ -31,16 +46,14 @@
         color: #D94601;
     }
     .text{
-        background: url(../images/img_sprite.png) no-repeat -658px -387px;
-        width: 218px;
-        height: 60px;
-        float: left;
+        background: url('../images/sprite-forms.png') -12px -73px no-repeat;
+        width: 460px;
         border: none;
-        padding: 9px 8px 6px 14px;
-        font-family: 'Amatic SC', cursive;
-        font-weight: 800;
-        font-size: 25px;
-        margin-left: 20px;
+        height: 62px;
+        padding: 0px 5px 0px 0px;
+        font-size: 21px;
+        margin-bottom: 13px;
+        margin-left: 14px;
     }
     .box-form{
         float:left;
@@ -67,6 +80,9 @@
   <p>Select the image you want to upload, this replaces your current image.</p>
 
   <div class="box-form">
+    <%= form_tag('/saveimage', :method=>'post', :multipart => true, :class => "frm") do %>
+    <input type="file" name="imagen" class="imagen" style="display: none;" />
+    <% end %>
     <input type="text" name="tip"  class="text" />
 
     <button class="button">Change!</button>

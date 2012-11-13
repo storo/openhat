@@ -1,0 +1,1212 @@
+<script src="/javascripts/swfobject.js" type="text/javascript"></script>
+<script src="/javascripts/soundmanager2.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.hotkeys.js" type="text/javascript"></script>
+<script src="/javascripts/key_status.js" type="text/javascript"></script>
+<script src="http://54.247.124.94:3000/socket.io/socket.io.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var socket = io.connect('http://54.247.124.94:3000');
+        var duplicado = 0;
+        socket.on('connect', function() {
+            console.log('Connected!');
+            $('#playground').html('');
+            <% if @stage.user_id == current_user.id %>
+                 socket.emit('performer', {
+                     user: '<%= current_user.id %>',
+                     stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>'
+                 })
+            <% else %>
+                   socket.emit('user',{
+                       user: '<%= current_user.id %>',
+                       name: '<%= current_user.name %>',
+                       <% if !@character.nil? %>
+                            <% @character.each do |d| %>
+                                <% dd = d.section.split('-') %>
+                                <% if dd[1] == 'head' %>
+                                head : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'jacket' %>
+                                jacket : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'legs' %>
+                                legs : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'feet' %>
+                                feet : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'eyes' %>
+                                eyes : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'nose' %>
+                                nose : '<%= dd[2] %>',
+                                <% elsif dd[1] == 'mouth' %>
+                                mouth : '<%= dd[2] %>',
+                                <% end %>
+                            <% end %>
+                    <% else %>
+                        head : '1',
+                        jacket : '1',
+                        legs : '1',
+                        feet : '1',
+                        eyes : '1',
+                        mouth : '1',
+                        nose : '1',
+                    <% end %>
+                       stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>'
+                   })
+            <% end %>
+
+            //socket.emit('room',room);
+            //socket.emit('meId');
+
+        });
+
+
+        socket.on('existing', function(d){
+            //window.location.href = '/';
+            $('body').append('<div class="blocker"></div>');
+            duplicado = 1;
+        });
+
+        var players = new Array();
+        var player;
+        var me = null;
+        var room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
+        var playerBullets = [];
+
+
+
+
+        socket.on('meId', function(msg){
+            me = msg.id;
+            //alert(me)
+
+            for(var i=0;i<players.length;i++){
+                if(players[i].id == msg.id){
+                    player = players[i];
+                    $('#user-'+msg.id).css('z-index', 999999999);
+
+                }
+            }
+        });
+
+        socket.on('sendTips', function(d){
+            var indice = getIndicePlayer(d.f);
+            var _number =   getRandomInt(1,4);
+            $('#user-'+ d.f).append('<div class="tipped" id="t-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
+            //$('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+            soundManager.play('tip'+_number);
+            $('#t-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
+        });
+
+        function getRandomInt (min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        socket.on('cloudChat', function(d){
+            $('#user-'+ d.f).append('<div class="writing" id="w-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
+            $('#w-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
+        });
+
+
+        socket.on('sendPublic', function(d){
+            var indice = getIndicePlayer(d.f);
+            $('.globalchat').addClass('shine');
+            $('#footer-bot').find('#chat-general').find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+            $('#chat-general .face_left').each(function(k,v){
+                $('#chat-general .face_left').eq(k).css({ scale: [0.5] });
+            });
+            var objDiv = $('#footer-bot').find('#chat-general').find('.scroll');
+            objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+
+
+
+            $('#user-'+ d.f).append('<div class="writing" id="w-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
+            $('#w-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
+        });
+
+        socket.on('sendPrivate', function(d){
+            var indice = getIndicePlayer(d.f);
+            var indice_me = getIndicePlayer(me);
+            if($('.hc-'+ d.f).length == 0){
+                if($('.chat-block > img').length == 0){
+                    $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+d.f+'" style="margin-right:66px;" />');
+                }else{
+                    $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+d.f+'" />');
+                }
+
+                $('.chat-block').append('<section class="chat-messanger" id="cc-'+d.f+'" ><a href="#" title="close" class="close private">X</a><h4>Chat with <a href="#" title="'+ players[indice].name +'">'+ players[indice].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+
+                $('.textarea').keypress(function(e) {
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        e.preventDefault();
+                        if($(this).parent().parent().find('.scroll').find('section:last').length == 0){
+                            $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                        }else{
+                            if($(this).parent().parent().find('.scroll').find(' > section:last').attr('class') == 'row-right'){
+                                $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append('</br>'+$(this).val());
+                            }else{
+                                $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                            }
+                        }
+                        var objDiv = $(this).parent().parent().find('.scroll');
+                        objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+                        var _c = $(this).parent().parent().attr('id').split('-');
+
+                        socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
+                        $(this).val('').focus();
+
+                        $('.face_right').each(function(k,v){
+                            $('.face_right').eq(k).css({ scale: [0.5] });
+                        });
+                    }
+                })
+            }else{
+
+            }
+
+            if($('.chat-block').find('#cc-'+ d.f).find('.scroll').find('section:last').length == 0){
+                $('.chat-block').find('#cc-'+ d.f).find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+            }else{
+                if($('.chat-block').find('#cc-'+ d.f).find('.scroll').find(' > section:last').attr('class') == 'row-left'){
+                    $('.chat-block').find('#cc-'+ d.f).find('.scroll').find(' > section:last').find('p').append('</br>'+ d.c);
+                }else{
+                    $('.chat-block').find('#cc-'+ d.f).find('.scroll').append('<section class="clear"></section> <section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+                }
+            }
+            var objDiv = $('.chat-block').find('#cc-'+ d.f).find('.scroll');
+            objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+
+            $('.face_left').each(function(k,v){
+                $('.face_left').eq(k).css({ scale: [0.5] });
+            })
+
+            $('.face_right').each(function(k,v){
+                $('.face_right').eq(k).css({ scale: [0.5] });
+            });
+
+        });
+
+        socket.on('userCount',function(data){
+            $('#countUser').html(data.count);
+        });
+
+        socket.on('message', function(msg) {
+
+            var eq = 0;
+            for(var i=0;i<players.length;i++){
+
+
+                if(players[i].id == msg.player){
+                    players[i].x = msg.x;
+                    players[i].y = msg.y;
+                    players[i].activado = msg.a;
+                    players[i].scale = msg.scale;
+                    players[i].admin = msg.admin;
+                    players[i].name = msg.name;
+                    players[i].head = msg.head;
+                    players[i].jacket = msg.jacket;
+                    players[i].legs = msg.legs;
+                    players[i].feet = msg.feet;
+                    players[i].eyes = msg.eyes;
+                    players[i].nose = msg.nose;
+                    players[i].mouth = msg.mouth;
+                    players[i].room = msg.room;
+                    eq++;
+                }
+            }
+
+            if(eq == 0){
+
+                players.push(new Player(msg.x, msg.y, msg.player));
+            }
+
+        });
+
+        socket.on('exit', function(msg) {
+            for(var i=0;i<players.length;i++){
+
+                if(players[i].id == msg.id){
+                    players.splice(i, 1);
+                    $('#user-'+msg.id).remove();
+                }
+            }
+        });
+
+        socket.on('disconnect', function() {
+            console.log('Disconnected!');
+        });
+
+        socket.on('launchHeckle',function(data){
+            if(data.id != me ){
+
+                var indice = getIndicePlayer(data.id);
+                var t = $('<span class="tomato" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+                var bezier_params = {
+                    start: {
+                        x: data.heckle.start.x,
+                        y: data.heckle.start.y,
+                        angle: data.heckle.start.angle
+                    },
+                    end: {
+                        x:data.heckle.end.x,
+                        y:data.heckle.end.y,
+                        angle: data.heckle.end.angle,
+                        length: data.heckle.end.length
+                    }
+                }
+
+                soundManager.play('shoot');
+
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('splat');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+            }
+        });
+
+        socket.on('launchFlower',function(data){
+            if(data.id != me ){
+
+                var indice = getIndicePlayer(data.id);
+                var t = $('<span class="flower" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+                var bezier_params = {
+                    start: {
+                        x: data.heckle.start.x,
+                        y: data.heckle.start.y,
+                        angle: data.heckle.start.angle
+                    },
+                    end: {
+                        x:data.heckle.end.x,
+                        y:data.heckle.end.y,
+                        angle: data.heckle.end.angle,
+                        length: data.heckle.end.length
+                    }
+                }
+
+                soundManager.play('shoot');
+                $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('flower');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+            }
+        });
+
+        socket.on('launchPants',function(data){
+            if(data.id != me ){
+
+                var indice = getIndicePlayer(data.id);
+                var t = $('<span class="pants" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+                var bezier_params = {
+                    start: {
+                        x: data.heckle.start.x,
+                        y: data.heckle.start.y,
+                        angle: data.heckle.start.angle
+                    },
+                    end: {
+                        x:data.heckle.end.x,
+                        y:data.heckle.end.y,
+                        angle: data.heckle.end.angle,
+                        length: data.heckle.end.length
+                    }
+                }
+
+                soundManager.play('shoot');
+                $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('pants');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+            }
+        });
+        socket.on('launchChicken',function(data){
+            if(data.id != me ){
+
+                var indice = getIndicePlayer(data.id);
+                var t = $('<span class="chicken" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
+
+                var bezier_params = {
+                    start: {
+                        x: data.heckle.start.x,
+                        y: data.heckle.start.y,
+                        angle: data.heckle.start.angle
+                    },
+                    end: {
+                        x:data.heckle.end.x,
+                        y:data.heckle.end.y,
+                        angle: data.heckle.end.angle,
+                        length: data.heckle.end.length
+                    }
+                }
+
+                soundManager.play('shoot');
+                $('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('chicken');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+            }
+        });
+        function getIndicePlayer(id){
+            for(var i=0;i<players.length;i++){
+                if(players[i].id == id){
+                    return i;
+                }
+            }
+
+        }
+
+        function getRandomArbitary (min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function getSize(top){
+            var min = 8, max = 458;
+            var section = (max-min)/50; // section determina el alto de cada separación
+            var e = 0;
+            var limit = new Array();
+
+            for(var i=0;i<max;i=i+50){
+                limit[e] = i;
+                e++;
+            }
+            return limit.length;
+        }
+
+
+        var Player = function(x,y,e){
+            this.x = x;
+            this.y = y;
+            this.id = e;
+            this.name = '';
+            this.width = 99;
+            this.height = 131;
+            this.animation = 13;
+            this.headgiro = 0;
+            this.paso = 0;
+            this.sentido = 0;
+            this.activado = 0;
+            this.scale = 0.5;
+            this.head = 1;
+            this.jacket = 1;
+            this.legs = 1;
+            this.feet = 1;
+            this.eyes = 1;
+            this.nose = 1;
+            this.mouth = 1;
+            this.room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
+
+            this.admin = 'false';
+            this.step = function(){
+                if(this.activado == 1){
+                    if(this.sentido == 0){
+                        if(this.paso == 0){
+                            this.paso = 2;
+                        }else{
+                            this.paso = 0;
+                        }
+                    }else{
+                        if(this.paso == 0){
+                            this.paso = -1;
+                        }else{
+                            this.paso = 0;
+                        }
+                    }
+                    this.activado = 0;
+                }else{
+                    this.paso = 0;
+                    this.sentido = 0;
+                }
+
+                return this.paso;
+            };
+            this.draw = function(){
+
+                if(this.animation == 14){
+                    this.headgiro = 0;
+                    this.animation = 15;
+                }else if(this.animation == 15){
+                    this.headgiro = 1;
+                    this.animation = 16;
+                }else if(this.animation == 16){
+                    this.headgiro = 2;
+                    this.animation = 17;
+                }else if(this.animation == 17){
+                    this.headgiro = 3;
+                    this.animation = 18;
+                }else if(this.animation == 18){
+                    this.headgiro = 2;
+                    this.animation = 19;
+                }else if(this.animation == 19){
+                    this.headgiro = 1;
+                    this.animation = 20;
+                }else if(this.animation == 20){
+                    this.headgiro = 0;
+                    this.animation = 21;
+                }else if(this.animation == 21){
+                    this.headgiro = -1;
+                    this.animation = 22;
+                }else if(this.animation == 22){
+                    this.headgiro = -2;
+                    this.animation = 23;
+                }else if(this.animation == 23){
+                    this.headgiro = -3;
+                    this.animation = 24;
+                }else if(this.animation == 24){
+                    this.headgiro = -2;
+                    this.animation = 25;
+                }else if(this.animation == 25){
+                    this.headgiro = -1;
+                    this.animation = 26;
+                }else if(this.animation == 26){
+                    this.animation = 14;
+                }
+
+
+                if(this.admin == 'true'){
+                    $('#playground').find('#user-'+ this.id).remove();
+                }else{
+                    if($('#playground').find('#user-'+ this.id).length == 0){
+                        if(this.room == '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>') {
+                            $('#playground').append('<div class="players" name="'+this.name+'" id="user-' + this.id +'"style="width:223px; position: absolute; left:'+ this.x +'px; top:' + this.y + 'px; z-index:'+(parseInt(this.id)+1)+'"><div class="avatar preview avatar-head-'+this.head+'" style="-webkit-transform: rotate('+this.headgiro+'deg)"></div><div class="avatar preview avatar-jacket-'+this.jacket+'" ></div><div class="avatar preview avatar-legs-'+this.legs+'"></div><div class="avatar preview avatar-feet-'+this.feet+'" style="-webkit-transform: rotate('+this.step()+'deg)"></div></div>');
+                            if(this.id == player.id){
+                                $('#user-'+this.id).append('<div class="keyboard"  style="top:10px;left:60%;display:block;"></div>');
+                                $('.keyboard').css({ scale: [2] });
+                            }
+
+                        }
+
+                    }else{
+
+                        $('#playground').find('#user-'+ this.id).attr('name', this.name);
+                        $('#playground').find('#user-'+ this.id).css({ scale: [this.scale] });
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').css({ rotate: [this.headgiro] });
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').removeClass().addClass('avatar preview avatar-head-'+this.head);
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-jacket-]').removeClass().addClass('avatar preview avatar-jacket-'+this.jacket);
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-legs-]').removeClass().addClass('avatar preview avatar-legs-'+this.legs);
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-feet-]').removeClass().addClass('avatar preview avatar-feet-'+this.feet);
+
+
+                        $('#playground').find('#user-'+ this.id).css('left', this.x +'px');
+                        $('#playground').find('#user-'+ this.id).css('top', this.y +'px');
+
+
+                        $('#playground').find('#user-'+ this.id).find('div[class*=avatar-feet-]').css('-webkit-transform','rotate('+this.step()+'deg)');
+                    }
+                }
+
+
+
+            };
+            this.shoot = function(){
+
+                var t = $('<span class="tomato" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+                var bezier_params = {
+                    start: {
+                        x: (parseInt(this.x)+15),
+                        y: (parseInt(this.y)-15),
+                        angle: 90
+                    },
+                    end: {
+                        x:getRandomArbitary(117,607),
+                        y:getRandomArbitary(-2,30),
+                        angle: 0,
+                        length: 0.25
+                    }
+                }
+
+                socket.emit('sendHeckle',{id: this.id, h:bezier_params});
+
+                soundManager.play('shoot');
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('splat');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+
+
+            };
+            this.shootFlower = function(){
+
+                var t = $('<span class="flower" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+                var bezier_params = {
+                    start: {
+                        x: (parseInt(this.x)+15),
+                        y: (parseInt(this.y)-15),
+                        angle: 90
+                    },
+                    end: {
+                        x:getRandomArbitary(117,607),
+                        y:getRandomArbitary(-2,30),
+                        angle: 0,
+                        length: 0.25
+                    }
+                }
+
+                socket.emit('sendFlower',{id: this.id, h:bezier_params});
+                $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                soundManager.play('shoot');
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('flower');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+
+
+            };
+            this.shootPants = function(){
+
+                var t = $('<span class="pants" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+                var bezier_params = {
+                    start: {
+                        x: (parseInt(this.x)+15),
+                        y: (parseInt(this.y)-15),
+                        angle: 90
+                    },
+                    end: {
+                        x:getRandomArbitary(117,607),
+                        y:getRandomArbitary(-2,30),
+                        angle: 0,
+                        length: 0.25
+                    }
+                }
+
+                socket.emit('sendPants',{id: this.id, h:bezier_params});
+                $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                soundManager.play('shoot');
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('pants');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+
+
+            };
+            this.shootChicken = function(){
+
+                var t = $('<span class="chicken" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+                var bezier_params = {
+                    start: {
+                        x: (parseInt(this.x)+15),
+                        y: (parseInt(this.y)-15),
+                        angle: 90
+                    },
+                    end: {
+                        x:getRandomArbitary(117,607),
+                        y:getRandomArbitary(-2,30),
+                        angle: 0,
+                        length: 0.25
+                    }
+                }
+
+                socket.emit('sendChicken',{id: this.id, h:bezier_params});
+                $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+                soundManager.play('shoot');
+                $('#playground').append(t).find(t).animate({
+                    path : new $.path.bezier(bezier_params)
+                },2500,function(){
+                    var ss = $(this);
+                    $(this).addClass('splash');
+                    soundManager.play('chicken');
+                    $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
+                        $(this).fadeOut(2000, function(){ $(this).remove();});
+                    })
+                });
+
+
+            };
+
+
+        };
+        $('.keyboard').live('click',function(){
+            $('.keyboard').css('background', 'none');
+        });
+        $(document).bind('fireTomato',function(e){
+            $.colorbox.close();
+            $.ajax({
+                type: "GET",
+                url: "/discountHeckle/tomato"
+            });
+            setTimeout(function() {
+                player.shoot();
+            }, 2000);
+
+        });
+
+        $(document).bind('firePants',function(e){
+            $.colorbox.close();
+            $.ajax({
+                type: "GET",
+                url: "/discountHeckle/pants"
+            });
+            setTimeout(function() {
+                player.shootPants();
+            }, 2000);
+
+        });
+        $(document).bind('fireChicken',function(e){
+            $.colorbox.close();
+            $.ajax({
+                type: "GET",
+                url: "/discountHeckle/chicken"
+            });
+            setTimeout(function() {
+                player.shootChicken();
+            }, 2000);
+
+        });
+
+        $(document).bind('ChangeBackground', function(e, c, d){
+            var flashObj = $('#imgb');
+            flashObj[0].changeBackground(c);
+
+            <% if current_user.id == @stage.user_id %>
+            $.ajax({
+                type: "GET",
+                url: "/saveconfiguration/"+d+"/"+c,
+                success: function(data){
+
+                }
+            });
+            <% end %>
+        });
+
+
+
+
+        $(document).bind('fireFlower',function(e){
+            $.colorbox.close();
+            $.ajax({
+                type: "GET",
+                url: "/discountHeckle/flower"
+            });
+            setTimeout(function() {
+                player.shootFlower();
+            }, 2000);
+
+        });
+
+        $(document).bind('sendTips',function(e){
+            $.colorbox.close();
+            player.animation = 14;
+            setTimeout(function() {
+                socket.emit('sendTips',{c:me});
+            }, 2000);
+            setTimeout(function() {
+                player.animation = 13;
+            }, 4000);
+
+
+        });
+
+
+        function update(){
+            var sc = 0.00177777777778; // valor aprox por paso al momento de escalar
+            $('#playground').find('div[class*=avatar-head-]').css('zIndex', '0');
+
+        <% if current_user.id != @stage.user_id %>
+
+            if (keydown.left) {
+                if(player.x > 2){
+                    player.x -= 2;
+                    player.activado = 1;
+                    $('.keyboard').css('background', 'none');
+                }
+            }
+
+            if (keydown.right) {
+                if(player.x <851){
+                    player.x += 2;
+                    player.activado = 1;
+                    $('.keyboard').css('background', 'none');
+
+                }
+            }
+
+            if (keydown.up) {
+                if(player.y > 8){
+                    player.y -= 2;
+                    player.activado = 1;
+                    player.scale -= sc;
+                }
+            }
+
+            if (keydown.down) {
+                if(player.y < 458){
+                    player.y += 2;
+                    player.activado = 1;
+                    player.scale += sc;
+                    $('.keyboard').css('background', 'none');
+
+                }
+
+            }
+        <% end %>
+
+            if(player){
+                player.admin =  '<%= (current_user.id == @stage.user_id)? true : false %>';
+                player.name = '<%= (current_user.name.nil?)? 'anonymous': current_user.name.split(" ").first %>';
+            <% if !@character.nil? %>
+            <% @character.each do |d| %>
+            <% dd = d.section.split('-') %>
+            <% if dd[1] == 'head' %>
+                player.head = <%= dd[2] %>;
+            <% elsif dd[1] == 'jacket' %>
+                player.jacket = <%= dd[2] %>;
+            <% elsif dd[1] == 'legs' %>
+                player.legs = <%= dd[2] %>;
+            <% elsif dd[1] == 'feet' %>
+                player.feet = <%= dd[2] %>;
+            <% elsif dd[1] == 'eyes' %>
+                player.eyes = <%= dd[2] %>;
+            <% elsif dd[1] == 'nose' %>
+                player.nose = <%= dd[2] %>;
+            <% elsif dd[1] == 'mouth' %>
+                player.mouth = <%= dd[2] %>;
+            <% end %>
+            <% end %>
+            <% else %>
+                player.head = 1;
+                player.jacket = 1;
+                player.legs = 1;
+                player.feet = 1;
+                player.eyes = 1;
+                player.mouth = 1;
+                player.nose = 1;
+            <% end %>
+
+                socket.emit('update',{
+                    id:player.id,
+                    x:player.x,
+                    y:player.y,
+                    scale: player.scale,
+                    a: player.activado,
+                    name : player.name,
+                    head: player.head,
+                    jacket: player.jacket,
+                    legs: player.legs,
+                    feet: player.feet,
+                    eyes: player.eyes,
+                    nose: player.nose,
+                    mouth: player.mouth,
+                    admin:'<%= (current_user.id == @stage.user_id)? true : false %>'});
+            }
+
+        }
+
+        $('.players').live('click',function(){
+            var _me = $(this).attr('id').split('-');
+            var _name = $(this).attr('name');
+            var _top =  parseInt($(this).css('top').replace('px',''))-100;
+            var _left = parseInt($(this).css('left').replace('px',''))+80;
+            var indice = getIndicePlayer(_me[1]);
+
+            if(me != _me[1]){
+                $('#playground').find('.bubble').remove();
+                $('#playground').append('<section class="bubble" style="top:'+_top+'px;left:'+_left+'px"><div class="face"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><h3><a href="#" title="'+_name+'">'+_name+'</a></h3><section class="clear"></section><ul><li><a href="#" rel="' + _me[1] + '" class="chat" title="Chat"><img src="/images/ic_chat2.png" width="19" height="18" alt="chat"><span>Chat</span></a></li><li><a href="#" title="View profile"><img src="/images/ic_man.png" width="19" height="18" alt="man"><span>View profile</span></a></li></ul></section>');
+                setTimeout( function()
+                {
+                    $('#playground .bubble').fadeOut("fast");
+                }, 10000);
+            }
+            return false;
+        });
+        $('body').click(function(){
+            $('#playground .bubble').fadeOut("fast");
+        });
+
+        $('.bubble .chat').live('click', function(){
+            var indice = getIndicePlayer($(this).attr('rel'));
+            var indice_me = getIndicePlayer(me);
+            if($('.hc-'+$(this).attr('rel')).length == 0){
+                if($('.chat-block > img').length == 0){
+                    $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" style="margin-right:66px;" />');
+                }else{
+                    $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" />');
+                }
+
+                $('.chat-block').append('<section class="chat-messanger" id="cc-'+$(this).attr('rel')+'" ><a href="#" title="close" class="close private ">X</a><h4>Chat with <a href="#" title="'+ players[indice].name +'">'+ players[indice].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+
+                $('.textarea').keypress(function(e) {
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        e.preventDefault();
+                        if($(this).parent().parent().find('.scroll').find('section:last').length == 0){
+                            $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                        }else{
+                            if($(this).parent().parent().find('.scroll').find(' > section:last').attr('class') == 'row-right'){
+                                $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append('</br>'+$(this).val());
+                            }else{
+                                $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                            }
+                        }
+                        var objDiv = $(this).parent().parent().find('.scroll');
+                        objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+                        var _c = $(this).parent().parent().attr('id').split('-');
+
+                        socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
+                        $(this).val('').focus();
+                        //alert($(this).parent().parent().find('.scroll').find('.face_right').length);
+                        $('.face_right').each(function(k,v){
+                            $('.face_right').eq(k).css({ scale: [0.5] });
+                        })
+                    }
+                })
+            }
+            return false;
+        });
+
+
+
+        $('.close.private').live('click', function(){
+            var _d = $(this).parent().attr('id').split('-');
+
+            $('.hc-'+_d[1]).remove();
+            $(this).parent().remove();
+            return false;
+        });
+        $('.close.global').live('click', function(){
+
+            $(this).parent().hide();
+            return false;
+        });
+        function draw(){
+            if(me != null){
+                for(var i=0;i<players.length;i++){
+                    if(me != players[i].id){
+                        players[i].draw();
+                    }
+                }
+                if(player){ player.draw();}
+            }
+        }
+
+        var FPS = 30;
+        setInterval(function() {
+            update();
+            draw();
+
+        }, 1000/FPS);
+
+
+
+        $('.globalchat,.chatroom').click(function(){
+            if($('#chat-general').css('display') == 'block'){
+                $('#chat-general').hide();
+            }else{
+                $('#chat-general').show();
+            }
+            return false;
+        });
+
+        <% if current_user.id == @stage.user_id %>
+
+        setInterval(function(){
+            if($('#playstage').attr('title') == 'Start performance'){
+
+                if($('#playstage').attr('class') == 'shine'){
+                    $('#playstage').removeClass('shine');
+                }else{
+                    $('#playstage').addClass('shine');
+                }
+            }
+        }, 700);
+        setInterval(function() {
+
+            $.ajax({
+                type: "GET",
+                url: "/totaltips/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>",
+                success: function(data){
+                    if(data){
+                        $('.number_tips').html(parseInt(data));
+                    }else{
+                        $('.number_tips').html(0);
+                    }
+
+                }
+            });
+        }, 5000);
+
+        var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>" };
+        var params = { allowscriptaccess: "always"};
+
+        swfobject.embedSWF("http://beta.theopenhat.com/stageSender.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
+        <% else %>
+        $(document).scrollTop(700);
+        var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>"};
+        var params = { allowscriptaccess: "always", allowFullScreen: "true"};
+
+        swfobject.embedSWF("http://beta.theopenhat.com/stagePlayer.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
+        <% end %>
+
+
+
+
+        $('#playstage').click(function(){
+            if($(this).attr('title') == 'Resume performance'){
+                $(this).attr('title', 'Pause performance');
+                $(this).html('<img src="/images/ic_pause.png" width="30" height="26" alt="fullscreen">Pause performance');
+            }else if($(this).attr('title') == 'Pause performance'){
+                $(this).attr('title', 'Resume performance');
+                $(this).html('<img src="/images/ic_play.png" width="30" height="26" alt="fullscreen">Resume performance');
+            }if($(this).attr('title') == 'Start performance'){
+                $(this).attr('title', 'Pause performance');
+                $(this).html('<img src="/images/ic_pause.png" width="30" height="26" alt="fullscreen">Pause performance');
+            }
+            var flashObj = $('#imgb');
+            flashObj[0].sstext();
+            return false;
+        });
+
+
+        $('.textarea2').keypress(function(e) {
+            if (e.keyCode == 13 && !e.shiftKey) {
+                e.preventDefault();
+
+                socket.emit('sendPublic',{c:me, m: $(this).val()});
+                $(this).val('').focus();
+            }
+        });
+
+
+        $('body').click(function(){
+            $('.shadown-top').css('visibility','hidden' );
+            $('.shadown-left').css('visibility','hidden' );
+            $('.shadown-right').css('visibility','hidden' );
+            $('.shadown-layer').css('visibility','hidden' );
+            $('.shadown-bottom').css('visibility','hidden' );
+        });
+
+        $('.featured').each(function(k,v){
+            $('.featured').eq(k).css({ scale: [0.5] });
+        })
+
+        $('.featured').click(function(){
+
+            return false;
+        });
+
+    });
+
+</script>
+<%= javascript_include_tag 'stage' %>
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+
+    <section class="story-col">
+
+
+      <%#= debug @stage %>
+      <h2><%= @stage.room_name %> <span>(<span id="countUser">0</span> online viewers)</span></h2>
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-8778997002815598";
+      /* openhat */
+      google_ad_slot = "4045039566";
+      google_ad_width = 728;
+      google_ad_height = 90;
+      //-->
+      </script>
+      <script type="text/javascript"
+              src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+      <section class="volume">
+        <span class="ico-volumen" rel="50"></span><div id="slider"></div>
+      </section>
+      <% if @stage %>
+          <% if current_user.id != @stage.user_id %>
+              <% f = Follower.find(:first, :conditions => ['leader = ? AND user_id = ?', Digest::MD5.hexdigest(@stage.user_id.to_s), current_user.id]) %>
+              <a href="#" rel="<%= Digest::MD5.hexdigest(@stage.user_id.to_s) %>" class="perfomer" title="<%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %>"><%= (f.nil?)? 'Follow performer' : 'unFollow performer'  %></a>
+
+          <% end %>
+      <% end %>
+      <section class="social">
+        <h3>Share this »</h3>
+        <ul>
+          <li>
+            <a href="https://twitter.com/share?text=I'm performing live ON TheOpenHat" title="twitter" onclick="javascript:window.open(this.href,
+                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" class="twitter-share-button"><img src="/images/ic_twitter.png" width="18" height="26" alt="twitter">
+          </li>
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.theopenhat.com/stage/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" onclick="javascript:window.open(this.href,
+                  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=390,width=600');return false;"  title="facebook" ><img src="/images/ic_facebook.png" width="18"  height="27" alt="facebook" /></a></li>
+          <li><a href="https://plus.google.com/share?url=http://beta.theopenhat.com/stage/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="google+" onclick="javascript:window.open(this.href,
+                  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="/images/ic_google+.png" width="31" height="29" alt="google+"></a></li>
+        </ul>
+      </section>
+      <section class="clear"></section>
+
+    </section>
+    <!-- end story-col -->
+
+    <!-- start video-col -->
+    <section class="video-col">
+      <section class="imgb">
+        <div id="imgb" ></div>
+
+      </section>
+      <!-- start stage-block -->
+      <section class="stage-block">
+        <h3>Your toolkit</h3>
+        <ul>
+          <% if @stage %>
+              <% if @stage.user_id != current_user.id %>
+                  <!--<li><a href="#" title="fullscreen mode" class="fullscreen"><img src="/images/ic_fullscreen.png" width="30" height="26" alt="fullscreen">fullscreen mode</a></li>    -->
+                  <li><a href="#" title="turn off lights" class="turn-light"><img src="/images/ic_light.png" width="30" height="26" alt="light">turn off lights</a></li>
+                  <li><a href="#" title="chat room" class="chatroom"><img src="/images/ic_chat.png" width="30" height="26" alt="chat">chat room</a></li>
+                  <li><a href="<%= send_tips_url(@stage.user_id,@id ) %>" title="send tips" id="tips"><img src="/images/ic_doller.png" width="29" height="29" alt="doller">send tips</a></li>
+                  <li><a href="<%= send_heckle_url %>" title="Heckle" id="heckle"><img src="/images/ic_heckle.png" width="30" height="28" alt="heckle">Heckle<!--<img src="/images/ic_apple.png" width="23" height="28" alt="apple" class="right">--></a></li>
+                  <li class="last"><a href="/report/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Report user" id="report"><img src="/images/ic_report.png" width="30" height="26" alt="camera">report user</a></li>
+              <% else %>
+                  <li><a href="#" title="Start performance" id="playstage"><img src="/images/ic_play.png" width="30" height="26" alt="fullscreen">Start performance</a></li>
+                  <li><a href="/configuration/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Configuration" id="configuration"><img src="/images/ic_config.png" width="30" height="26" alt="fullscreen">Configuration</a></li>
+                  <li><a href="/share/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" id="share_url" title="Share your Link"><img src="/images/ic_share.png" width="30" height="26" alt="fullscreen">Share your link</a></li>
+                  <li><a href="/tippers/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="View your Tippers" id="tippers"><img src="/images/ic_doller.png" width="30" height="26" alt="camera">View your Tippers</a></li>
+                  <li class="last"><a href="#<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Close Stage" id="closeStage" rel="nofollow"><img src="/images/ic_close.png" width="30" height="26" alt="camera">Close Stage</a></li>
+
+              <% end %>
+          <% end %>
+        </ul>
+        <% if @stage.user_id == current_user.id %>
+            <section class="user">
+              <h3>Total Tips Recieved</h3>
+              <span class="number_tips" style="font-size: 21px;">0</span>
+            </section>
+        <% end %>
+        <section class="user">
+          <h3>Featured users</h3>
+
+          <% if !@tippers.nil? %>
+
+              <% @tippers.each do |d| %>
+                  <%
+                     ch = Character.find(:all, :conditions => ['user_id = ?', d.sender])
+                  %>
+
+                  <%
+                     if ch.count == 0
+                  %>
+                      <div class="featured">
+                        <div class="avatar preview avatar-head-1">
+                          <div class="avatar preview avatar-eyes-1"></div>
+                          <div class="avatar preview avatar-nose-1"></div>
+                          <div class="avatar preview avatar-mouth-1"></div>
+                        </div>
+                      </div>
+
+                  <% else %>
+                      <div class="featured">
+                        <% ch.each do |c| %>
+                            <% dd = c.section.split('-') %>
+                            <% if dd[1] == 'head' %>
+                                <div class="avatar preview <%= c.section %>">
+                                  <% if dd[1] == 'head' %>
+                                      <% ch.each do |f| %>
+                                          <% dc = f.section.split('-') %>
+                                          <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                              <div class="avatar preview <%= f.section %>"></div>
+                                          <% end %>
+                                      <% end %>
+                                  <% end %>
+                                </div>
+                            <% end %>
+                        <% end %>
+                      </div>
+                  <% end %>
+              <% end %>
+          <% end %>
+
+        </section>
+
+      </section>
+      <!-- end stage-block -->
+      <section class="clear"></section>
+    </section>
+    <!-- end video-col -->
+    <!-- start crowd-col -->
+    <section class="crowd-col">
+      <div id="playground">
+
+      </div>
+    </section>
+    <!-- end crowd-col -->
+    <section class="clear"></section>
+    <!-- start video-block -->
+    <section class="video-block second">
+      <h3 class="title">Related shows</h3>
+      <ul class="list1">
+        <% ti = 0 %>
+        <% @performance.each do |p| %>
+            <li <%= (ti == 2)? 'class=last' : '' %>>
+              <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="Video" class="video">Video</a>
+
+              <img src="<% if !p.image_file_size.nil? %><%=  p.image(:thumb) %> <% else %> <%= p.user.image(:normal) %> <% end %>" width="241" height="175" alt="video" class="img_sn" />
+              <p>Watch now: <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="<%= p.room_name %>"><%= p.room_name %></a></p>
+            </li>
+            <% ti = ti + 1 %>
+        <% end %>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end video-block -->
+
+    <section class="clear"></section>
+    <% if !@performance_random.nil? %>
+        <!-- start bottom-link -->
+
+        <nav class="bottom-link">
+          <ul>
+            <li>random performers:</li>
+            <% countRandom = 1 %>
+            <%  @performance_random.each do |rp| %>
+                <li><a href="/profile/<%= Digest::MD5.hexdigest(rp.user_id.to_s) %>" title="<%= rp.user.name %>"><%= rp.user.name %></a></li>
+                <% if @performance_random.count !=  countRandom %>
+                    <li>/</li>
+                <% end %>
+                <% countRandom = countRandom + 1 %>
+            <% end %>
+          </ul>
+          <section class="clear"></section>
+        </nav>
+        <!-- end bottom-link -->
+    <% end %>
+  </section>
+  <!-- end box -->
+</article>

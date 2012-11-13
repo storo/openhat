@@ -1,0 +1,103 @@
+<!-- start showcase -->
+<section class="box">
+<article id="container">
+  <section class="breadcrumb">
+    <ul>
+      <li class="first"><a href="/" title="Home"><%= image_tag 'ic_home.png', :alt => 'home'  %> </a></li>
+      <li><a href="/all" title="All Stages">All Stages</a></li>
+    </ul>
+    <section class="clear"></section>
+  </section>
+  <!-- end breadcrumb -->
+  <!-- start featured-col -->
+  <!--<section class="featured-col">
+    <h3 class="title">Featured performances</h3>
+    <section class="icons">&nbsp;</section>
+    <section class="perfomance-block">
+      <%= image_tag 'img_perfomance.jpg', :alt => 'img', :class => 'left' %>
+      <section class="imgb2 left"><span class="caption">Saturday night life</span><%= image_tag 'img_perfomance2.jpg', :alt => 'img' %></section>
+      <section class="imgb3 left"><span class="caption">bomboox</span><%= image_tag  'img_perfomance3.jpg', :alt => 'img' %></section>
+      <section class="imgb4 left"><span class="caption">natch d</span><%= image_tag 'img_perfomance4.jpg', :alt => 'img' %></section>
+    </section>
+  </section>    -->
+  <!-- end featured-col -->
+ <!--<section class="clear"></section> -->
+  <!-- start video-block -->
+
+  <section class="video-block second">
+    <h3 class="title">All shows</h3>
+    <% if @stages.nil? %>
+
+        <h2 class="message_nofound">There are currently no actives stages in this category</h2>
+    <% else %>
+    <ul class="list1">
+      <% ti = 0 %>
+      <% @stages.each do |p| %>
+          <li <%= (ti == 2)? 'class=last' : '' %>>
+            <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="Video" class="video">Video</a>
+
+            <img src="<% if !p.image_file_size.nil? %><%=  p.image(:thumb) %> <% else %> <%= p.user.image(:normal) %> <% end %>" width="241" height="175" alt="video" class="img_sn" />
+            <p>Watch now: <a href="/stage/<%= Digest::MD5.hexdigest(p.id.to_s)[0,11] %>" title="<%= p.room_name %>"><%= p.room_name %></a></p>
+          </li>
+          <% ti = ti + 1 %>
+      <% end %>
+    </ul>
+     <% end %>
+    <section class="clear"></section>
+  </section>
+  <!-- end video-block -->  <!--
+  <section class="clear"></section>      -->
+  <!-- start video-block -->
+  <!---<section class="video-block second">
+    <h3 class="title">New performances <a href="#" title="view all">(view all)</a></h3>
+    <ul class="list1">
+      <li>
+        <a href="#" title="Video" class="video">Video</a>
+        <%= image_tag 'img_video.jpg', :alt => 'video' %>
+        <p>Watch now: <a href="#" title="Cobra Starship Feat. Fall out boy">Cobra Starship Feat. Fall out boy</a></p>
+      </li>
+      <li>
+        <a href="#" title="Video" class="video">Video</a>
+        <%= image_tag 'img_video2.jpg', :alt => 'video' %>
+        <p>Watch now: <a href="#" title="Lykke Li live on Denmark">Lykke Li live on Denmark</a></p>
+      </li>
+      <li class="last">
+        <a href="#" title="Video" class="video">Video</a>
+        <%= image_tag 'img_video3.jpg', :alt => 'video' %>
+        <p>Watch now: <a href="#" title="Drake love in Washington DC">Drake love in Washington DC</a></p>
+      </li>
+    </ul>
+    <section class="clear"></section>
+  </section>    -->
+  <!-- end video-block -->
+  <!-- start arrow-button -->
+  <!--
+  <section class="arrow-button">
+    <a href="#" title="Next Performers" class="right">Next Performers<span></span></a>
+    <a href="#" title="Previous Performers" class="left"><span></span>Previous Performers</a>
+  </section>                    -->
+  <!-- end arrow-button -->
+  <section class="clear"></section>
+  <% if !@performance_random.nil? %>
+      <!-- start bottom-link -->
+
+      <nav class="bottom-link">
+        <ul>
+          <li>random performers:</li>
+          <% countRandom = 1 %>
+          <%  @performance_random.each do |rp| %>
+              <li><a href="/profile/<%= Digest::MD5.hexdigest(rp.user_id.to_s) %>" title="<%= rp.user.name %>"><%= rp.user.name %></a></li>
+              <% if @performance_random.count !=  countRandom %>
+                  <li>/</li>
+              <% end %>
+              <% countRandom = countRandom + 1 %>
+          <% end %>
+        </ul>
+        <section class="clear"></section>
+      </nav>
+      <!-- end bottom-link -->
+  <% end %>
+  <!-- end bottom-link -->
+  </section>
+</article>
+</section>

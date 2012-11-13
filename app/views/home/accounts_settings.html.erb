@@ -50,7 +50,10 @@
 
               <input type="file" class="upload" id="user_pic" name="user[image]" />
               <input type="text" id="user_pic_fake"  value="" class="form-input-file" style="margin-left: 2px"  />
-              <%= image_tag current_user.image('thumb'), :width => 75, :height => 75, :alt => current_user.name %>
+              <%= image_tag (!current_user.image_fb.nil? && current_user.image_file_size.nil? )? current_user.image_fb: current_user.image('thumb'), :width => 75, :height => 75, :alt => current_user.name %>
+
+
+
             </section>
             <section class="clear"></section>
           </section>
@@ -122,23 +125,35 @@
     <!-- end tab1 -->
     <!-- start tab1 -->
     <section id="privacy" class="tab-detail">
-      <form action="#" class="form-information">
+
+        <%= form_tag("/saveprivacy", :method => "post", :class => 'form-information', :id => 'form-user-privacy')  do %>
         <section class="rowline">
           <h3>Privacy settings</h3>
           <p>Let us know when you would like us to email you by ticking the boxes below...</p>
+
+          <%
+            pri = Privacy.find(:first, :conditions => ['user_id = ?', current_user.id], :order => 'id DESC')
+          %>
+          <% if session[:saveprivacy] %>
+              <div class="warning">
+                <a class="close" href="#">X</a>
+                <p><%=  session[:saveprivacy] %></p>
+              </div>
+              <% session[:saveprivacy] = nil %>
+          <% end %>
           <section class="clear"></section>
           <section class="row">
             <section class="td1 left"></section>
             <section class="td2 left" style="width:450px;">
-              <label><span class="checkbox"><input name="checkbox" type="checkbox" value="" checked="checked" /></span>When a user sends you a direct message</label>
+              <label><span class="checkbox"><input name="privacy[option1]" type="checkbox" value="1" <%= (!pri.nil?)? ((pri.option1 == 1)? 'checked="checked"' : '' ): "" %> /></span>When a user sends you a direct message</label>
               <section class="clear"></section>
-              <label><span class="checkbox"><input name="checkbox" type="checkbox" value="" checked="checked" /></span>When a user friends you</label>
+              <label><span class="checkbox"><input name="privacy[option2]" type="checkbox" value="1" <%= (!pri.nil?)? ((pri.option2 == 1)? 'checked="checked"' : '' ): "" %> /></span>When a user friends you</label>
               <section class="clear"></section>
-              <label><span class="checkbox"><input name="checkbox" type="checkbox" value="" checked="checked" /></span>When a user follows your performance schedule</label>
+              <label><span class="checkbox"><input name="privacy[option3]" type="checkbox" value="1" <%= (!pri.nil?)? ((pri.option3 == 1)? 'checked="checked"' : '' ): "" %> /></span>When a user follows your performance schedule</label>
               <section class="clear"></section>
-              <label><span class="checkbox"><input name="checkbox" type="checkbox" value="" checked="checked" /></span>When a followed performer schedules a show</label>
+              <label><span class="checkbox"><input name="privacy[option4]" type="checkbox" value="1" <%= (!pri.nil?)? ((pri.option4 == 1)? 'checked="checked"' : '' ): "" %> /></span>When a followed performer schedules a show</label>
               <section class="clear"></section>
-              <label><span class="checkbox"><input name="checkbox" type="checkbox" value="" checked="checked" /></span>Weekly updates from The Open Hat</label>
+              <label><span class="checkbox"><input name="privacy[option5]" type="checkbox" value="1" <%= (!pri.nil?)? ((pri.option5 == 1)? 'checked="checked"' : '' ): "" %> /></span>Weekly updates from The Open Hat</label>
               <section class="clear"></section>
             </section>
             <section class="clear"></section>
@@ -147,10 +162,10 @@
             <section class="td1 left"></section>
             <section class="td2 left" style="width:450px;">
                <label>Who can send you private messages </label>
-              <select class="form-input-select" id="privacy_option_6" name="privacy[option_6]" style="margin-left: 2px;">
-                <option>Select option</option>
-                <option>All my followers</option>
-                <option>Only users I follow back</option>
+              <select class="form-input-select" id="privacy_option_6" name="privacy[option6]" style="margin-left: 2px;">
+                <option value="" >Select option</option>
+                <option <%= (!pri.nil?)? ((pri.option6 == 'All my followers')? 'selected="selected"' : '' ): "" %>>All my followers</option>
+                <option <%= (!pri.nil?)? ((pri.option6 == 'Only users I follow back')? 'selected="selected"' : '' ): "" %>>Only users I follow back</option>
               </select>
 
               <section class="clear"></section>
@@ -159,11 +174,11 @@
           </section>
 
       </section>
-      </form>
+      <% end %>
       <section class="creative-block">
         <section class="clear"></section>
 
-        <a href="#" class="button button2" title="Save" id="save-privacy">Save</a>
+        <a href="#privacy" class="button button2" title="Save" id="save-privacy" onclick="document.getElementById('form-user-privacy').submit();">Save</a>
       </section>
     </section>
     <!-- end tab1 -->
@@ -200,7 +215,9 @@
                 <% else %>
                     <% @character.each do |d| %>
                         <% section = d.section.split('-') %>
-
+                        <% if section[1] == 'head' && (section[2] == '43' || section[2] == '44' || section[2] == '45') %>
+                                <script>$(document).ready(function(){  $('.tabnav2 li').eq(1).hide();})</script>
+                        <% end %>
                         <% if section[1] == 'head' %>
                             <div class="avatar box-avatar <%= d.section %>"></div>
                         <% end  %>
@@ -430,8 +447,13 @@
               <h3>Tokens, Stores and Statement</h3>
               <p>You can use credits to tip or heckle performers and to purchase other fun stuff on The Open Hat. Below is your current credit balance and statement...</p>
 
-              <p class="now_tokens">You have (<%= @t %>) credits</p>
+              <p class="now_tokens">You have (<span class="current_tokens"><%= @t %></span>) tokens
 
+              </p>
+              <% if @t >= 160 %>
+              <p class="now_tokens"><a href="/cashout"  class="cashout">Cash out tokens</a>
+              </p>
+              <% end %>
               <h3>Buy Tokens</h3>
               <p>select package of tokens to buy</p>
               <% @tokens.each do |d| %>
@@ -468,7 +490,8 @@
                         <span class="flower"></span>
                         <div class="box-textbottom">
                           <p>10 Flowers x 1 Token</p>
-                          <a href="#flower-1-10" class="buy_heckle">Buy</a>
+                          <button rel="flower-1-10" class="buy_heckle">Buy</button>
+
                         </div>
 
                     </section>
@@ -477,30 +500,50 @@
                         <span class="tomato"></span>
                         <div class="box-textbottom">
                             <p>10 Tomatos x 1 Token</p>
-                            <a href="#tomato-1-10" class="buy_heckle">Buy</a>
+                            <button rel="tomato-1-10" class="buy_heckle">Buy</button>
                         </div>
                     </section>
                     <section class="token_item tabs">
                         <p>Pants</p>
                         <span class="pants"></span>
                         <div class="box-textbottom">
-                            <p>10 Pants x 2 Token</p>
-                            <a href="#pants-2-10" class="buy_heckle">Buy</a>
+                            <p>10 Pants x 2 Tokens</p>
+                          <button rel="pants-2-10" class="buy_heckle">Buy</button>
+
                         </div>
                     </section>
                     <section class="token_item tabs">
                         <p>Chickens</p>
                         <span class="chicken"></span>
                         <div class="box-textbottom">
-                            <p>10 Chickens x 2 Token</p>
-                            <a href="#chicken-2-10" class="buy_heckle">Buy</a>
+                            <p>10 Chickens x 2 Tokens</p>
+                          <button rel="chicken-2-10" class="buy_heckle">Buy</button>
+
                         </div>
                     </section>
                 </div>
               <!-- end tab1 -->
               <!-- start tab1 -->
                 <div id="stages" class="tab-detail3">
+                  <section class="stages_item tabs">
+                    <p>Wood</p>
+                    <img src="/images/ec-3.png" />
+                    <div class="box-textbottom">
+                      <p>10 Tokens</p>
+                      <% pool = 0 %>
+                      <% if !@stage_item.nil? %>
+                      <% @stage_item.each do |si| %>
+                            <% if si.item.to_i == 3 %>
+                                 <% pool = 1 %>
+                            <% end %>
+                      <% end %>
+                      <% end %>
+                      <% if pool == 0 %>
+                          <button rel="wood-3-10" class="buy_stage">Buy</button>
 
+                      <% end %>
+                      </div>
+                  </section>
 
                 </div>
               <!-- end tab1 -->
@@ -572,18 +615,29 @@
 
           </section>
         </form>
+        </section>
         <section class="creative-block">
           <section class="clear"></section>
 
           <a href="#" class="button button2" title="Save" id="save-billing">Save</a>
         </section>
-      </div>
+
     </section>
     <section id="friends" class="tab-detail">
       <form action="#" class="form-information">
         <section class="rowline">
           <h3>Friends</h3>
           <p>Here are all your friends and followed performers on The Open Hat so you can keep an eye on what they are up to....</p>
+           <div>
+             <% Follower.find(:all, :conditions => ['user_id = ?',current_user.id ]).each do |fr| %>
+                   <% f = User.find(:first, :conditions => ['md5(id) = ?', fr.leader]) %>
+                   <div class="friend">
+                     <img src="<%= f.image('thumb') %>" alt="">
+                     <a href="/profile/<%= fr.leader %>"><%= f.name %></a>
+                  </div>
+             <% end %>
+           </div>
+
         </section>
        </form>
     </section>
@@ -594,29 +648,25 @@
 <!-- end tab-block -->
 <section class="clear"></section>
 <!-- start bottom-link -->
-<nav class="bottom-link">
-  <ul>
-    <li>random performers:</li>
-    <li><a href="#" title="SNL Club">SNL Club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-    <li>/</li>
-    <li><a href="#" title="Kanye west">Kanye west</a></li>
-    <li>/</li>
-    <li><a href="#" title="Theatre club">Theatre club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Comedy Club">Comedy Club</a></li>
-    <li>/</li>
-    <li><a href="#" title="Björk">Björk</a></li>
-    <li>/</li>
-    <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
-    <li>/</li>
-    <li><a href="#" title="GOW">GOW</a></li>
-    <li>/</li>
-    <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-  </ul>
-  <section class="clear"></section>
-</nav>
+<% if !@performance_random.nil? %>
+    <!-- start bottom-link -->
+
+    <nav class="bottom-link">
+      <ul>
+        <li>random performers:</li>
+        <% countRandom = 1 %>
+        <%  @performance_random.each do |rp| %>
+            <li><a href="/profile/<%= Digest::MD5.hexdigest(rp.user_id.to_s) %>" title="<%= rp.user.name %>"><%= rp.user.name %></a></li>
+            <% if @performance_random.count !=  countRandom %>
+                <li>/</li>
+            <% end %>
+            <% countRandom = countRandom + 1 %>
+        <% end %>
+      </ul>
+      <section class="clear"></section>
+    </nav>
+    <!-- end bottom-link -->
+<% end %>
 <!-- end bottom-link -->
 </section>
 <!-- end box -->

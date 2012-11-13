@@ -322,6 +322,27 @@
     background-size: 5700%;
     margin-left: 31px;
 }
+.box-avatar.avatar-head-43{
+    background-position: -3537px -7px;
+    width: 80px;
+    height: 90px;
+    background-size: 5700%;
+    margin-left: 31px;
+}
+.box-avatar.avatar-head-44{
+    background-position: -2666px 4px;
+    width: 80px;
+    height: 90px;
+    background-size: 4200%;
+    margin-left: 31px;
+}
+.box-avatar.avatar-head-45{
+    background-position: -3727px -8px;
+    width: 80px;
+    height: 90px;
+    background-size: 5700%;
+    margin-left: 31px;
+}
 .box-avatar.avatar-jacket-1{
 	background-position: -4px -169px;
 	width: 127px;
@@ -1410,8 +1431,70 @@
     z-index: 2;
     background-size: 5000px;
 }
+
 .preview.avatar-head-42{
     background-position: -3791px 8px;
+    width: 84px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 127px;
+    z-index: 2;
+    background-size: 5000px;
+}
+.preview.avatar-head-43{
+    background-position: -3964px 17px;
+    width: 84px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 127px;
+    z-index: 2;
+    background-size: 5107px;
+}
+.preview.avatar-head-44{
+    background-position: -3966px 8px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 113px;
+    z-index: 2;
+    background-size: 5000px;
+}
+.preview.avatar-head-45{
+    background-position: -4086px 19px;
+    width: 84px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 127px;
+    z-index: 2;
+    background-size: 5000px;
+}
+
+.players .preview.avatar-head-43{
+    background-position: -3880px 8px;
+    width:84px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 133px;
+    z-index: 2;
+    background-size: 5000px;
+}
+.players .preview.avatar-head-44{
+    background-position: -3965px 8px;
+    width: 110px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    right: 113px;
+    z-index: 2;
+    background-size: 5000px;
+}
+.players .preview.avatar-head-45{
+    background-position: -4070px 19px;
     width: 84px;
     height: 120px;
     position: absolute;
@@ -1502,7 +1585,7 @@
     background-size: 5000px;
 }
 .preview.avatar-jacket-9{
-    background-position: -990px -191px;
+    background-position: -1130px -191px;
     width: 138px;
     height: 104px;
     position: absolute;

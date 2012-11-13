@@ -5,21 +5,34 @@
     <section class="Left-side">
       <!-- start img-block -->
       <section class="img-block">
-        <a href="#" class="icon"><%= image_tag 'ic_image.png', :alt => 'icon' %></a>
+
         <section class="frame">&nbsp;</section>
-        <%= image_tag @user.image.gsub("square", "large"), :width => 298, :height => 350, :alt => @user.name %>
+        <% if !@user.image_fb.nil? %>
+            <%= image_tag @user.image_fb.gsub("square", "large"), :width => 298, :height => 350, :alt => @user.name %>
+        <% else %>
+            <%= image_tag @user.image('profile'), :width => 298, :height => 350, :alt => @user.name %>
+        <% end %>
       </section>
       <!-- end img-block -->
       <section class="clear"></section>
       <!-- start follow us -->
       <section class="follow-us">
+        <%
+            rates = Rate.find(:all, :conditions => ['performer = ?', @user.id])
+            rate = 0
+            rates.each do |r|
+
+            end
+
+        %>
+        <p>Rate this performer <span class="rate" date-rating="<%= rate %>"></span></p>
         <h3><%= @followers.count%>  followers</h3>
         <%
            if @followers.count > 0
              @followers.each do |f|
         %>
                 <div class="follower">
-                  <%= link_to(image_tag(f.user.image, :alt => f.user.name), public_profile_path( Digest::MD5.hexdigest(f.user.id.to_s)))  %>
+                  <%= link_to(image_tag((!f.user.image_fb.nil? && f.user.image_file_size.nil? )? f.user.image_fb: f.user.image('thumb'), :alt => f.user.name, :width => '50'), public_profile_path( Digest::MD5.hexdigest(f.user.id.to_s)))  %>
                 </div>
             <% 		end
                        else
@@ -34,10 +47,43 @@
     <section class="Right-side">
       <!-- start profile -->
       <section class="profile">
-        <%= image_tag 'img_cartoon.png', :alt => 'cartoon', :class => 'cartoon' %>
+        <div style="position: absolute;right: 70px;">
+          <%
+             if @character.count == 0
+          %>
+              <div class="avatar preview avatar-head-1">
+                <div class="avatar preview avatar-eyes-1"></div>
+                <div class="avatar preview avatar-nose-1"></div>
+                <div class="avatar preview avatar-mouth-1"></div>
+              </div>
+              <div class="avatar preview avatar-jacket-1"></div>
+              <div class="avatar preview avatar-legs-1"></div>
+              <div class="avatar preview avatar-feet-1"></div>
+
+          <% else %>
+              <% @character.each do |d| %>
+                  <% dd = d.section.split('-') %>
+                  <% if dd[1] == 'head' || dd[1] == 'jacket' || dd[1] == 'legs' || dd[1] == 'feet' %>
+                      <div class="avatar preview <%= d.section %>">
+                        <% if dd[1] == 'head' %>
+                            <% @character.each do |c| %>
+                                <% dc = c.section.split('-') %>
+                                <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                    <div class="avatar preview <%= c.section %>"></div>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                  <% end %>
+              <% end %>
+
+
+
+          <% end %>
+        </div>
         <section class="rowline">
           <h2><%= @user.name%></h2>
-          <span><%= image_tag 'ic_location.png', :alt => 'location' %>Bristol <%= image_tag 'img_doller.png', :alt => 'doller' %>0 available tokens</span>
+          <span><% if !@user.hometown.nil? %><%= image_tag 'ic_location.png', :alt => 'location' %><%= @user.hometown%><% end %></span>
           <h3>About me</h3>
           <p><%= @user.about%> </p>
         </section>
@@ -45,9 +91,9 @@
         <% if current_user %>
             <% f = Follower.find(:first, :conditions => ['user_id = ? AND leader = ?',current_user.id,Digest::MD5.hexdigest(@user.id.to_s) ]) %>
             <% if f.nil? %>
-                <section class="button"><%= link_to 'follow', follow_path(Digest::MD5.hexdigest(@user.id.to_s)) %></section>
+                <section class="button"><%= link_to 'follow', '#', :class => 'perfomer', :title => Digest::MD5.hexdigest(@user.id.to_s) %></section>
             <% else  %>
-                <section class="button"><%= link_to 'unfollow', unfollow_path(Digest::MD5.hexdigest(@user.id.to_s)) %></section>
+                <section class="button"><%= link_to 'unfollow', '#', :class => 'perfomer', :title => Digest::MD5.hexdigest(@user.id.to_s) %></section>
             <% end %>
 
             <section class="button button2"><a href="#" title="send message">send message</a></section>
@@ -60,36 +106,20 @@
       <section class="activity">
         <h3>Recent activiy</h3>
         <ul>
-          <li>
-            <%= image_tag 'img_activity.jpg', :alt => 'activity' %>
-            <span class="date">6 days ago</span>
-            <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-            <section class="clear"></section>
-          </li>
-          <li>
-            <%= image_tag 'img_activity2.jpg', :alt => 'activity' %>
-            <span class="date">6 days ago</span>
-            <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-            <section class="clear"></section>
-          </li>
-          <li>
-            <%= image_tag 'img_activity3.jpg', :alt => 'activity' %>
-            <span class="date">6 days ago</span>
-            <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-            <section class="clear"></section>
-          </li>
-          <li>
-            <%= image_tag 'img_activity4.jpg', :alt => 'activity' %>
-            <span class="date">6 days ago</span>
-            <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-            <section class="clear"></section>
-          </li>
-          <li>
-            <%= image_tag 'img_activity.jpg', :alt => 'activity' %>
-            <span class="date">6 days ago</span>
-            <p><strong><a href="#" title="Peter Jacobson">Peter Jacobson</a></strong> likes <strong>Burberry Prorsum Menswear AutumnWinter 12 Show</strong></p>
-            <section class="clear"></section>
-          </li>
+          <%
+             activity = Activity.find(:all, :limit => 5, :conditions => ['user_id = ?', @user.id])
+             activity.each do |act|
+               sss = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', act.stage_id ])
+          %>
+              <li>
+                <img src="<%= sss.image(:thumb) %>" width="100" height="75" alt="activity">
+                <span class="date">6 days ago</span>
+                <p><%= act.description.html_safe %></p>
+                <section class="clear"></section>
+              </li>
+
+          <% end %>
+
         </ul>
       </section>
       <!-- end activity -->
@@ -97,29 +127,7 @@
     <!-- end right side -->
     <section class="clear"></section>
     <!-- start bottom-link -->
-    <nav class="bottom-link">
-      <ul>
-        <li>random performers:</li>
-        <li><a href="#" title="SNL Club">SNL Club</a></li>
-        <li>/</li>
-        <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-        <li>/</li>
-        <li><a href="#" title="Kanye west">Kanye west</a></li>
-        <li>/</li>
-        <li><a href="#" title="Theatre club">Theatre club</a></li>
-        <li>/</li>
-        <li><a href="#" title="Comedy Club">Comedy Club</a></li>
-        <li>/</li>
-        <li><a href="#" title="Björk">Björk</a></li>
-        <li>/</li>
-        <li><a href="#" title="Parrell Williams">Parrell Williams</a></li>
-        <li>/</li>
-        <li><a href="#" title="GOW">GOW</a></li>
-        <li>/</li>
-        <li><a href="#" title="Lykke Li">Lykke Li</a></li>
-      </ul>
-      <section class="clear"></section>
-    </nav>
+
     <!-- end bottom-link -->
   </section>
   <!-- end box -->

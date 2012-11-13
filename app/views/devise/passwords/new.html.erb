@@ -1,12 +1,37 @@
-<h2>Forgot your password?</h2>
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+    <!-- start breadcrumb -->
+    <section class="breadcrumb inner">
+      <ul>
+        <li class="first"> <%= link_to(image_tag('ic_home.png', :alt => 'home'),root_path, :title => 'Home') %></li>
+        <li><%= link_to 'Login', login_path, :title => 'Login' %></li>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end breadcrumb -->
+    <!-- start register-form -->
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post,  :class => 'register-form'}) do |f| %>
+        <%= devise_error_messages! %>
+        <section class="rowline">
+          <h2>Forgot your password</h2>
+          <p>&nbsp;</p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+        </section>
+        <%= f.email_field :email, :class => 'input', :placeholder => 'Email' %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+        <input name="submit" type="submit" value="Send" class="button">
+    <% end %>
+    <!-- end register-form -->
+    <!-- start design-block -->
+    <section class="design-block">
+      <%=  image_tag 'img_cartoon2.png', :alt => 'cartoon' %>
+      <h3>Design your character!</h3>
+      <p>Everyone has their own unique personality and you can reflect that in The Open Hat. Once logged in go to the settings tab to design a character that represents you.</p>
+    </section>
+    <!-- end design-block -->
+    <section class="clear"></section>
 
-<%= render "devise/shared/links" %>
+  </section>
+</article>

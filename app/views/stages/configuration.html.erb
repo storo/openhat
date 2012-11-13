@@ -86,10 +86,24 @@
   <p>Change stage background.</p>
   <div class="box-form">
     <section class="td2 left" style="width:200px;margin-top: -42px;margin-left: 94px;">
+      <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="4" <% if @stage.design.to_i == 4 %>checked="checked"<% end %>></span><%= image_tag('ec-4.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
+      <section class="clear"></section>
       <label><span class="checkbox"><input name="stage[design]"  class="design" type="radio" value="1" <% if @stage.design.to_i == 1 %>checked="checked"<% end %>></span><%= image_tag('ec-1.png', :width => 160,:style => 'float: right;margin-bottom: 10px;') %></label>
       <section class="clear"></section>
       <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="2" <% if @stage.design.to_i == 2 %>checked="checked"<% end %>></span><span class="brown"><%= image_tag('ec-2.png', :width => 160,:style => 'float: right;') %></span></label>
       <section class="clear" style="height: 20px;"></section>
+      <% pool = 0 %>
+      <% if !@stage_item.nil? %>
+          <% @stage_item.each do |si| %>
+              <% if si.item.to_i == 3 %>
+                  <% pool = 1 %>
+              <% end %>
+          <% end %>
+      <% end %>
+      <% if pool == 0 %>
+          <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="3"></span><span class="brown"><%= image_tag('ec-3.png', :width => 160,:style => 'float: right;') %></span></label>
+          <section class="clear" style="height: 20px;"></section>
+      <% end %>
       <label><span class="checkbox"><input name="stage[design]" class="design" type="radio" value="0" <% if @stage.design.to_i == 0 %>checked="checked"<% end %>></span><span><strong>no design</strong></span></label>
 
     </section>

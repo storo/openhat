@@ -1,22 +1,11 @@
 <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.copy.js"></script>
 <script type="text/javascript" >
     $(document).ready(function(){
-        $('.button').click(function(){
-            var _dataTosend = {'data' : {'id': <%= @id %>, 'tokens' : $('.text').val(), 'sender' :<%= current_user.id %>, 'stage' : '<%= @stage %>' }};
-            var request = $.ajax({
-                type: "GET",
-                url: "/sendtip",
-                dataType: "text",
-                data: _dataTosend,
-                success: function(data){
-                    $('.text-tip span').html(parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
-                    $('.text').attr('rel',parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
-                    parent.$(parent.document).trigger("sendTips");
-                }
-            });
 
-
-            return false;
+        $('.button').zclip({
+            path:'/ZeroClipboard.swf',
+            copy:$('.text').val()
         });
     });
 </script>
@@ -99,6 +88,7 @@
             padding: 0;
         }
         .social ul li{
+            float: left;
             padding: 2px 23px 0px 0px;
         }
 </style>
@@ -109,7 +99,7 @@
   </div>
 
   <div class="box-form">
-    <input type="text" name="url"  readonly="readonly" class="text" value="http://beta.theopenhat.com/stage/<%= @id %>"  />
+    <input type="text" name="url"  class="text" value="http://beta.theopenhat.com/stage/<%= @id %>"  />
 
     <button class="button">Copy!</button>
 
@@ -117,7 +107,7 @@
       <h3>Share this »</h3>
       <ul>
         <li>
-          <a href="https://twitter.com/share?url=http://beta.theopenhat.com/stage/<%= @id %>&text=I'm performing live in TheOpenHat" title="twitter" onclick="javascript:window.open(this.href,
+          <a href="https://twitter.com/share?url=http://beta.theopenhat.com/stage/<%= @id %>&text=I'm performing live ON TheOpenHat" title="twitter" onclick="javascript:window.open(this.href,
                   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" class="twitter-share-button"><img src="/images/ic_twitter.png" width="18" height="26" alt="twitter"></a></li>
         <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.theopenhat.com/stage/<%= @id %>" onclick="javascript:window.open(this.href,
                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=390,width=600');return false;"  title="facebook" ><img src="/images/ic_facebook.png" width="18"  height="27" alt="facebook" /></a></li>

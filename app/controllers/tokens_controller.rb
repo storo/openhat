@@ -116,6 +116,47 @@ class TokensController < ApplicationController
     render :text => text
   end
 
+  def buystages
+    if current_user
+      tokens = MyToken.find(:all, :conditions => ['user_id = ?',current_user.id])
+      @t = 0
+      tokens.each do |d|
+        if d.operation.nil?
+          @t += d.amount.to_i
+        else
+          @t -= d.amount.to_i
+        end
+      end
+
+      if @t <= 0
+        text = '300'
+      else
+        if @t >= params[:tokens].to_i
+          element = StageItem.new
+          element.item = params[:item]
+          element.user_id = current_user.id
+          element.amount = params[:tokens]
+          element.save!
+
+          mytoken = MyToken.new
+          mytoken.amount = params[:tokens]
+          mytoken.user_id = current_user.id
+          mytoken.operation = '-'
+          mytoken.description  = 'buy heckle "' + params[:stage] + '"  tokens: ' + params[:tokens]
+          mytoken.save!
+
+          text = '200'
+        else
+          text = '300'
+        end
+      end
+    else
+      text = '500'
+    end
+
+    render :text => text
+  end
+
   def discountHeckle
       element = ElementStage.new
       element.types = params[:heckle]

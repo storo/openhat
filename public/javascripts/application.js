@@ -76,7 +76,7 @@ $(function() {
                  //alert( msg );
              });
 
-         }else if(title = 'unFollow performer'){
+         }else if(title == 'unFollow performer'){
              $(this).attr('title', 'Follow performer');
              $(this).html('Follow performer');
 
@@ -89,6 +89,25 @@ $(function() {
              });
          }
 
+        if($(this).html() == 'follow'){
+            $(this).html('unfollow');
+            $.ajax({
+                type: "GET",
+                url: "/follow/" + $(this).attr('title'),
+                dataType: "json"
+            }).done(function( msg ) {
+                    //alert( msg );
+                });
+        }else if($(this).html() == 'unfollow'){
+            $(this).html('follow');
+            $.ajax({
+                type: "GET",
+                url: "/unfollow/" + $(this).attr('title'),
+                dataType: "json"
+            }).done(function( msg ) {
+                    //alert( msg );
+                });
+        }
 
          return false;
     });
@@ -148,7 +167,8 @@ $(function() {
 
 
 
-	$("a.watch").colorbox({close:'X',html: '<iframe src="http://player.vimeo.com/video/47028824" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'});
+	//$("a.watch").colorbox({close:'X',html: '<iframe src="http://player.vimeo.com/video/47028824" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'});
+    $("a.watch").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
     $("#heckle").colorbox({iframe:true, innerWidth:500, innerHeight:444,close:'X'});
     $("#tips").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
     $("#report").colorbox({iframe:true, innerWidth:500, innerHeight:344,close:'X'});
@@ -157,6 +177,8 @@ $(function() {
     $("#share_url").colorbox({iframe:true, innerWidth:500, innerHeight:370,close:'X'});
     $("#configuration").colorbox({iframe:true, innerWidth:500, innerHeight:390,close:'X'});
     $("#tippers").colorbox({iframe:true, innerWidth:500, innerHeight:390,close:'X'});
+    $(".cashout").colorbox({iframe:true, innerWidth:500, innerHeight:390,close:'X'});
+    $(".modaltc").colorbox({iframe:true, innerWidth:500, innerHeight:390,close:'X'});
 
 
     $('#closeStage').click(function(){
@@ -172,7 +194,7 @@ $(document).ready(function() {
 
 
     $("#makeStage").validate();
-    var countHead = 42, countJacket = 33, countLegs = 22, countFeet = 3, countEyes = 11, countNose = 11, countMouth = 10 ;
+    var countHead = 45, countJacket = 33, countLegs = 22, countFeet = 3, countEyes = 11, countNose = 11, countMouth = 10 ;
 
     $('a.close').click(function(){
        $(this).parent().fadeOut();
@@ -187,6 +209,13 @@ $(document).ready(function() {
             case 'head':
 
                 if(_d[2] < countHead){
+
+                   if(_d[2] == 42 || _d[2] == 43 || _d[2] == 44){
+                       $('.tabnav2 li').eq(1).hide();
+                   }else{
+                       $('.tabnav2 li').eq(1).show();
+                   }
+
                    $('.'+_d[0]+'-'+_d[1]+'-'+_d[2]).addClass(_d[0]+'-'+_d[1]+'-'+(parseInt(_d[2])+1)).removeClass(_d[0]+'-'+_d[1]+'-'+_d[2]);
 
                 }
@@ -232,6 +261,12 @@ $(document).ready(function() {
         var _d = $.trim($(this).parent().find('div').attr('class').replace('avatar','').replace('box-avatar','')).split('-');
 
         if(_d[2] > 1){
+
+            if( _d[2] == 44 || _d[2] == 45){
+                $('.tabnav2 li').eq(1).hide();
+            }else{
+                $('.tabnav2 li').eq(1).show();
+            }
             $('.'+_d[0]+'-'+_d[1]+'-'+_d[2]).addClass(_d[0]+'-'+_d[1]+'-'+(parseInt(_d[2])-1)).removeClass(_d[0]+'-'+_d[1]+'-'+_d[2]);
         }
 
@@ -382,24 +417,63 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.rate').raty({
+        score: function() {
+            return $(this).attr('data-rating');
+        },
+        starOn  : 'star-on.png',
+        starOff : 'star-off.png',
+        path: '/img/'
+    });
     $('.buy_heckle').click(function(){
-        var cp = $(this).attr('href').split('#')[1].split('-');
+        if(confirm("Are you sure?")){
+            var cp = $(this).attr('rel').split('-');
+            $.ajax({
+                type: "GET",
+                url: "/buy/"+cp[0]+"/"+cp[1]+"/"+cp[2],
+                success: function(data){
+                    if(data == '300'){
+                        alert('Sorry, but you have no tokens');
+                    }else if(data == '500'){
+                        alert('You are not authorized');
+                    }else if(data == '200'){
+                        alert('You now have new items to heckle');
+                        $('.current_tokens').html(parseInt($('.current_tokens').html())-parseInt(cp[1]));
+
+                    }
+
+                }
+
+            });
+        }
+
+
+        return false;
+    });
+    $('.buy_stage').click(function(){
+        if(confirm("Are you sure?")){
+        var elemento = $(this);
+        var cp = $(this).attr('rel').split('-');
         $.ajax({
             type: "GET",
-            url: "/buy/"+cp[0]+"/"+cp[1]+"/"+cp[2],
+            url: "/buystage/"+cp[0]+"/"+cp[1]+"/"+cp[2],
             success: function(data){
-               if(data == '300'){
+                if(data == '300'){
                     alert('Sorry, but you have no tokens');
-               }else if(data == '500'){
+                }else if(data == '500'){
                     alert('You are not authorized');
-               }else if(data == '200'){
-                    alert('You now have new items to heckle');
-               }
+                }else if(data == '200'){
+                    alert('You now have new stage designs');
+                    elemento.remove();
+                    $('.current_tokens').html(parseInt($('.current_tokens').html())-parseInt(cp[1]));
+                }
 
             }
 
         });
-
+        }
         return false;
     });
+
+
 });

@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :about, :image, :name, :gender, :interest, :hometown, :birthdate
-  has_attached_file :image, :styles => {:thumb => { :geometry => '75x75>', :quality => 50},:normal => { :geometry => '298x350>', :quality => 50}},:path => "/users/:style/:id/:filename"
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :about, :image, :name, :gender, :interest, :hometown, :birthdate ,:image_fb
+  has_attached_file :image, :styles => {:thumb => { :geometry => '75x75>', :quality => 50},:normal => { :geometry => '298x350>', :quality => 50}, :profile => { :geometry => '298x350>', :quality => 50}},:path => "/users/:style/:id/:filename"
 
   def apply_omniauth(omniauth)
     self.email = omniauth['info']['email'] if email.blank?

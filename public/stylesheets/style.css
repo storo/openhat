@@ -212,6 +212,9 @@ body {
     line-height:53px;
     padding-bottom:24px;
 }
+#showcase-left h2 strong{
+    font-size: 48px;
+}
 #showcase-left h2 a {
     color:#ba8fab;
     text-decoration:underline;
@@ -238,6 +241,7 @@ body {
     line-height:27px;
     height:27px;
     font-size:30px;
+    width: 190px;
 }
 #showcase-left a.watch span {
     background:url(../images/img_sprite.png) no-repeat -216px -59px;
@@ -312,7 +316,7 @@ body {
     padding:36px 0 32px 0;
 }
 .video-block.second {
-    padding:130px 0 0 0;
+   /* padding:130px 0 0 0;    */
 }
 .video-block.second h3 {
     padding-left:10px;
@@ -489,6 +493,7 @@ ul.list1 li.last, .video-block.second li.last {
     display:inline;
     font-size:24px;
     padding:0 3px;
+    float:left;
 }
 /* footer */
 #footer {
@@ -1145,13 +1150,13 @@ ul.tabnav2 li.active, ul.tabnav3 li.active {
 }
 .face_right{
     position: relative;
-    right: -128px;
-    top: -25px;
+    left: 70px;
+    top: -2px;
 }
 .face_left{
     position: relative;
-    left: -19px;
-    top: -25px;
+    left: -40px;
+    top: -18px;
 }
 .bubble h3 a {
     color:#d94601;
@@ -1288,7 +1293,7 @@ ul.tabnav2 li.active, ul.tabnav3 li.active {
 }
 .chat-messanger .row-left {
     width:100%;
-    padding:0 0 10px 0;
+    padding:11px 0 19px 0;
 }
 .chat-messanger .row-left img {
     float:left;
@@ -2094,6 +2099,15 @@ input.form-litle{
         padding-bottom: 20px;
 
     }
+    .stages_item{
+        float: left;
+        border: 2px solid black;
+        width: 213px;
+        margin: 2px;
+        text-align: center;
+        padding-bottom: 15px;
+        height: 208px;
+    }
     .token_item.tabs{
         margin: 8px 15px 4px 17px;
         height: 140px;
@@ -2113,6 +2127,17 @@ input.form-litle{
         margin-top: 66px;
     }
 
+    .stages_item p{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        font-size: 23px;
+        padding: 15px 0px 5px 0px;
+        text-align: center;
+    }
+    .stages_item .box-textbottom{
+        margin-top: 0px;
+    }
+
 .now_tokens{
     font-size: 38px !important;
 }
@@ -2128,4 +2153,76 @@ input.form-litle{
 .condition.re{
     font-size: 18px !important;
     margin: 15px 0px;
+}
+.featured{
+    width: 90px;
+    height: 100px;
+    float: left;
+    display: block;
+    margin-left: -39px;
+    padding: 0px;
+    margin-top: -21px;
+    cursor: pointer;
+}
+.featured > div.avatar{
+    right: 0px;
+    top: -23px;
+    padding: 0px;
+}
+
+.message_nofound{
+    font-size: 30px;
+}
+
+.keyboard{
+    background-image: url(../images/keyboard.png);
+    width: 75px;
+    height: 67px;
+    position: relative;
+}
+
+.friend{
+    float: left;
+    width: 230px;
+    height: 77px;
+    padding: 0 4px;
+}
+.friend img{
+    float: left;
+}
+.friend a{
+    float: left;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 800;
+    font-size: 18px;
+    padding-top: 17px;
+}
+.follower{
+    float: left;
+}
+
+.rate{
+    /*
+    width: 103px;
+    height: 18px;
+    background-repeat: no-repeat;   */
+    display: inline-block;
+    width: 150px !important;
+}
+
+.follow-us p{
+    font-family: 'Amatic SC', cursive;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.blocker {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    z-index: 9999999999;
+    background: url(../images/p-light.png) repeat;
+
 }
