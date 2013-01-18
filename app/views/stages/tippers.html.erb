@@ -73,15 +73,20 @@
         top: -35px;
         left: 0px;
     }
-    .box-tipper p{
+    .box-tipper p.name{
         float: left;
         margin: 12px 0px 0px 125px;
         width: 150px;
     }
+    .box-tipper p.tokens{
+        float: left;
+        margin: 12px 0px 0px 36px;
+        width: 15px;
+    }
     .box-tipper p.us{
         float: left;
         margin: 12px 0px 0px 60px;
-        width: 150px;
+        width: 140px;
     }
     .box-tipper span{
         float: left;
@@ -92,7 +97,7 @@
     .box-tipper div.us{
         float: left;
         margin: 12px 0px 0px 40px;
-        width: 20px;
+        width: 175px;
         font-size: 25px
     }
 </style>
@@ -125,6 +130,8 @@
     <% @tippers.each do |d| %>
         <div class="box-tipper">
           <% a = Character.find(:all, :conditions => ['user_id = ?', d.sender]) %>
+          <% user = User.find(:first, :conditions => ['id = ?', d.sender]) %>
+          <%#= debug user %>
           <span><%= e %></span>
           <div class="thumb" style="float:left;">
             <%
@@ -157,8 +164,11 @@
                 <% end %>
 
             <% end %>
+
+
           </div>
-          <p><%=  d.token.to_i %></p>
+          <p class="name"> <%= user.name %></p>
+          <p class="tokens"><%=  d.token.to_i %></p>
         </div>
         <% e = e + 1 %>
     <% end %>

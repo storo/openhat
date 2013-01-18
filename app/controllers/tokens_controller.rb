@@ -30,6 +30,50 @@ class TokensController < ApplicationController
 
   end
 
+  def notify
+    notify = Paypal::Notification.new(request.raw_post)
+    #p "Notification object is #{notify}"
+    #if notify.acknowledge
+    #  p "Transaction ID is #{notify.transaction_id}"
+    #  p "Notification object is #{notify}"
+    #  p "Notification status is #{notify.status}"
+    #end
+
+    p =  Payment.new
+    p.invoice = params[:invoice]
+    p.payer_id = params[:payer_id]
+    p.payment_date = params[:payment_date]
+    p.payment_status = params[:payment_status]
+    p.first_name = params[:first_name]
+    p.mc_fee = params[:mc_fee]
+    p.business = params[:business]
+    p.quantity = params[:quantity]
+    p.payer_email = params[:payer_email]
+    p.payment_type = params[:payment_type]
+    p.last_name = params[:last_name]
+    p.payment_fee = params[:payment_fee]
+    p.item_name = params[:item_name]
+    p.mc_currency = params[:mc_currency]
+    p.item_number = params[:item_number]
+    p.residence_country = params[:residence_country]
+    p.payment_gross = params[:payment_gross]
+
+    p.save!
+
+    if p.payment_status == 'Completed'
+        o = Order.find(:first, :conditions => ['id = ?', p.invoice])
+        t = Token.find(:first, :conditions => ['id = ?', p.item_number])
+        mt = MyToken.new
+        mt.amount = t.quantity
+        mt.user_id = o.user_id
+        mt.payment_id = p.id
+        mt.save!
+
+    end
+
+    render :nothing => true
+  end
+
   def cancel
     # -----
   end
