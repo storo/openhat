@@ -1,0 +1,42 @@
+<h3>Featured users</h3>
+<% if !@tippers.nil? %>
+
+    <% @tippers.each do |d| %>
+        <%
+           ch = Character.find(:all, :conditions => ['user_id = ?', d.sender])
+           user = User.find(d.sender)
+
+        %>
+
+        <%
+           if ch.count == 0
+        %>
+            <div class="featured" rel="<%= d.sender %>" name="<%= user.name %>">
+              <div class="avatar preview avatar-head-1">
+                <div class="avatar preview avatar-eyes-1"></div>
+                <div class="avatar preview avatar-nose-1"></div>
+                <div class="avatar preview avatar-mouth-1"></div>
+              </div>
+            </div>
+
+        <% else %>
+            <div class="featured" rel="<%= d.sender %>" name="<%= user.name %>">
+              <% ch.each do |c| %>
+                  <% dd = c.section.split('-') %>
+                  <% if dd[1] == 'head' %>
+                      <div class="avatar preview <%= c.section %>">
+                        <% if dd[1] == 'head' %>
+                            <% ch.each do |f| %>
+                                <% dc = f.section.split('-') %>
+                                <% if dc[1] == 'eyes' || dc[1] == 'nose' || dc[1] == 'mouth' %>
+                                    <div class="avatar preview <%= f.section %>"></div>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
