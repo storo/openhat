@@ -9,14 +9,32 @@
 
         var socket = io.connect('http://54.247.124.94:3000');
         var duplicado = 0;
+        var players = new Array();
+        var player;
+        var me = null;
+        var room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
+        var playerBullets = [];
+        var _players;
+        var performer = 0;
+
+        var _player;
+
+
+        function randomFromTo(from, to){
+            return Math.floor(Math.random() * (to - from + 1) + from);
+        }
+
+
         socket.on('connect', function() {
             console.log('Connected!');
+            var d = new Date();
             $('#playground').html('');
             <% if @stage.user_id == current_user.id %>
+                performer = 1;
                  socket.emit('performer', {
                      user: '<%= current_user.id %>',
                      stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>'
-                 })
+                 });
             <% else %>
                    socket.emit('user',{
                        user: '<%= current_user.id %>',
@@ -49,15 +67,89 @@
                         mouth : '1',
                         nose : '1',
                     <% end %>
-                       stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>'
-                   })
+                       stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>',
+                       y: 8,
+                       x: randomFromTo(70,800),
+                       scale: 0.5,
+                       time: d.getTime()
+                   });
             <% end %>
 
-            //socket.emit('room',room);
-            //socket.emit('meId');
+        });
+        // detect is keypress o keydown
+        $(document).keydown(function(e){
+            var key = e.which;
+            var sc = 0.00177777777778;
+            var d = new Date();
+            if(key == "37"){
+                if(_players[_player].x > 5){
+                    _players[_player].x -= 6;
+                    _players[_player].time = d.getTime();
+                    socket.emit('update', {x: _players[_player].x,y: _players[_player].y,  scale: _players[_player].scale, user: _players[_player].user, time:  _players[_player].time  } );
+                }
+            }
+            else if(key == "38"){
+                if(_players[_player].y > 8){
+                    _players[_player].y -= 6;
+                    _players[_player].scale -= sc;
+                    _players[_player].time = d.getTime();
+                    socket.emit('update', {x: _players[_player].x,y: _players[_player].y,  scale: _players[_player].scale, user: _players[_player].user, time:  _players[_player].time  } );
+                }
+            }
+            else if(key == "39"){
+                if(_players[_player].x <851){
+                    _players[_player].x += 6;
+                    _players[_player].time = d.getTime();
+                    socket.emit('update', {x: _players[_player].x,y: _players[_player].y,  scale: _players[_player].scale, user: _players[_player].user, time:  _players[_player].time  } );
+                }
+            }
+            else if(key == "40"){
+                if(_players[_player].y < 458){
+                    _players[_player].y += 6;
+                    _players[_player].scale += sc;
+                    _players[_player].time = d.getTime();
+                    socket.emit('update', {x: _players[_player].x,y: _players[_player].y,  scale: _players[_player].scale, user: _players[_player].user, time:  _players[_player].time  } );
+                }
+            }
 
         });
 
+
+
+        function update(){
+            //$('#playground').find('div[class*=avatar-head-]').css('zIndex', '0');
+
+            if(_player){
+                //socket.emit('update', {x: _players[_player].x,y: _players[_player].y,  scale: _players[_player].scale, user: _players[_player].user, time: d.getTime()  } );
+                ///make log with all positions for user
+
+
+
+            }
+
+        }
+
+
+
+        function draw(){
+            $('#playground .players').remove();
+            if(typeof _players != 'undefined'){
+                for(var e=0; e<_players.length;e++){
+                    if(parseInt(_players[e].user) == <%= current_user.id %>){
+                        _player = e;
+                    }
+                    $('#playground').append('<div class="players" name="'+_players[e].name+'" time="' + _players[e].time +'"  id="user-' + _players[e].user +'"style="width:223px; position: absolute; left:'+ _players[e].x +'px; top:' + _players[e].y + 'px; z-index:'+(parseInt(_players[e].user)+1)+'"><div class="avatar preview avatar-head-'+_players[e].head+'" style="-webkit-transform: rotate('+_players[e].headgiro+'deg)"></div><div class="avatar preview avatar-jacket-'+_players[e].jacket+'" ></div><div class="avatar preview avatar-legs-'+_players[e].legs+'"></div><div class="avatar preview avatar-feet-'+_players[e].feet+'" ></div></div>');
+                    $('#playground').find('#user-'+ _players[e].user).css({ scale: [_players[e].scale] });
+                }
+            }
+        }
+
+
+
+
+        socket.on('ready', function(d){
+            _players = d.data;
+        });
 
         socket.on('existing', function(d){
             //window.location.href = '/';
@@ -65,11 +157,7 @@
             duplicado = 1;
         });
 
-        var players = new Array();
-        var player;
-        var me = null;
-        var room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
-        var playerBullets = [];
+
 
 
 
@@ -710,9 +798,6 @@
             <% end %>
         });
 
-
-
-
         $(document).bind('fireFlower',function(e){
             $.colorbox.close();
             $.ajax({
@@ -738,102 +823,8 @@
 
         });
 
-
-        function update(){
-            var sc = 0.00177777777778; // valor aprox por paso al momento de escalar
-            $('#playground').find('div[class*=avatar-head-]').css('zIndex', '0');
-
-        <% if current_user.id != @stage.user_id %>
-
-            if (keydown.left) {
-                if(player.x > 2){
-                    player.x -= 2;
-                    player.activado = 1;
-                    $('.keyboard').css('background', 'none');
-                }
-            }
-
-            if (keydown.right) {
-                if(player.x <851){
-                    player.x += 2;
-                    player.activado = 1;
-                    $('.keyboard').css('background', 'none');
-
-                }
-            }
-
-            if (keydown.up) {
-                if(player.y > 8){
-                    player.y -= 2;
-                    player.activado = 1;
-                    player.scale -= sc;
-                }
-            }
-
-            if (keydown.down) {
-                if(player.y < 458){
-                    player.y += 2;
-                    player.activado = 1;
-                    player.scale += sc;
-                    $('.keyboard').css('background', 'none');
-
-                }
-
-            }
-        <% end %>
-
-            if(player){
-                player.admin =  '<%= (current_user.id == @stage.user_id)? true : false %>';
-                player.name = '<%= (current_user.name.nil?)? 'anonymous': current_user.name.split(" ").first %>';
-            <% if !@character.nil? %>
-            <% @character.each do |d| %>
-            <% dd = d.section.split('-') %>
-            <% if dd[1] == 'head' %>
-                player.head = <%= dd[2] %>;
-            <% elsif dd[1] == 'jacket' %>
-                player.jacket = <%= dd[2] %>;
-            <% elsif dd[1] == 'legs' %>
-                player.legs = <%= dd[2] %>;
-            <% elsif dd[1] == 'feet' %>
-                player.feet = <%= dd[2] %>;
-            <% elsif dd[1] == 'eyes' %>
-                player.eyes = <%= dd[2] %>;
-            <% elsif dd[1] == 'nose' %>
-                player.nose = <%= dd[2] %>;
-            <% elsif dd[1] == 'mouth' %>
-                player.mouth = <%= dd[2] %>;
-            <% end %>
-            <% end %>
-            <% else %>
-                player.head = 1;
-                player.jacket = 1;
-                player.legs = 1;
-                player.feet = 1;
-                player.eyes = 1;
-                player.mouth = 1;
-                player.nose = 1;
-            <% end %>
-
-                socket.emit('update',{
-                    id:player.id,
-                    x:player.x,
-                    y:player.y,
-                    scale: player.scale,
-                    a: player.activado,
-                    name : player.name,
-                    head: player.head,
-                    jacket: player.jacket,
-                    legs: player.legs,
-                    feet: player.feet,
-                    eyes: player.eyes,
-                    nose: player.nose,
-                    mouth: player.mouth,
-                    admin:'<%= (current_user.id == @stage.user_id)? true : false %>'});
-            }
-
-        }
-
         $('.players').live('click',function(){
+            console.info('asdf');
             var _me = $(this).attr('id').split('-');
             var _name = $(this).attr('name');
             var _top =  parseInt($(this).css('top').replace('px',''))-100;
@@ -908,7 +899,7 @@
             $(this).parent().hide();
             return false;
         });
-        function draw(){
+        /*function draw(){
             if(me != null){
                 for(var i=0;i<players.length;i++){
                     if(me != players[i].id){
@@ -917,7 +908,10 @@
                 }
                 if(player){ player.draw();}
             }
-        }
+
+
+
+        }*/
 
         var FPS = 30;
         setInterval(function() {
@@ -1024,6 +1018,20 @@
             return false;
         });
 
+        setInterval(function() {
+
+            $.ajax({
+                type: "GET",
+                url: "/featured_users/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>",
+                success: function(data){
+                    $('.stage-block section.user').eq(1).html(data);
+                    $('.featured').each(function(k,v){
+                        $('.featured').eq(k).css({ scale: [0.5] });
+                    })
+                }
+            });
+        }, 5000);
+        //
     });
 
 </script>
@@ -1162,6 +1170,7 @@
     <!-- end video-col -->
     <!-- start crowd-col -->
     <section class="crowd-col">
+      <%=debug @stage %>
       <div id="playground">
 
       </div>

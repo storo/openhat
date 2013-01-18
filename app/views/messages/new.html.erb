@@ -1,3 +1,75 @@
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css">
+<style type="text/css">
+    h3{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        text-align: center;
+        font-size: 38px;
+        margin: 0;
+        padding:0px;
+    }
+    a{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        font-size: 17px;
+        text-decoration: underline;
+        color: #D94601;
+    }
+
+    .box-sendmsn{
+
+        border: 1px solid #dddddd;
+        background-color: #d2d4d6;
+        text-align: center;
+        overflow: hidden;
+    }
+    .box-sendmsn textarea{
+        width: 465px;
+        height: 60px;
+        margin-top: 5px;
+    }
+    .box-allconv{
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height: 177px;
+        width: 455px;
+    }
+    #new_message{
+        float: right;
+        margin: 6px 0px;
+    }
+     #recipient{
+         border: 1px solid #CCC;
+         margin: 10px 0px;
+         width: 455px;
+         height: 32px;
+         border-radius: 3px;
+         padding-left: 10px;
+         font-family: 'Amatic SC', cursive;
+         font-weight: 800;
+         font-size: 17px;
+         box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05),0 1px 0 rgba(255, 255, 255, .075);
+     }
+    .ui-widget-content {
+        border: 1px solid #AAA;
+        background: white;
+        color: #222;
+    }
+
+    .ui-menu {
+        list-style: none;
+        padding: 2px;
+        margin: 0;
+        display: block;
+        outline: none;
+    }
+    .ui-autocomplete {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: default;
+    }
+</style>
 <script src="/javascripts/jquery.min.js"></script>
 <script src="/javascripts/jquery-ui.min.js"></script>
 
@@ -26,14 +98,18 @@
     });
 </script>
 <div class="content">
+  <h3>New Message</h3>
+  <a href="/messages">Go back</a>
 	<%= form_tag('/message/send', :method=>'post', :multipart => false) do %>
-		<label>User</label>
-		<input type="text" name="user[recipient]" id="recipient" />
-		<br />
-		<label>body</label>
-		<textarea name="user[body]" id="body"></textarea>
+		<div class="box-allconv">
+          <input type="text" name="user[recipient]" id="recipient" placeholder="User Name" />
+		</div>
+
+        <div class="box-sendmsn">
+		    <textarea name="user[body]" id="body"></textarea>
 		
-		<%= submit_tag 'send', :id => 'new_message'  %>
+		    <%= submit_tag 'SEND', :id => 'new_message'  %>
+        </div>
 	<% end %>
 </div>
 

@@ -36,7 +36,7 @@
             <section class="clear"></section>
           </section>
         </section>
-        <%= select_tag("stage[type]", options_for_select([['Private', 'private'], ['Invitation', 'invitation'], ['Public', 'public']]), :prompt => 'Type Performance', :class => 'form-input-select required') %>
+        <%= select_tag("stage[type]", options_for_select([ ['Public', 'public'], ['Private', 'private']]), :prompt => 'Type Performance', :class => 'form-input-select required') %>
         <%= select_tag("stage[type_ticket]", options_for_select([['Free', 'free'], ['Paid', 'paid']]), :prompt => 'Type Ticket', :class => 'form-input-select required') %>
         <%= text_field_tag("stage[ticket_price]",nil,:class => 'form-input-medio  required', :placeholder => 'Ticket Price') %>
         <%= select_tag("stage[limit_seats]", options_for_select([['Unlimited','Unlimited'],['1','1'],['10', '10'], ['20', '20'], ['30', '30'], ['50', '50'], ['100', '100'], ['120', '120'], ['160', '160'], ['200', '200']]), :prompt => 'Limited Seats', :class => 'form-input-select required') %>
@@ -51,7 +51,7 @@
 
         <%# text_field_tag("stage[alive]",nil,:class => 'input', :placeholder => 'Time \'till live') %>
         <section class="rowline">
-          <p class="condition"><input type="checkbox" name="condition" value="1" class="required" /> I have read the <a href="http://beta.theopenhat.com/pages/terms_&_conditions/moodal" class="modaltc">terms & conditions</a></p>
+          <p class="condition"><input type="checkbox" name="condition" value="1" class="required" /> I have read the <a href="http://beta.theopenhat.com/pages/terms_&_conditions/modal" class="modaltc">terms & conditions</a></p>
         </section>
 
         <input type="hidden" name="stage[design]" id="stage_design" value="4" />

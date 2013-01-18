@@ -4,11 +4,39 @@ class StagesController < ApplicationController
       if current_user
           if params[:id]
             @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])
+            @chp =   Character.find(:all, :conditions => ['user_id = ?', @stage.user_id])
+            @up =   User.find(:first, :conditions => ['id = ?', @stage.user_id])
             @id = params[:id]
-            @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status  = 0'])
+            @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status  = 0 AND id <> ?', @stage.id])
+
             @tippers = Tip.find(:all, :conditions => ['stage_id = ?', @id], :group => 'sender', :limit => 4, :order => 'SUM(tokens) DESC', :select => 'sender, SUM(tokens) as tokens')
             @character = Character.find(:all, :conditions => ['user_id = ?', current_user.id])
-            @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
+            @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0 '])
+            if @stage.user_id == current_user.id
+
+            else
+              if @stage.types == 'public'
+
+              else
+                  if @stage.ticket_type == 'free'
+                    inv = Invitation.find(:first, :conditions => ['user_id = ? AND SUBSTR(md5(stage_id),1,11) = ?',current_user.email, params[:id] ])
+                    if inv.nil?
+                      redirect_to noinvitation_url
+                    end
+                  else
+                      ticket = Ticket.find(:first, :conditions => ['user_id = ? AND SUBSTR(md5(stage_id),1,11) = ?',current_user.id, params[:id] ])
+                      if ticket.nil?
+                        redirect_to noticket_url
+                      end
+
+                  end
+
+
+              end
+
+            end
+
+
           else
             flash[:notice] = "error 403"
             redirect_to root_url
@@ -34,6 +62,43 @@ class StagesController < ApplicationController
      end
   end
 
+  def noinvitation
+
+  end
+
+  def invitation
+    if current_user
+      if params[:id]
+        @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])
+        if @stage.user_id == current_user.id
+            @id = params[:id]
+        else
+            redirect_to root_url
+        end
+
+      else
+        redirect_to root_url
+      end
+    else
+      session[:error] = 'You must <a href="/login">login</a> or <a href="/register">register</a> to see this performance.'
+      redirect_to root_url
+    end
+  end
+
+  def add_invitation
+    if params[:id]
+      inv = Invitation.new
+      inv.stage_id = params[:id]
+      inv.user_id = params[:email]
+      inv.save!
+    end
+
+    render :text => ''
+  end
+
+  def noticket
+
+  end
 
 
   def makeStage
@@ -79,10 +144,10 @@ class StagesController < ApplicationController
 
         if @stage.save!
           flash[:notice] = "Stage Save!"
-          if params[:stage][:shownow] == 'yes'
-              redirect_to stage_path(Digest::MD5.hexdigest(@stage.id.to_s)[0,11])
+          if  params[:stage][:type] == 'private' && params[:stage][:ticket_price] == 'free'
+              redirect_to invitation_path(Digest::MD5.hexdigest(@stage.id.to_s)[0,11])
           else
-              redirect_to root_url
+              redirect_to stage_path(Digest::MD5.hexdigest(@stage.id.to_s)[0,11])
           end
           #redirect_to create_performance_url
         end
@@ -125,10 +190,26 @@ class StagesController < ApplicationController
     render :layout => false
   end
 
+  def featured_users
+    @tippers = Tip.find(:all, :conditions => ['stage_id = ?', params[:id]], :group => 'sender', :limit => 4, :order => 'SUM(tokens) DESC', :select => 'sender, SUM(tokens) as tokens')
+
+
+    render :layout => false
+  end
+
+
   def totaltips
     @tippers = Tip.find(:first,:select => 'SUM(tokens) as token', :conditions => ['stage_id = ?', params[:id]])
      render :text => @tippers.token.to_s
   end
+
+  def performance_update
+    @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])
+    @stage.updated_at = DateTime.now
+    @stage.save!
+    render :text => ''
+  end
+
 
   def saveconfiguration
     @stage = Stage.find(:first, :conditions => ['SUBSTR(md5(id),1,11) = ?', params[:id]])

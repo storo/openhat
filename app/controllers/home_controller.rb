@@ -1,7 +1,22 @@
+#require 'ostruct'
+#require 'money'
+#require 'active_merchant'
+#require 'active_merchant/billing/integrations/action_view_helper'
 class HomeController < ApplicationController
-  include ActiveMerchant::Billing::Integrations
-  ActionView::Base.send(:include,ActiveMerchant::Billing::Integrations::ActionViewHelper)
+  #include ActiveMerchant::Billing::Integrations
+  #ActionView::Base.send(:include,ActiveMerchant::Billing::Integrations::ActionViewHelper)
     def index
+
+        fuu = Stage.find(:all, :conditions => ['delete_status = 0'])
+        fuu.each do |ohhfuck|
+          t = ohhfuck.updated_at + 20.minutes
+          if t <= DateTime.now
+            ohhfuck.delete_status = 1
+            ohhfuck.save!
+          end
+        end
+
+
         @last_users = User.find(:all, :conditions => ['sign_in_count > 0'], :order => 'created_at DESC')
         @performance = Stage.find(:all, :limit => 3, :order => 'id DESC', :conditions =>['delete_status = 0'])
         @performance_random = Stage.find(:all, :limit => 5, :order => 'rand()', :conditions =>['delete_status = 0'])
@@ -46,7 +61,16 @@ class HomeController < ApplicationController
         @character = Character.find(:all, :conditions => ['user_id = ?', params[:id]])
         #@stage = Stage.find(:first, :conditions => ['user_id = ? AND status = "enabled"', current_user.id])
     end
-    
+
+    def public_profile_modal
+      @user = User.find(:first, :conditions =>['id = ?', params[:id]])
+      @followers = Follower.find(:all, :conditions => ['leader = ?', params[:id]])
+      @activities = Activity.find(:all, :conditions => ['user_id = ?', params[:id]])
+      @avatar = Avatar.find(:first, :conditions => ['user_id = ?', params[:id] ])
+      @character = Character.find(:all, :conditions => ['user_id = ?', Digest::MD5.hexdigest(params[:id].to_s)])
+      render :layout => false
+    end
+
     def follow
         if current_user
           f = Follower.new
@@ -95,7 +119,12 @@ class HomeController < ApplicationController
         @user = OpenStruct.new _user
         @currency = "USD"
         #a random invoice number for test.
-        @invoice = Integer rand(1000)
+
+        n = Order.new
+        n.user_id = current_user.id
+        n.save!
+
+        @invoice = n.id
 
       else
         flash[:notice] = "error 403"
@@ -193,6 +222,17 @@ class HomeController < ApplicationController
     end
     render :layout => false
   end
+
+  def send_cashout
+      mn = MoneyReturn.new
+      mn.user_id =  params[:user]
+      mn.tokens = params[:tokens]
+      mn.status = 0
+      mn.date_return = Date.new(Date.today.year,Date.today.mon, -1)
+      mn.save!
+      render :text => ''
+  end
+
 
   def beta
 

@@ -99,7 +99,7 @@
             <section class="td1 left">Birth Date:</section>
             <section class="td2 left">
               <!--<input type="text" id="user_birthdate" name="user[birthdate]" value="<%= current_user.birthdate %>" style="margin-left: 2px;"  class="form-input-medio" placeholder="Example: 2012/12/01"  />-->
-              <%=  date_select("user", "birthdate", :prompt => true) %>
+              <%=  date_select("user", "birthdate", :prompt => true, :start_year => Time.now.year - 80, :end_year => Time.now.year - 10) %>
             </section>
             <section class="clear"></section>
           </section>
@@ -442,7 +442,7 @@
         <section class="creative-block">
 
 
-          <form action="#" class="form-information">
+          <div class="form-information">
             <section class="rowline">
               <h3>Tokens, Stores and Statement</h3>
               <p>You can use credits to tip or heckle performers and to purchase other fun stuff on The Open Hat. Below is your current credit balance and statement...</p>
@@ -450,17 +450,23 @@
               <p class="now_tokens">You have (<span class="current_tokens"><%= @t %></span>) tokens
 
               </p>
-              <% if @t >= 160 %>
-              <p class="now_tokens"><a href="/cashout"  class="cashout">Cash out tokens</a>
-              </p>
+              <% mn = MoneyReturn.find(:first, :conditions => ['user_id = ? AND status = 0', current_user.id]) %>
+              <% if mn.nil? %>
+                  <% if @t >= 160 %>
+                      <p class="now_tokens"><a href="/cashout"  class="cashout">Cash out tokens</a>
+                      </p>
+                  <% end %>
+              <% else %>
+                    <p class="now_tokens">Cash out pendent (pay date at: <%= mn.date_return %>)</p>
               <% end %>
+
               <h3>Buy Tokens</h3>
               <p>select package of tokens to buy</p>
               <% @tokens.each do |d| %>
                   <section class="token_item">
                     <p><%= d.quantity %> Tokens</p>
                     <p>Price: <%= d.price %> USD</p>
-                    <% payment_service_for d.id, PAYPAL_ACCOUNT, :amount => d.price, :currency => @currency, :service => :paypal do |service|
+                    <%# payment_service_for d.id, PAYPAL_ACCOUNT, :amount => d.price, :currency => @currency, :service => :paypal do |service|
                       service.customer :first_name => @user.first_name, :last_name => @user.last_name, :phone => @user.phone, :email => @user.email
                       service.billing_address :city => @user.city, :address1 => @user.address1, :state => @user.state, :country => @user.country, :zip => @user.zip
                       service.item_name d.name
@@ -470,8 +476,34 @@
                       #service.notify_url url_for(:only_path => false,:controller => 'pay_pal', :action => 'notify')
                       service.return_url url_for(:only_path => false, :controller => 'tokens',:action => 'show')
                       service.cancel_return_url url_for(:only_path => false, :controller => 'tokens', :action => 'cancel') %>
-                        <%= submit_tag 'Buy'%>
-                    <% end %>
+                        <%#= submit_tag 'Buy'%>
+                    <% #end %>
+
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                       <input name="commit" type="submit" value="Buy">
+
+                      <input id="item_number" name="item_number" type="hidden" value="<%= d.id %>">
+                      <input id="custom" name="custom" type="hidden" value="<%= d.id %>">
+                      <input id="business" name="business" type="hidden" value="<%= PAYPAL_ACCOUNT %>">
+                      <input id="amount" name="amount" type="hidden" value="<%= d.price %>">
+                      <input id="currency_code" name="currency_code" type="hidden" value="USD">
+                      <input id="cmd" name="cmd" type="hidden" value="_ext-enter">
+                      <input id="redirect_cmd" name="redirect_cmd" type="hidden" value="_xclick">
+                      <input id="quantity" name="quantity" type="hidden" value="1">
+                      <input id="item_name" name="item_name" type="hidden" value="<%= d.name %>">
+                      <input id="no_shipping" name="no_shipping" type="hidden" value="1">
+                      <input id="no_note" name="no_note" type="hidden" value="1">
+                      <input id="charset" name="charset" type="hidden" value="utf-8">
+                      <input id="address_override" name="address_override" type="hidden" value="0">
+                      <input id="bn" name="bn" type="hidden" value="ActiveMerchant">
+                      <input id="first_name" name="first_name" type="hidden" value="saran">
+                      <input id="last_name" name="last_name" type="hidden" value="v">
+                      <input id="email" name="email" type="hidden" value="some_per@gmail.com">
+                      <input id="invoice" name="invoice" type="hidden" value="<%= @invoice%>">
+                      <input id="tax" name="tax" type="hidden" value="0.00">
+                      <input id="return" name="return" type="hidden" value="http://beta.theopenhat.com/buy_show">
+                      <input id="cancel_return" name="cancel_return" type="hidden" value="http://beta.theopenhat.com/buy_cancel">
+                    </form>
                   </section>
               <% end %>
               <section class="clear"></section>
@@ -554,10 +586,7 @@
             </section>
 
 
-          </form>
-
-
-
+          </div>
 
         </section>
     </section>

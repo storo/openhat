@@ -1,4 +1,4 @@
-<script src="/javascripts/swfobject.js" type="text/javascript"></script>
+
 <script src="/javascripts/soundmanager2.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.hotkeys.js" type="text/javascript"></script>
 <script src="/javascripts/key_status.js" type="text/javascript"></script>
@@ -103,17 +103,97 @@
       var me = null;
       var room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
       var playerBullets = [];
-
+      var _player;
+      var perfomer = {id :'<%= @stage.user_id %>',  name: '<%= @up.name %>',
+          <% if @chp.count != 0 %>
+          <% @chp.each do |d| %>
+          <% dd = d.section.split('-') %>
+          <% if dd[1] == 'head' %>
+          head : '<%= dd[2] %>',
+          <% elsif dd[1] == 'jacket' %>
+          jacket : '<%= dd[2] %>',
+          <% elsif dd[1] == 'legs' %>
+          legs : '<%= dd[2] %>',
+          <% elsif dd[1] == 'feet' %>
+          feet : '<%= dd[2] %>',
+          <% elsif dd[1] == 'eyes' %>
+          eyes : '<%= dd[2] %>',
+          <% elsif dd[1] == 'nose' %>
+          nose : '<%= dd[2] %>',
+          <% elsif dd[1] == 'mouth' %>
+          mouth : '<%= dd[2] %>'
+          <% end %>
+          <% end %>
+          <% else %>
+          head : '1',
+          jacket : '1',
+          legs : '1',
+          feet : '1',
+          eyes : '1',
+          mouth : '1',
+          nose : '1'
+          <% end %>
+      };
+      var animation =  0;
      // for(var e=10;e< 500;e=e+50){
      //    $('#playground').append('<div style="width:980px;border-top:1px solid red; position: absolute;  top:'+ e +'px;"></div>');
      // }
 
       socket.on('connect', function() {
-          socket.emit('room',room);
-          socket.emit('meId');
+          //socket.emit('room',room);
+          //socket.emit('meId');
           console.log('Connected!');
-      });
 
+          <% if @stage.user_id == current_user.id %>
+                performer = 1;
+                socket.emit('performer', {
+                    user: '<%= current_user.id %>',
+                    stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>'
+                });
+          <% else %>
+
+                socket.emit('user',{
+                    user: '<%= current_user.id %>',
+                    name: '<%= current_user.name %>',
+                    <% if @character.count != 0 %>
+                    <% @character.each do |d| %>
+                        <% dd = d.section.split('-') %>
+                        <% if dd[1] == 'head' %>
+                            head : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'jacket' %>
+                            jacket : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'legs' %>
+                            legs : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'feet' %>
+                            feet : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'eyes' %>
+                            eyes : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'nose' %>
+                            nose : '<%= dd[2] %>',
+                        <% elsif dd[1] == 'mouth' %>
+                            mouth : '<%= dd[2] %>',
+                        <% end %>
+                    <% end %>
+                    <% else %>
+                        head : '1',
+                        jacket : '1',
+                        legs : '1',
+                        feet : '1',
+                        eyes : '1',
+                        mouth : '1',
+                        nose : '1',
+                    <% end %>
+                    stage: '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>',
+                    y: 8,
+                    x: randomFromTo(70,800),
+                    scale: 0.5
+                    //time: d.getTime()
+                });
+          <% end %>
+
+
+      });
+      /*
       socket.on('meId', function(msg){
          me = msg.id;
          //alert(me)
@@ -126,12 +206,27 @@
              }
           }
       });
-
+      */
       socket.on('sendTips', function(d){
           var indice = getIndicePlayer(d.f);
           var _number =   getRandomInt(1,4);
           $('#user-'+ d.f).append('<div class="tipped" id="t-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
-          //$('#playground').find('#user-'+ players[indice].id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+
+
+          //$('#user-'+ players[indice].id).animate({top: players[indice].y+15},550).animate({top: players[indice].y-15},750).animate({top: players[indice].y+15},250).animate({top: players[indice].y-15},250).animate({top: players[indice].y+15},250).animate({top: players[indice].y-15},250);
+          animation = 1;
+          $('#user-'+ players[indice].id).animate({top: players[indice].y+15},500, function(){
+              $('#user-'+ players[indice].id).animate({top: players[indice].y-15},500, function(){
+                  $('#user-'+ players[indice].id).animate({top: players[indice].y+15},500, function(){
+                      $('#user-'+ players[indice].id).animate({top: players[indice].y-15},500, function(){
+                          animation = 0;
+                      });
+                  });
+              });
+          });
+          //$('#user-'+ d.f).effect("bounce", { times:3 }, 300);
+          //$('#user-'+ players[indice].id).css('top', '50px');
+
           soundManager.play('tip'+_number);
           $('#t-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
       });
@@ -139,6 +234,15 @@
       function getRandomInt (min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
       }
+      /*
+      $('#playground').click(function(e){
+          var x = e.pageX - this.offsetLeft - 240;
+          var y = e.pageY - this.offsetTop - 800;
+            console.info(x +', '+ y);
+
+          $('.punto').remove();
+          $('#playground').append('<div class="punto" style="top:'+y+'px;left:'+y+'px;"></div>');
+      });    */
       socket.on('cloudChat', function(d){
           $('#user-'+ d.f).append('<div class="writing" id="w-'+d.f+'" style="top:10px;left:50%;display:none;"></div>');
           $('#w-'+d.f).fadeIn('1000').animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).animate({top:'8px'},250).animate({top:'10px'},250).fadeOut(1000, function(){$(this).remove();});
@@ -148,7 +252,12 @@
       socket.on('sendPublic', function(d){
           var indice = getIndicePlayer(d.f);
           $('.globalchat').addClass('shine');
-          $('#footer-bot').find('#chat-general').find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+          if(indice){
+              $('#footer-bot').find('#chat-general').find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+          }else{
+              $('#footer-bot').find('#chat-general').find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ perfomer.head+'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+ perfomer.nose+'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth+'"></div></div></div><p><strong>'+ perfomer.name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
+
+          }
           $('#chat-general .face_left').each(function(k,v){
               $('#chat-general .face_left').eq(k).css({ scale: [0.5] });
           });
@@ -162,34 +271,89 @@
       });
 
       socket.on('sendPrivate', function(d){
-          var indice = getIndicePlayer(d.f);
-          var indice_me = getIndicePlayer(me);
-          if($('.hc-'+ d.f).length == 0){
-              if($('.chat-block > img').length == 0){
-                  $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+d.f+'" style="margin-right:66px;" />');
-              }else{
-                  $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+d.f+'" />');
+          try{
+              console.info(d);
+
+              var indice_emisor = getIndicePlayer(d.emisor);
+              var indice_receptor = getIndicePlayer(d.receptor);
+
+              if($('.hc-'+ d.emisor).length == 0){
+                  if(indice_emisor){
+                      $('.chat-block').append('<div class="face_b hc-'+d.emisor+'"><div class="avatar preview avatar-head-'+ players[indice_emisor].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_emisor].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_emisor].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_emisor].mouth+'"></div></div></div>');
+                  }else{
+                      $('.chat-block').append('<div class="face_b hc-'+d.emisor+'"><div class="avatar preview avatar-head-'+ perfomer.head+'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+ perfomer.nose+'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth+'"></div></div></div>');
+                  }
+
               }
 
-              $('.chat-block').append('<section class="chat-messanger" id="cc-'+d.f+'" ><a href="#" title="close" class="close private">X</a><h4>Chat with <a href="#" title="'+ players[indice].name +'">'+ players[indice].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+              if($('#cc-'+d.emisor).length == 0){
+                  if(indice_emisor != null){
+                      $('.chat-block').append('<section class="chat-messanger" id="cc-'+d.emisor+'" ><a href="#" title="close" class="close private">X</a><h4>Chat with <a href="#" title="'+ players[indice_emisor].name  +'">'+ players[indice_emisor].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+                  }else{
+                      $('.chat-block').append('<section class="chat-messanger" id="cc-'+d.emisor+'" ><a href="#" title="close" class="close private">X</a><h4>Chat with <a href="#" title="'+ perfomer.name +'">'+  perfomer.name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+                  }
+              }
+
+              if($('.chat-block').find('#cc-'+ d.emisor).find('.scroll').find('section:last').length == 0){
+                  if(indice_emisor != null){
+                      $('.chat-block').find('#cc-'+ d.emisor).find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice_emisor].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_emisor].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_emisor].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_emisor].mouth+'"></div></div></div><p><strong>'+ players[indice_emisor].name +':</strong>'+ d.mensaje+'</p><section class="clear"></section></section>');
+                  }else{
+                      $('.chat-block').find('#cc-'+ d.emisor).find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ perfomer.head+'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+ perfomer.nose+'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth+'"></div></div></div><p><strong>'+ perfomer.name +':</strong>'+ d.mensaje+'</p><section class="clear"></section></section>');
+                  }
+
+              }else{
+                  if($('.chat-block').find('#cc-'+ d.emisor).find('.scroll').find(' > section:last').attr('class') == 'row-left'){
+                      $('.chat-block').find('#cc-'+ d.emisor).find('.scroll').find(' > section:last').find('p').append(' '+ d.mensaje);
+                  }else{
+                      if(indice_emisor != null){
+                          $('.chat-block').find('#cc-'+ d.emisor).find('.scroll').append('<section class="clear"></section> <section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice_emisor].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_emisor].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_emisor].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_emisor].mouth+'"></div></div></div><p><strong>'+ players[indice_emisor].name +':</strong>'+ d.mensaje+'</p><section class="clear"></section></section>');
+                      }else{
+                          $('.chat-block').find('#cc-'+ d.emisor).find('.scroll').append('<section class="clear"></section> <section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ perfomer.head+'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+ perfomer.nose+'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth+'"></div></div></div><p><strong>'+ perfomer.name +':</strong>'+ d.mensaje+'</p><section class="clear"></section></section>');
+                      }
+                  }
+              }
+              var objDiv = $('.chat-block').find('#cc-'+ d.emisor).find('.scroll');
+              objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
+
+              $('.face_left').each(function(k,v){
+                  $('.face_left').eq(k).css({ scale: [0.5] });
+              })
+
+              $('.face_right').each(function(k,v){
+                  $('.face_right').eq(k).css({ scale: [0.5] });
+              });
+
 
               $('.textarea').keypress(function(e) {
                   if (e.keyCode == 13 && !e.shiftKey) {
                       e.preventDefault();
                       if($(this).parent().parent().find('.scroll').find('section:last').length == 0){
-                          $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                          if(indice_receptor != null){
+                              $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_receptor].head +'"><div class="avatar preview avatar-eyes-'+  players[indice_receptor].eyes +'"></div><div class="avatar preview avatar-nose-'+ players[indice_receptor].nose +'"></div><div class="avatar preview avatar-mouth-'+ players[indice_receptor].mouth  +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                          }else{
+                              $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+  perfomer.head +'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes  +'"></div><div class="avatar preview avatar-nose-'+  perfomer.nose +'"></div><div class="avatar preview avatar-mouth-'+  perfomer.mouth  +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                          }
                       }else{
                           if($(this).parent().parent().find('.scroll').find(' > section:last').attr('class') == 'row-right'){
-                              $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append('</br>'+$(this).val());
+                              $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append(' ' +$(this).val());
                           }else{
-                              $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                              if(indice_receptor != null){
+                                  $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+  players[indice_receptor].head  +'"><div class="avatar preview avatar-eyes-'+  players[indice_receptor].eyes  +'"></div><div class="avatar preview avatar-nose-'+ players[indice_receptor].nose +'"></div><div class="avatar preview avatar-mouth-'+  players[indice_receptor].mouth  +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                              }else{
+                                  $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ perfomer.head +'"><div class="avatar preview avatar-eyes-'+ perfomer.eyes +'"></div><div class="avatar preview avatar-nose-'+ perfomer.nose +'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                              }
                           }
                       }
                       var objDiv = $(this).parent().parent().find('.scroll');
                       objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
                       var _c = $(this).parent().parent().attr('id').split('-');
 
-                      socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
+                      if(indice_receptor != null){
+                          socket.emit('sendPrivate',{f:d.receptor,m: $(this).val(), c:d.emisor});
+                      }else{
+                          socket.emit('sendPrivate',{f:d.receptor,m: $(this).val(), c:d.emisor, admin:1});
+                      }
+                      //socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
                       $(this).val('').focus();
 
                       $('.face_right').each(function(k,v){
@@ -197,29 +361,10 @@
                       });
                   }
               })
-          }else{
-
+          }catch(e){
+              console.info(e);
           }
 
-          if($('.chat-block').find('#cc-'+ d.f).find('.scroll').find('section:last').length == 0){
-              $('.chat-block').find('#cc-'+ d.f).find('.scroll').append('<section class="clear"></section><section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
-          }else{
-              if($('.chat-block').find('#cc-'+ d.f).find('.scroll').find(' > section:last').attr('class') == 'row-left'){
-                  $('.chat-block').find('#cc-'+ d.f).find('.scroll').find(' > section:last').find('p').append('</br>'+ d.c);
-              }else{
-                  $('.chat-block').find('#cc-'+ d.f).find('.scroll').append('<section class="clear"></section> <section class="row-left"><div class="face_left"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><p><strong>'+ players[indice].name +':</strong>'+ d.c+'</p><section class="clear"></section></section>');
-              }
-          }
-          var objDiv = $('.chat-block').find('#cc-'+ d.f).find('.scroll');
-          objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
-
-          $('.face_left').each(function(k,v){
-              $('.face_left').eq(k).css({ scale: [0.5] });
-          })
-
-          $('.face_right').each(function(k,v){
-              $('.face_right').eq(k).css({ scale: [0.5] });
-          });
 
       });
 
@@ -227,34 +372,118 @@
           $('#countUser').html(data.count);
       });
 
-      socket.on('message', function(msg) {
 
+      socket.on('ready', function(msg) {
+
+          console.info(msg);
           var eq = 0;
-          for(var i=0;i<players.length;i++){
+
+          if(msg.data){
+
+              for(var i=0;i<msg.data.length;i++){
+                  var kk = getIndicePlayer(msg.data[i].player);
+
+                  if(kk != 0){
+                      players[kk].x = msg.data[i].x;
+                      players[kk].y = msg.data[i].y;
+                      players[kk].activado = msg.data[i].a;
+                      players[kk].scale = msg.data[i].scale;
+                      players[kk].admin = msg.data[i].admin;
+                      players[kk].name = msg.data[i].name;
+                      players[kk].head = msg.data[i].head;
+                      players[kk].jacket = msg.data[i].jacket;
+                      players[kk].legs = msg.data[i].legs;
+                      players[kk].feet = msg.data[i].feet;
+                      players[kk].eyes = msg.data[i].eyes;
+                      players[kk].nose = msg.data[i].nose;
+                      players[kk].mouth = msg.data[i].mouth;
+                      players[kk].room = msg.data[i].room;
+                      eq++;
+                      console.info('update player 2');
+                  }
+
+              }
+
+          }else{
+              for(var i=0;i<players.length;i++){
 
 
-              if(players[i].id == msg.player){
-                  players[i].x = msg.x;
-                  players[i].y = msg.y;
-                  players[i].activado = msg.a;
-                  players[i].scale = msg.scale;
-                  players[i].admin = msg.admin;
-                  players[i].name = msg.name;
-                  players[i].head = msg.head;
-                  players[i].jacket = msg.jacket;
-                  players[i].legs = msg.legs;
-                  players[i].feet = msg.feet;
-                  players[i].eyes = msg.eyes;
-                  players[i].nose = msg.nose;
-                  players[i].mouth = msg.mouth;
-                  players[i].room = msg.room;
-                  eq++;
+                  if(players[i].id == msg.player){
+
+                      if(msg.player == <%= current_user.id %>){
+                          _player = i;
+                      }
+
+                      if(msg.orientation == 1){  //left
+                          if(players[i].x > msg.x){
+                              players[i].x = msg.x;
+                              players[i].scale = msg.scale;
+                          }
+                      }else if(msg.orientation == 2){ //right
+                          if(players[i].x < msg.x){
+                              players[i].x = msg.x;
+                              players[i].scale = msg.scale;
+                          }
+                      }else if(msg.orientation == 3){  //up
+                          if(players[i].y > msg.y){
+                              players[i].y = msg.y;
+                              players[i].scale = msg.scale;
+                          }
+                      }else if(msg.orientation == 4){  // down
+                          if(players[i].y < msg.y){
+                              players[i].y = msg.y;
+                              players[i].scale = msg.scale;
+                          }
+                      }
+
+                      //players[i].y = msg.y;
+                      players[i].activado = msg.a;
+
+                      players[i].admin = msg.admin;
+                      players[i].name = msg.name;
+                      players[i].head = msg.head;
+                      players[i].jacket = msg.jacket;
+                      players[i].legs = msg.legs;
+                      players[i].feet = msg.feet;
+                      players[i].eyes = msg.eyes;
+                      players[i].nose = msg.nose;
+                      players[i].mouth = msg.mouth;
+                      players[i].room = msg.room;
+                      eq++;
+                      console.info('update player');
+                  }
               }
           }
 
           if(eq == 0){
+              if(msg.data){
+                  for(var i=0;i<msg.data.length;i++){
+                      players.push(new Player(msg.data[i].x,
+                              msg.data[i].y,
+                              msg.data[i].user,
+                              msg.data[i].name,
+                              msg.data[i].scale,
+                              msg.data[i].head,
+                              msg.data[i].jacket,
+                              msg.data[i].legs,
+                              msg.data[i].eyes,
+                              msg.data[i].nose,
+                              msg.data[i].mouth,
+                              msg.data[i].room ));
+                  }
 
-              players.push(new Player(msg.x, msg.y, msg.player));
+              }else{
+                  players.push(new Player(msg.x, msg.y, msg.player,msg.name, msg.scale,msg.head,msg.jacket,msg.legs, msg.eyes, msg.nose, msg.mouth,msg.room ));
+                  for(var i=0;i<players.length;i++){
+                      if(players[i].id == msg.player){
+                      <% if  current_user.id != @stage.user_id %>
+                          _player = i;
+                      <% end %>
+                      }
+                  }
+              }
+
+
           }
 
       });
@@ -271,10 +500,12 @@
 
       socket.on('disconnect', function() {
           console.log('Disconnected!');
+          $('#playground').html('');
       });
 
       socket.on('launchHeckle',function(data){
-          if(data.id != me ){
+
+          //if(data.id != players[_player].id ){
 
             var indice = getIndicePlayer(data.id);
             var t = $('<span class="tomato" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
@@ -305,11 +536,11 @@
                    $(this).fadeOut(2000, function(){ $(this).remove();});
                })
             });
-          }
+          //}
       });
 
       socket.on('launchFlower',function(data){
-          if(data.id != me ){
+         //if(data.id != players[_player].id ){
 
               var indice = getIndicePlayer(data.id);
               var t = $('<span class="flower" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
@@ -340,11 +571,11 @@
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
               });
-          }
+          //}
       });
 
       socket.on('launchPants',function(data){
-          if(data.id != me ){
+          //if(data.id != players[_player].id ){
 
               var indice = getIndicePlayer(data.id);
               var t = $('<span class="pants" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
@@ -375,10 +606,10 @@
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
               });
-          }
+          //}
       });
       socket.on('launchChicken',function(data){
-          if(data.id != me ){
+          //if(data.id != players[_player].id ){
 
               var indice = getIndicePlayer(data.id);
               var t = $('<span class="chicken" style=" top:'+(players[indice].y-15)+'px;left:'+(parseInt(players[indice].x)+15)+'px;"></span>');
@@ -409,15 +640,16 @@
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
               });
-          }
+          //}
       });
       function getIndicePlayer(id){
+          var ek = null;
           for(var i=0;i<players.length;i++){
               if(players[i].id == id){
-                 return i;
+                 ek =  i;
               }
           }
-
+          return ek;
       }
 
       function getRandomArbitary (min, max) {
@@ -438,11 +670,11 @@
       }
 
 
-      var Player = function(x,y,e){
+      var Player = function(x,y,e,name,scale,head,jacket,legs,feet,eyes,nose,mouth,room){
           this.x = x;
           this.y = y;
           this.id = e;
-          this.name = '';
+          this.name = name;
           this.width = 99;
           this.height = 131;
           this.animation = 13;
@@ -450,15 +682,15 @@
           this.paso = 0;
           this.sentido = 0;
           this.activado = 0;
-          this.scale = 0.5;
-          this.head = 1;
-          this.jacket = 1;
-          this.legs = 1;
-          this.feet = 1;
-          this.eyes = 1;
-          this.nose = 1;
-          this.mouth = 1;
-          this.room = '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>';
+          this.scale = scale;
+          this.head = head;
+          this.jacket = jacket;
+          this.legs = legs;
+          this.feet = feet;
+          this.eyes = eyes;
+          this.nose = nose;
+          this.mouth = mouth;
+          this.room = room;
 
           this.admin = 'false';
           this.step = function(){
@@ -491,7 +723,8 @@
                   this.animation = 15;
               }else if(this.animation == 15){
                   this.headgiro = 1;
-                this.animation = 16;
+                  this.animation = 16;
+
               }else if(this.animation == 16){
                   this.headgiro = 2;
                   this.animation = 17;
@@ -527,21 +760,18 @@
               }
 
 
-              if(this.admin == 'true'){
-                  $('#playground').find('#user-'+ this.id).remove();
-              }else{
+              //if(this.admin == 'true'){
+              //    $('#playground').find('#user-'+ this.id).remove();
+             // }else{
                   if($('#playground').find('#user-'+ this.id).length == 0){
-                      if(this.room == '<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>') {
+                      //if(this.room == <%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>) {
                           $('#playground').append('<div class="players" name="'+this.name+'" id="user-' + this.id +'"style="width:223px; position: absolute; left:'+ this.x +'px; top:' + this.y + 'px; z-index:'+(parseInt(this.id)+1)+'"><div class="avatar preview avatar-head-'+this.head+'" style="-webkit-transform: rotate('+this.headgiro+'deg)"></div><div class="avatar preview avatar-jacket-'+this.jacket+'" ></div><div class="avatar preview avatar-legs-'+this.legs+'"></div><div class="avatar preview avatar-feet-'+this.feet+'" style="-webkit-transform: rotate('+this.step()+'deg)"></div></div>');
-                          if(this.id == player.id){
+                          if(this.id == '<%= current_user.id %>'){
                               $('#user-'+this.id).append('<div class="keyboard"  style="top:10px;left:60%;display:block;"></div>');
                               $('.keyboard').css({ scale: [2] });
                           }
-
-                      }
-
+                      //}
                   }else{
-
                       $('#playground').find('#user-'+ this.id).attr('name', this.name);
                       $('#playground').find('#user-'+ this.id).css({ scale: [this.scale] });
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').css({ rotate: [this.headgiro] });
@@ -549,22 +779,20 @@
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-jacket-]').removeClass().addClass('avatar preview avatar-jacket-'+this.jacket);
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-legs-]').removeClass().addClass('avatar preview avatar-legs-'+this.legs);
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-feet-]').removeClass().addClass('avatar preview avatar-feet-'+this.feet);
-
-
                       $('#playground').find('#user-'+ this.id).css('left', this.x +'px');
-                      $('#playground').find('#user-'+ this.id).css('top', this.y +'px');
-
-
+                      if(animation == 0){
+                        $('#playground').find('#user-'+ this.id).css('top', this.y +'px');
+                      }
                       $('#playground').find('#user-'+ this.id).find('div[class*=avatar-feet-]').css('-webkit-transform','rotate('+this.step()+'deg)');
                   }
-              }
+             // }
 
 
 
           };
           this.shoot = function(){
 
-              var t = $('<span class="tomato" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+             // var t = $('<span class="tomato" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
               var bezier_params = {
                   start: {
                       x: (parseInt(this.x)+15),
@@ -581,7 +809,7 @@
 
              socket.emit('sendHeckle',{id: this.id, h:bezier_params});
 
-              soundManager.play('shoot');
+             /* soundManager.play('shoot');
               $('#playground').append(t).find(t).animate({
                   path : new $.path.bezier(bezier_params)
               },2500,function(){
@@ -591,13 +819,13 @@
                   $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
-              });
+              }); */
 
 
           };
           this.shootFlower = function(){
 
-              var t = $('<span class="flower" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              //var t = $('<span class="flower" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
               var bezier_params = {
                   start: {
                       x: (parseInt(this.x)+15),
@@ -613,7 +841,7 @@
               }
 
               socket.emit('sendFlower',{id: this.id, h:bezier_params});
-              $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              /*$('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
               soundManager.play('shoot');
               $('#playground').append(t).find(t).animate({
                   path : new $.path.bezier(bezier_params)
@@ -624,13 +852,13 @@
                   $(this).animate({top: (parseInt(ss.css('top').replace('px',''))+5)+'px' },1000,function(){
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
-              });
+              }); */
 
 
           };
           this.shootPants = function(){
 
-              var t = $('<span class="pants" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              //var t = $('<span class="pants" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
               var bezier_params = {
                   start: {
                       x: (parseInt(this.x)+15),
@@ -646,7 +874,7 @@
               }
 
               socket.emit('sendPants',{id: this.id, h:bezier_params});
-              $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              /*$('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
               soundManager.play('shoot');
               $('#playground').append(t).find(t).animate({
                   path : new $.path.bezier(bezier_params)
@@ -658,12 +886,12 @@
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
               });
-
+             */
 
           };
           this.shootChicken = function(){
 
-              var t = $('<span class="chicken" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
+              //var t = $('<span class="chicken" style=" top:'+(this.y-15)+'px;left:'+(parseInt(this.x)+15)+'px;"></span>');
               var bezier_params = {
                   start: {
                       x: (parseInt(this.x)+15),
@@ -679,7 +907,7 @@
               }
 
               socket.emit('sendChicken',{id: this.id, h:bezier_params});
-              $('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
+              /*$('#playground').find('#user-'+ this.id).find('div[class*=avatar-head-]').animate({left:'0'}).animate({left:'3'}).animate({left:'2'}).animate({left:'3'}).animate({left:'0'}).animate({left:'3'}).animate({left:'2'});
               soundManager.play('shoot');
               $('#playground').append(t).find(t).animate({
                   path : new $.path.bezier(bezier_params)
@@ -691,7 +919,7 @@
                       $(this).fadeOut(2000, function(){ $(this).remove();});
                   })
               });
-
+              */
 
           };
 
@@ -707,7 +935,7 @@
               url: "/discountHeckle/tomato"
           });
           setTimeout(function() {
-              player.shoot();
+              players[_player].shoot();
           }, 2000);
 
       });
@@ -719,7 +947,7 @@
               url: "/discountHeckle/pants"
           });
           setTimeout(function() {
-              player.shootPants();
+              players[_player].shootPants();
           }, 2000);
 
       });
@@ -730,7 +958,7 @@
               url: "/discountHeckle/chicken"
           });
           setTimeout(function() {
-              player.shootChicken();
+              players[_player].shootChicken();
           }, 2000);
 
       });
@@ -760,19 +988,29 @@
               url: "/discountHeckle/flower"
           });
           setTimeout(function() {
-              player.shootFlower();
+              players[_player].shootFlower();
           }, 2000);
 
       });
 
       $(document).bind('sendTips',function(e){
           $.colorbox.close();
-          player.animation = 14;
+          players[_player].animation = 14;
+          var timer = setInterval(function(){
+                 /*
+                  if($('#user-'+players[_player].id).attr('class') == 'shine'){
+                      $('#user-'+players[_player].id).removeClass('shine');
+                  }else{
+                      $('#user-'+players[_player].id).addClass('shine');
+                  }*/
+
+          }, 700);
           setTimeout(function() {
-              socket.emit('sendTips',{c:me});
+              socket.emit('sendTips',{c:players[_player].id});
           }, 2000);
-          setTimeout(function() {
-              player.animation = 13;
+          setTimeout(function(){
+              players[_player].animation = 13;
+              clearInterval(timer);
           }, 4000);
 
 
@@ -782,95 +1020,70 @@
       function update(){
           var sc = 0.00177777777778; // valor aprox por paso al momento de escalar
           $('#playground').find('div[class*=avatar-head-]').css('zIndex', '0');
-
+          var move = 0;
           <% if current_user.id != @stage.user_id %>
 
           if (keydown.left) {
-              if(player.x > 2){
-                player.x -= 2;
-                player.activado = 1;
+              if(players[_player].x > 2){
+                  players[_player].x -= 2;
+                  players[_player].activado = 1;
                   $('.keyboard').css('background', 'none');
+                  move = 1;
               }
           }
 
           if (keydown.right) {
-              if(player.x <851){
-                player.x += 2;
-                player.activado = 1;
+              if(players[_player].x <851){
+                  players[_player].x += 2;
+                  players[_player].activado = 1;
                   $('.keyboard').css('background', 'none');
-
+                  move = 2;
               }
           }
 
           if (keydown.up) {
-              if(player.y > 8){
-                  player.y -= 2;
-                  player.activado = 1;
-                  player.scale -= sc;
+              if(players[_player].y > 8){
+                  players[_player].y -= 2;
+                  players[_player].activado = 1;
+                  players[_player].scale -= sc;
+                  move = 3;
               }
           }
 
           if (keydown.down) {
-              if(player.y < 458){
-                  player.y += 2;
-                  player.activado = 1;
-                  player.scale += sc;
+              if(players[_player].y < 458){
+                  players[_player].y += 2;
+                  players[_player].activado = 1;
+                  players[_player].scale += sc;
                   $('.keyboard').css('background', 'none');
-
+                  move = 4;
               }
 
           }
-           <% end %>
 
-          if(player){
-              player.admin =  '<%= (current_user.id == @stage.user_id)? true : false %>';
-              player.name = '<%= (current_user.name.nil?)? 'anonymous': current_user.name.split(" ").first %>';
-              <% if !@character.nil? %>
-                   <% @character.each do |d| %>
-                        <% dd = d.section.split('-') %>
-                        <% if dd[1] == 'head' %>
-                            player.head = <%= dd[2] %>;
-                        <% elsif dd[1] == 'jacket' %>
-                            player.jacket = <%= dd[2] %>;
-                        <% elsif dd[1] == 'legs' %>
-                            player.legs = <%= dd[2] %>;
-                        <% elsif dd[1] == 'feet' %>
-                            player.feet = <%= dd[2] %>;
-                        <% elsif dd[1] == 'eyes' %>
-                            player.eyes = <%= dd[2] %>;
-                        <% elsif dd[1] == 'nose' %>
-                            player.nose = <%= dd[2] %>;
-                        <% elsif dd[1] == 'mouth' %>
-                            player.mouth = <%= dd[2] %>;
-                        <% end %>
-                   <% end %>
-              <% else %>
-                   player.head = 1;
-                   player.jacket = 1;
-                   player.legs = 1;
-                   player.feet = 1;
-                   player.eyes = 1;
-                   player.mouth = 1;
-                   player.nose = 1;
-              <% end %>
+          if(move != 0){
 
+              console.info('move');
               socket.emit('update',{
-                  id:player.id,
-                  x:player.x,
-                  y:player.y,
-                  scale: player.scale,
-                  a: player.activado,
-                  name : player.name,
-                  head: player.head,
-                  jacket: player.jacket,
-                  legs: player.legs,
-                  feet: player.feet,
-                  eyes: player.eyes,
-                  nose: player.nose,
-                  mouth: player.mouth,
+                  id:players[_player].id,
+                  x:players[_player].x,
+                  y:players[_player].y,
+                  scale: players[_player].scale,
+                  a: players[_player].activado,
+                  name : players[_player].name,
+                  head: players[_player].head,
+                  jacket: players[_player].jacket,
+                  legs: players[_player].legs,
+                  feet: players[_player].feet,
+                  eyes: players[_player].eyes,
+                  nose: players[_player].nose,
+                  mouth: players[_player].mouth,
+                  room: players[_player].room,
+                  orientation: move,
                   admin:'<%= (current_user.id == @stage.user_id)? true : false %>'});
           }
 
+           <% end %>
       }
 
       $('.players').live('click',function(){
@@ -879,10 +1092,15 @@
           var _top =  parseInt($(this).css('top').replace('px',''))-100;
           var _left = parseInt($(this).css('left').replace('px',''))+80;
           var indice = getIndicePlayer(_me[1]);
-
-          if(me != _me[1]){
+          //console.info(players[_player].id +' -- '+ _me[1]);
+          if(_player == null || players[_player].id != _me[1]){
               $('#playground').find('.bubble').remove();
-              $('#playground').append('<section class="bubble" style="top:'+_top+'px;left:'+_left+'px"><div class="face"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><h3><a href="#" title="'+_name+'">'+_name+'</a></h3><section class="clear"></section><ul><li><a href="#" rel="' + _me[1] + '" class="chat" title="Chat"><img src="/images/ic_chat2.png" width="19" height="18" alt="chat"><span>Chat</span></a></li><li><a href="#" title="View profile"><img src="/images/ic_man.png" width="19" height="18" alt="man"><span>View profile</span></a></li></ul></section>');
+              $('#playground').append('<section class="bubble" style="top:'+_top+'px;left:'+_left+'px"><div class="face"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><h3><a href="#" title="'+_name+'">'+_name+'</a></h3><section class="clear"></section><ul><li><a href="#" rel="' + _me[1] + '" class="chat" title="Chat"><img src="/images/ic_chat2.png" width="19" height="18" alt="chat"><span>Chat</span></a></li><li><a href="/profile_modal/'+_me[1]+'" title="View profile" class="modalperfil"><img src="/images/ic_man.png" width="19" height="18" alt="man"><span>View profile</span></a></li></ul></section>');
+              $('#playground a.modalperfil').bind('click', function() {
+                  $.fn.colorbox({href:$(this).attr('href'), open:true, iframe:true, innerWidth:500, innerHeight:340,close:'X'});
+                  return false;
+              });
+
               setTimeout( function()
               {
                   $('#playground .bubble').fadeOut("fast");
@@ -890,6 +1108,40 @@
           }
           return false;
       });
+      $('.featured').click(function(){
+         //console.info('asdff');
+          var _me = $(this).attr('rel');
+          var _name = $(this).attr('name');
+          var _top =  parseInt($(this).css('top').replace('px',''))-100;
+          var _left = parseInt($(this).css('left').replace('px',''))+80;
+          var indice = getIndicePlayer(_me);
+
+          $('.featured').find('.bubble').remove();
+          $('.featured').append('<section class="bubble" style="position:relative !important; top:-138px;left:80px; -webkit-transform: scale(1.5, 1.5) !important;"><h3><a href="#" title="'+_name+'">'+_name+'</a></h3><section class="clear"></section><ul><li><a href="/profile_modal/'+ _me +'" title="View profile" class="modalperfil"><img src="/images/ic_man.png" width="19" height="18" alt="man"><span>View profile</span></a></li></ul></section>');
+          $('.featured a.modalperfil').bind('click', function() {
+              $.fn.colorbox({href:$(this).attr('href'), open:true, iframe:true, innerWidth:500, innerHeight:340,close:'X'});
+              return false;
+          });
+
+          setTimeout( function()
+          {
+              $('.featured .bubble').fadeOut("fast");
+          }, 5000);
+      });
+      /*
+      $('.featured').live('click', function(){
+          //var _me = $(this).attr('rel');
+          //var _name = $(this).attr('name');
+          //var _top =  parseInt($(this).css('top').replace('px',''))-100;
+          //var _left = parseInt($(this).css('left').replace('px',''))+80;
+          //var indice = getIndicePlayer(_me);
+          console.info('asdf');
+          //$('.featured').find('.bubble').remove();
+          //$('.featured').append('<section class="bubble" style="top:'+_top+'px;left:'+_left+'px"><div class="face"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div><h3><a href="#" title="'+_name+'">'+_name+'</a></h3><section class="clear"></section><ul><li><a href="#" rel="' + _me + '" class="chat" title="Chat"><img src="/images/ic_chat2.png" width="19" height="18" alt="chat"><span>Chat</span></a></li><li><a href="#" title="View profile"><img src="/images/ic_man.png" width="19" height="18" alt="man"><span>View profile</span></a></li></ul></section>');
+
+      });  */
+
+
       $('body').click(function(){
           $('#playground .bubble').fadeOut("fast");
       });
@@ -897,32 +1149,59 @@
       $('.bubble .chat').live('click', function(){
           var indice = getIndicePlayer($(this).attr('rel'));
           var indice_me = getIndicePlayer(me);
+
+          console.info(_player);
+
          if($('.hc-'+$(this).attr('rel')).length == 0){
              if($('.chat-block > img').length == 0){
-                 $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" style="margin-right:66px;" />');
+
+                $('.chat-block').append('<div class="face_b hc-'+$(this).attr('rel')+'"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div>')
+                //$('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" style="margin-right:66px;" />');
              }else{
-                 $('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" />');
+                 //$('.chat-block').append('<img src="/images/img_face.png" class="hc-'+$(this).attr('rel')+'" />');
+                 $('.chat-block').append('<div class="face_b hc-'+$(this).attr('rel')+'"><div class="avatar preview avatar-head-'+ players[indice].head+'"><div class="avatar preview avatar-eyes-'+ players[indice].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice].mouth+'"></div></div></div>')
+
              }
 
-             $('.chat-block').append('<section class="chat-messanger" id="cc-'+$(this).attr('rel')+'" ><a href="#" title="close" class="close private ">X</a><h4>Chat with <a href="#" title="'+ players[indice].name +'">'+ players[indice].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea" placeholder="Write a message and press enter" ></textarea></form></section>');
+             $('.chat-block').append('<section class="chat-messanger" id="cc-'+$(this).attr('rel')+'" ><a href="#" title="close" class="close private ">X</a><h4>Chat with <a href="#" title="'+ players[indice].name +'">'+ players[indice].name +'</a></h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea nomb" placeholder="Write a message and press enter" ></textarea></form></section>');
 
              $('.textarea').keypress(function(e) {
                  if (e.keyCode == 13 && !e.shiftKey) {
                      e.preventDefault();
+
                      if($(this).parent().parent().find('.scroll').find('section:last').length == 0){
-                         $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                         if(_player){
+                             $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[_player].head +'"><div class="avatar preview avatar-eyes-'+ players[_player].eyes+'"></div><div class="avatar preview avatar-nose-'+  players[_player].nose  +'"></div><div class="avatar preview avatar-mouth-'+  players[_player].mouth +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+
+                         }else{
+                             $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+  perfomer.head +'"><div class="avatar preview avatar-eyes-'+  perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+  perfomer.nose +'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+
+                         }
+
                      }else{
                          if($(this).parent().parent().find('.scroll').find(' > section:last').attr('class') == 'row-right'){
-                             $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append('</br>'+$(this).val());
+                             $(this).parent().parent().find('.scroll').find(' > section:last').find('p').append(' '+$(this).val());
                          }else{
-                             $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[indice_me].head+'"><div class="avatar preview avatar-eyes-'+ players[indice_me].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[indice_me].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[indice_me].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+                             if(_player){
+                                 $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+ players[_player].head+'"><div class="avatar preview avatar-eyes-'+ players[_player].eyes+'"></div><div class="avatar preview avatar-nose-'+ players[_player].nose+'"></div><div class="avatar preview avatar-mouth-'+ players[_player].mouth+'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+
+                             }else{
+                                 $(this).parent().parent().find('.scroll').append('<section class="row-right"><div class="face_right"><div class="avatar preview avatar-head-'+  perfomer.head +'"><div class="avatar preview avatar-eyes-'+  perfomer.eyes+'"></div><div class="avatar preview avatar-nose-'+  perfomer.nose +'"></div><div class="avatar preview avatar-mouth-'+ perfomer.mouth +'"></div></div></div><p><strong>YOU:</strong>'+ $(this).val() +' </p><section class="clear"></section></section>');
+
+                             }
                          }
                      }
                      var objDiv = $(this).parent().parent().find('.scroll');
                      objDiv.prop('scrollTop', objDiv.prop('scrollHeight'));
                      var _c = $(this).parent().parent().attr('id').split('-');
 
-                     socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:me});
+                     if(_player){
+                         socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:players[_player].id});
+                     }else{
+                         socket.emit('sendPrivate',{c:_c[1],m: $(this).val(), f:perfomer.id, admin:1});
+                     }
+
+
                      $(this).val('').focus();
                      //alert($(this).parent().parent().find('.scroll').find('.face_right').length);
                      $('.face_right').each(function(k,v){
@@ -933,7 +1212,6 @@
          }
          return false;
       });
-
 
 
       $('.close.private').live('click', function(){
@@ -949,14 +1227,14 @@
           return false;
       });
       function draw(){
-          if(me != null){
+          //if(me != null){
               for(var i=0;i<players.length;i++){
-                  if(me != players[i].id){
+                  //if(me != players[i].id){
                       players[i].draw();
-                  }
+                  //}
               }
-              if(player){ player.draw();}
-          }
+              //if(player){ player.draw();}
+          //}
       }
 
       var FPS = 30;
@@ -976,7 +1254,7 @@
           }
           return false;
       });
-
+      <% if @stage.id != 191 %>
       <% if current_user.id == @stage.user_id %>
 
             setInterval(function(){
@@ -1003,20 +1281,31 @@
 
                     }
                 });
+
+                $.ajax({
+                    type: "GET",
+                    url: "/performance_update/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>",
+                    success: function(data){
+
+                    }
+                });
+
+
+
             }, 5000);
 
-            var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>" };
-            var params = { allowscriptaccess: "always"};
+            var flashvars = {fmsUrl : "rtmp://ec2-54-247-55-63.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>" };
+            var params = { allowScriptAccess: "always"};
 
-            swfobject.embedSWF("http://beta.theopenhat.com/stageSender.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
+            swfobject.embedSWF("/stageSender.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
       <% else %>
             $(document).scrollTop(700);
-            var flashvars = {fmsUrl : "rtmp://ec2-54-247-50-141.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>"};
-            var params = { allowscriptaccess: "always", allowFullScreen: "true"};
+            var flashvars = {fmsUrl : "rtmp://ec2-54-247-55-63.eu-west-1.compute.amazonaws.com/livepkgr", streamname : "<%= Digest::MD5.hexdigest(@id.to_s) %>", escenario: "<%= (@stage.design.nil?)? '1': @stage.design %>"};
+            var params = { allowScriptAccess: "always", allowFullScreen: "true"};
 
-            swfobject.embedSWF("http://beta.theopenhat.com/stagePlayer.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
+            swfobject.embedSWF("/stagePlayer.swf", "imgb", "685", "410", "10.0.0", "", flashvars, params );
       <% end %>
-
+      <% end %>
 
 
 
@@ -1031,8 +1320,23 @@
               $(this).attr('title', 'Pause performance');
               $(this).html('<img src="/images/ic_pause.png" width="30" height="26" alt="fullscreen">Pause performance');
           }
-          var flashObj = $('#imgb');
-          flashObj[0].sstext();
+          //var flashObj = $('#imgb');
+          var flashObj = swfobject.getObjectById("imgb");
+          //var flashObj = document.getElementById('imgb');
+
+          try {
+              if(flashObj){
+                  flashObj.sstext();
+              }
+          }
+          catch (e) {
+              console.info(e);
+              //swf is not loaded yet, wait a bit and try again
+              setTimeout(function(){
+                  flashObj.sstext();
+              }, 100);
+          }
+
           return false;
       });
 
@@ -1040,12 +1344,18 @@
       $('.textarea2').keypress(function(e) {
           if (e.keyCode == 13 && !e.shiftKey) {
               e.preventDefault();
+              if(_player){
+                  socket.emit('sendPublic',{c:players[_player].id, m: $(this).val()});
+              }else{
+                  socket.emit('sendPublic',{c:perfomer.id, m: $(this).val()});
+              }
 
-              socket.emit('sendPublic',{c:me, m: $(this).val()});
               $(this).val('').focus();
           }
       });
-
+      function randomFromTo(from, to){
+          return Math.floor(Math.random() * (to - from + 1) + from);
+      }
 
       $('body').click(function(){
           $('.shadown-top').css('visibility','hidden' );
@@ -1077,17 +1387,17 @@
 
             <%#= debug @stage %>
        	  	<h2><%= @stage.room_name %> <span>(<span id="countUser">0</span> online viewers)</span></h2>
-          <script type="text/javascript"><!--
+         <!-- <script type="text/javascript"><!--
           google_ad_client = "ca-pub-8778997002815598";
           /* openhat */
           google_ad_slot = "4045039566";
           google_ad_width = 728;
           google_ad_height = 90;
           //-->
-          </script>
-          <script type="text/javascript"
+         <!-- </script>  -->
+         <!-- <script type="text/javascript"
                   src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-          </script>
+          </script> -->
           <section class="volume">
             <span class="ico-volumen" rel="50"></span><div id="slider"></div>
           </section>
@@ -1120,7 +1430,11 @@
     	<section class="video-col">
         	<section class="imgb">
               <div id="imgb" ></div>
-
+              <% if @stage.id == 191 %>
+                  <p style="text-align: center;font-family: 'Amatic SC', cursive;font-weight: 800;font-size: 38px;width: 430px;margin: 90px auto; display: block;background-color: #FEEFB3;padding: 20px;border: 2px solid black;">This is a demo stage, the performance would you here. Try playing around with you avatar and interacting with the stage.</p>
+            <% else %>
+                  <noscript style="text-align: center;font-family: 'Amatic SC', cursive;font-weight: 800;font-size: 38px;width: 430px;margin: 90px auto; display: block;background-color: #FEEFB3;padding: 20px;border: 2px solid black;">Oops! There seems to be a problem. You might have Javascript deactivated in this browser or be using an old version of Adobe Flash.</noscript>
+            <% end %>
             </section>
             <!-- start stage-block -->
             <section class="stage-block">
@@ -1139,6 +1453,9 @@
                           <li><a href="/configuration/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Configuration" id="configuration"><img src="/images/ic_config.png" width="30" height="26" alt="fullscreen">Configuration</a></li>
                           <li><a href="/share/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" id="share_url" title="Share your Link"><img src="/images/ic_share.png" width="30" height="26" alt="fullscreen">Share your link</a></li>
                           <li><a href="/tippers/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="View your Tippers" id="tippers"><img src="/images/ic_doller.png" width="30" height="26" alt="camera">View your Tippers</a></li>
+                          <% if @stage.ticket_type == 'free' %>
+                          <li><a href="/invitation/<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Invitations" id="invitations"><img src="/images/ic_invite.png" width="31" height="24" alt="camera">Invitations</a></li>
+                          <% end %>
                           <li class="last"><a href="#<%= Digest::MD5.hexdigest(@stage.id.to_s)[0,11] %>" title="Close Stage" id="closeStage" rel="nofollow"><img src="/images/ic_close.png" width="30" height="26" alt="camera">Close Stage</a></li>
 
                 <% end %>
@@ -1146,7 +1463,8 @@
                 </ul>
               <% if @stage.user_id == current_user.id %>
                   <section class="user">
-                    <h3>Total Tips Recieved</h3>
+                    <h3 style="font-size: 28px;
+                            line-height: 26px;">Total Tips Recieved</h3>
                     <span class="number_tips" style="font-size: 21px;">0</span>
                   </section>
               <% end %>
@@ -1158,12 +1476,13 @@
                           <% @tippers.each do |d| %>
                             <%
                                ch = Character.find(:all, :conditions => ['user_id = ?', d.sender])
+                               user = User.find(d.sender)
                             %>
 
                           <%
                              if ch.count == 0
                           %>
-                          <div class="featured">
+                          <div class="featured" rel="<%= d.sender %>" name="<%= user.name %>">
                               <div class="avatar preview avatar-head-1">
                                 <div class="avatar preview avatar-eyes-1"></div>
                                 <div class="avatar preview avatar-nose-1"></div>
@@ -1172,7 +1491,7 @@
                           </div>
 
                           <% else %>
-                              <div class="featured">
+                              <div class="featured" rel="<%= d.sender %>" name="<%= user.name %>">
                               <% ch.each do |c| %>
                                   <% dd = c.section.split('-') %>
                                   <% if dd[1] == 'head' %>

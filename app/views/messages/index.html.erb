@@ -5,9 +5,10 @@
     .box-msn{
         display: block;
         position: relative;
-        height: 57px;
+        /*height: 57px; */
         border-bottom: 1px solid black;
         margin-top: 15px;
+        height:  auto;
     }
     .box-msn .thumb{
         top: -38px;
@@ -16,18 +17,18 @@
     .box-msn p{
         width: 370px;
         position: relative;
-        left: 70px;
-        height: 50px;
+        left: 85px;
+        height: auto;
         overflow: hidden;
-
         padding: 0px;
         margin: 0px;
+        padding-bottom: 10px;
     }
     .box-msn p a{
         color: #000;
         text-decoration: none;
         font-family: 'Amatic SC', cursive;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 15px;
     }
     .box-msn p strong{
@@ -35,9 +36,10 @@
     }
     .box-msn p strong a{
         font-family: 'Amatic SC', cursive;
-        font-weight: 800;
+        font-weight: 600;
         font-size: 17px;
         text-decoration: underline;
+        color: #D94601;
     }
 
     .box-msn .indicador{
@@ -51,6 +53,30 @@
         top: -39px;
 
     }
+    h2{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+        text-align: center;
+        font-size: 38px;
+        margin: 0px;
+        padding: 0px;
+    }
+    h2 a{
+        font-size: 21px;
+        color: #D94601;
+        text-decoration: underline;
+    }
+
+    .new_messages{
+        background-color: red;
+        color: white;
+        padding: 2px 2px 2px 2px;
+        font-size: 11px;
+        margin: 2px 7px 0px 0px;
+        font-family: 'Amatic SC', cursive;
+        float: left;
+        font-weight: 800;
+    }
 </style>
 <script src="/javascripts/jquery.min.js"></script>
 <script src="/javascripts/jquery.transit.min.js"></script>
@@ -58,7 +84,7 @@
     $(document).ready(function(){
         $('.thumb').each(function(k,v){
 
-            $('.thumb').eq(k).css({ scale: [0.7] });
+            $('.thumb').eq(k).css({ scale: [0.5] });
         });
 
         $('.thumb').show();
@@ -66,7 +92,9 @@
 
 </script>
 <div class="content">
-	<%= link_to 'new message', message_new_url %>
+
+    <h2>Messages <%= link_to 'new message', message_new_url %></h2>
+
 
     <% if !@yarn.nil? %>
 			<% @yarn.each do |m| %>
@@ -74,7 +102,7 @@
                 user = YarnParticipant.find(:first, :conditions => ['user_id != ? AND yarn_id = ?', current_user.id, m.yarn_id ])
                 us = User.find(:first, :conditions => ['id = ?',user.user_id ])
                 a = Character.find(:all, :conditions => ['user_id = ?', user.user_id])
-                ms = Message.find(:first, :conditions => ['yarn_id = ?', m.yarn_id])
+                ms = Message.find(:first, :order => 'id desc', :conditions => ['yarn_id = ?', m.yarn_id])
             %>
           <div class="box-msn">
              <div class="thumb" style="float:left;">
@@ -106,9 +134,21 @@
 
             <% end %>
                 </div>
+                <%
+                   nuevo = 0
+                   msss = Message.find(:all, :conditions => ['yarn_id = ?', m.yarn_id])
+                   msss.each do |ff|
+                     nm = MessageReadState.find(:first,  :conditions => ['user_id = ? AND message_id = ?', current_user.id,ff.id])
+                     if !nm.nil?
+                        nuevo = 1
+                     end
 
-                <p><strong><%= link_to us.name,  message_read_url(Digest::MD5.hexdigest(m.id.to_s)) %></strong><%= link_to ms.body,  message_read_url(Digest::MD5.hexdigest(m.id.to_s)) %></p>
-            <%= link_to '>',  message_read_url(Digest::MD5.hexdigest(m.id.to_s)), :class => 'indicador' %>
+                   end
+
+                %>
+                <%#= debug msss %>
+                <p><strong><%= link_to us.name,  message_read_url(m.yarn_id) %><% if nuevo == 1 %><span class="new_messages">new</span><% end %></strong><%= link_to ms.body,  message_read_url(m.yarn_id) %></p>
+            <%= link_to '>',  message_read_url(m.yarn_id), :class => 'indicador' %>
 				<%#= link_to image_tag('img_head.jpg'), message_read_url(Digest::MD5.hexdigest(m.id.to_s)) %>
 
 		    </div>

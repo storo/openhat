@@ -2,19 +2,22 @@
 <script type="text/javascript" >
     $(document).ready(function(){
         $('.button').click(function(){
-            var _dataTosend = {'data' : {'id': <%= @id %>, 'tokens' : $('.text').val(), 'sender' :<%= current_user.id %>, 'stage' : '<%= @stage %>' }};
-            var request = $.ajax({
-                type: "GET",
-                url: "/sendtip",
-                dataType: "text",
-                data: _dataTosend,
-                success: function(data){
-                    $('.text-tip span').html(parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
-                    $('.text').attr('rel',parseInt($('.text').attr('rel')) - parseInt($('.text').val()));
-                    parent.$(parent.document).trigger("sendTips");
-                }
-            });
 
+            if($('.text').val() != ""){
+                var request = $.ajax({
+                    type: "GET",
+                    url: "/send_cashout/<%= current_user.id %>/"+$('.text').val(),
+                    success: function(data){
+                        alert("Your request has been received");
+                        parent.location.reload();
+                        //parent.$.fn.colorbox.close();
+                    }
+                });
+
+            }else{
+                alert("Tokens required");
+                $('.text').focus();
+            }
 
             return false;
         });
@@ -98,7 +101,7 @@
 
     <button class="button">Send me the cash</button>
 
-    <p>This payment will be sent to your PayPal account <!-- --> on the "<%= (Date.new(Date.today.year,Date.today.mon + 1, 1) -1).mday  %>" of "<%= Date.new(Date.today.year,Date.today.mon, Date.today.mday).strftime('%B')  %>". </p>
+    <p>This payment will be sent to your PayPal account <!-- --> on the "<%= Date.new(Date.today.year,Date.today.mon, -1).mday  %>" of "<%= Date.new(Date.today.year,Date.today.mon, Date.today.mday).strftime('%B')  %>". </p>
   </div>
 
 

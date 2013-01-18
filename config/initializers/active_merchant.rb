@@ -1,7 +1,8 @@
 if Rails.env.production?
-  PAYPAL_ACCOUNT = 'your_account@yourbusiness.com'
+  PAYPAL_ACCOUNT = 'paypalcl@medialabs.net'
 else
 
-  PAYPAL_ACCOUNT = 'debian_1343328176_biz@gmail.com'
-  ActiveMerchant::Billing::Base.mode = :test
+  PAYPAL_ACCOUNT = 'paypalcl@medialabs.net'
+
+  #ActiveMerchant::Billing::Base.mode = :test
 end
