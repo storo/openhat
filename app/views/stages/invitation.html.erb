@@ -1,0 +1,51 @@
+<article id="container">
+  <!-- start box -->
+  <section class="box">
+    <!-- start breadcrumb -->
+    <section class="breadcrumb inner">
+      <ul>
+        <li class="first"><%= link_to(image_tag('ic_home.png'), root_path)  %></li>
+        <li><a href="/stage/<%= @id %>"><%= @stage.room_name %></a></li>
+      </ul>
+      <section class="clear"></section>
+    </section>
+    <!-- end breadcrumb -->
+    <!-- start register-form -->
+    <section class="profile">
+      <section class="rowline">
+        <h2>Your Guest List</h2>
+        <p style="font-size: 22px; font-weight: 400; font-family: 'Amatic SC', cursive;">You can send invitations to your followers and friends, please add their emails.</p>
+
+        <div class="form_invitation">
+           <input type="text" name="" placeholder="email" class="form-input-medio" id="email" style="float:left" />
+           <input type="hidden" id="stage_id" value="<%= @stage.id %>"  />
+           <input type="button" value="invite" class="button button-invitation" />
+
+          <div class="list_invitation">
+            <h2>Users list</h2>
+            <ul>
+              <%
+                inv = Invitation.find(:all, :conditions => ['stage_id = ?', @stage.id])
+                inv.each do |d|
+              %>
+              <li><%= d.user_id %></li>
+              <% end %>
+
+            </ul>
+          </div>
+
+        </div>
+
+
+
+
+      </section>
+
+    </section>
+
+    <!-- end creative-block -->
+    <section class="clear"></section>
+
+  </section>
+  <!-- end box -->
+</article>

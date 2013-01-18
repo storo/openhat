@@ -12,12 +12,14 @@ Openhat::Application.routes.draw do
 
   match 'profile' => 'home#profile', :as => 'profile'
   match 'profile/:id' => 'home#public_profile', :as => 'public_profile'
+  match 'profile_modal/:id' => 'home#public_profile_modal', :as => 'public_profile_modal'
   match 'accounts_settings' => 'home#accounts_settings', :as => 'accounts_settings'
   match 'follow/:id' => 'home#follow', :as => 'follow'
   match 'unfollow/:id' => 'home#unfollow', :as => 'unfollow'
   match 'messages' => 'messages#index', :as => 'messages'
   match 'messages/new.:format' => 'messages#user_ajax'
   match 'message/send' => 'messages#sendto', :via => "post"
+  match 'message/send_m' => 'messages#send_m', :via => "post"
   match 'stage/create' => 'stages#create', :via => "post"
   match 'message_new' => 'messages#new', :as => 'message_new'
   match 'message/:id' => 'messages#read', :as => 'message_read'
@@ -59,6 +61,17 @@ Openhat::Application.routes.draw do
   match 'beta' => 'home#beta'
   match 'contact' => "pages#contact", :as => 'contact', :via => 'post'
   match 'cashout' => 'home#cashout'
+
+  match  'performance_update/:id' => 'stages#performance_update'
+  match 'send_cashout/:user/:tokens' => 'home#send_cashout'
+  match 'featured_users/:id' => 'stages#featured_users'
+  # paypal url's
+  match 'payment/notify' => 'tokens#notify', :via => 'post'
+  match 'noinvitation' => 'stages#noinvitation', :as => 'noinvitation'
+  match 'invitation/:id' => 'stages#invitation', :as => 'invitation'
+  match 'add_invitation/:id/:email' => 'stages#add_invitation', :email => /.*/
+  match 'noticket' => 'stages#noticket', :as => 'noticket'
+  match 'notification' => 'messages#notification'
   root :to => 'home#index'
 
 

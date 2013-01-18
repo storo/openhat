@@ -7,12 +7,18 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
   <%= stylesheet_link_tag    'style', 'css3','colorbox','avatar','heads','http://fonts.googleapis.com/css?family=Amatic+SC:400,700',:media => "all" %>
-  <%= javascript_include_tag 'jquery.min','jquery_ujs','jquery-ui', 'jquery.cycle', 'jquery.colorbox' ,'jquery.path','jquery.transit.min', 'jquery.validate.min.js', 'additional-methods.min.js', 'jquery.raty.min.js', 'application' %>
+  <%= javascript_include_tag 'jquery.min','jquery_ujs','jquery-ui', 'jquery.cycle', 'jquery.colorbox' ,'jquery.path','jquery.transit.min', 'jquery.validate.min.js', 'additional-methods.min.js', 'jquery.raty.min.js', 'modernizr.js', 'flash.detect.js', 'application' %>
+  <script src="/javascripts/swfobject.js" type="text/javascript"></script>
   <%= csrf_meta_tags %>
   <meta name="title" content="TheOpenHat" />
   <meta name="description" content="The online platform that brings performers and audiences together" />
 </head>
 <body>
+
+    <script type="text/javascript">
+        setInterval("notification()",10000);
+    </script>
+
     <%#= current_user.sign_in_count %>
 	<!-- start box -->
 	<section class="box">
@@ -114,7 +120,7 @@
 	    <section class="clear"></section>
 </section>
 
-        <section class="box">
+        <section class="box alerts">
            <!-- <%# if !flash[:notice].blank? %>
             <div class="notice">
                  <%#= flash[:notice] %>
@@ -279,6 +285,20 @@
     <div class="shadown-right"></div>
         <div class="shadown-bottom"></div>
     <% end %>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37121232-1']);
+        _gaq.push(['_setDomainName', 'theopenhat.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
 <!-- end footer -->
 </body>
 </html>

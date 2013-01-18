@@ -19,13 +19,31 @@ class MessagesController < ApplicationController
   end
 
 
+  def notification
+    if current_user
+        nm = MessageReadState.find(:all, :group => 'message_id',  :conditions => ['user_id = ?', current_user.id])
+        render :json => nm.to_json
+    else
+        render :json => 0.to_json
+    end
+  end
+
   def read
       if current_user
-          r = Message.find(:first, :conditions => ['md5(id) = ?', params[:id]])
-          @sender = User.find(r.sender)
-          @recipient = User.find(:first, :conditions => ['md5(id) = ?', r.recipient])
-          
-          @messages = Message.find(:all, :conditions => ['(sender = ? AND recipient = ?) OR (sender = ? AND recipient = ?)',r.sender, Digest::MD5.hexdigest(current_user.id.to_s),current_user.id, Digest::MD5.hexdigest(r.sender.to_s)])
+          @r = Message.find(:all, :conditions => ['yarn_id = ?', params[:id]])
+          @yp = YarnParticipant.find(:all, :conditions => ['yarn_id = ?', params[:id]])
+
+          @r.each do |n|
+            nm = MessageReadState.find(:first ,  :conditions => ['user_id = ? AND message_id = ?', current_user.id, n.id])
+            if !nm.nil?
+             # nm.delete
+            end
+          end
+
+
+
+
+          @id =  params[:id]
           render :layout => false
       else
         flash[:notice] = "error 403" 
@@ -35,10 +53,10 @@ class MessagesController < ApplicationController
   
   
   def user_ajax
-      @users = User.find(:all, :conditions => ['email LIKE ?', "%#{params[:term]}%"])
+      @users = User.find(:all, :conditions => ['name LIKE ?', "%#{params[:term]}%"])
     
       @userlist = @users.map do |u|
-        { :id => u.id, :label => u.email, :value => u.email}
+        { :id => u.id, :label => u.name, :value => u.name}
       end
   
       respond_to do |format|
@@ -50,7 +68,7 @@ class MessagesController < ApplicationController
   def sendto
     if current_user
       if params[:user]
-          u = User.find(:first, :conditions => ['email = ?', params[:user][:recipient]])
+          u = User.find(:first, :conditions => ['name = ?', params[:user][:recipient]])
           y = Yarn.new
           y.save!
 
@@ -71,17 +89,43 @@ class MessagesController < ApplicationController
           m.save!
 
           mrs = MessageReadState.new
-          mrs.user_id = current_user.id
+          mrs.user_id = u.id
           mrs.message_id = m.id
           mrs.save!
 
-          flash[:notice] = "Message send!" 
+          redirect_to message_read_url(y.id)
+
       end
-      redirect_to messages_url
     else
       flash[:notice] = "error 403"
       redirect_to root_url
     end
       
+  end
+
+  def send_m
+    if current_user
+      if params[:user]
+
+
+        m = Message.new
+        m.body = params[:user][:body]
+        m.yarn_id = params[:user][:yarn]
+        m.user_id = params[:user][:user]
+        m.save!
+
+        mrs = MessageReadState.new
+        mrs.user_id = params[:user][:user]
+        mrs.message_id = m.id
+        mrs.save!
+
+
+      end
+      redirect_to message_read_url(params[:user][:yarn])
+    else
+      flash[:notice] = "error 403"
+      redirect_to root_url
+    end
+
   end
 end

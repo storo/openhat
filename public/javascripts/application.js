@@ -1,4 +1,41 @@
+function notification(){
+    var contenedor = $('.Account');
+    //<section class="glow-box"></section>
+    $('.glow-box').remove();
+    $('#messanges').html('MESSAGES(0)');
+
+    $.ajax({
+        type: "GET",
+        url: "/notification",
+        //dataType: "json",
+        success: function(data){
+            if(data.length > 0){
+                $('.Account').prepend('<section class="glow-box"></section>');
+                $('#messanges').html('MESSAGES('+ data.length +')');
+            }
+
+        }
+    });
+}
 $(function() {
+
+
+    $('.button-invitation').click(function(){
+        var email = $('#email').val();
+
+        $.ajax({
+            type: "GET",
+            url: "/add_invitation/"+$('#stage_id').val()+"/"+email,
+            //dataType: "json",
+            success: function(data){
+                $('.list_invitation ul').append('<li>' + email + '</li>');
+                $('#email').val('');
+            }
+        });
+
+
+
+    });
 
 
     var options = $('#stage_language_content').find('option');
@@ -9,6 +46,9 @@ $(function() {
         }
         $('#stage_language_content').append(options[k]);
     });
+
+
+
 
     $('.slide-home').cycle('fade');
     $('.profile .preview').click(function(){
@@ -191,6 +231,17 @@ $(function() {
 });
 
 $(document).ready(function() {
+    if(!FlashDetect.installed){
+        $('.alerts').append('<div class="warning flash_error"><a class="close" href="#">X</a><p>Flash Player is required to enjoy this site. <a href="http://get.adobe.com/es/flashplayer/">Please install Flash Player</a></p></div>');
+    }
+
+    if(FlashDetect.majorAtLeast(12)){
+        $('.alerts').append('<div class="warning flash_error"><a class="close" href="#">X</a><p>You are going to need the latest version of Flash for a better experience. You can download it <a href="http://get.adobe.com/es/flashplayer/">here</a></p></div>');
+    }
+
+    if (Modernizr.borderradius === false){
+        $('.alerts').append('<div class="warning flash_error"><a class="close" href="#">X</a><p>The browser you are using is a bit old. For a better experience we recommend you download the latest version of <a href="http://www.google.com/intl/es/chrome/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>.</p></div>');
+    }
 
 
     $("#makeStage").validate();

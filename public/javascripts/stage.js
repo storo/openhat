@@ -90,4 +90,5 @@ $(document).ready(function(){
 
     $('#footer-bot').append('<section class="chat-messanger" id="chat-general" style="left:0px;" ><a href="#" title="close" class="close global">X</a><h4>Global Chat</h4><section class="scroll"></section><section class="clear"></section><form action="#"><textarea name="textarea" cols="4" rows="5" class="textarea2" placeholder="Write a message and press enter" ></textarea></form></section>').find('#chat-general').hide();
 
+
 });

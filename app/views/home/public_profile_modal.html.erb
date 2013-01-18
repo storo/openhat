@@ -1,0 +1,158 @@
+<link href="http://fonts.googleapis.com/css?family=Amatic+SC:400,700" media="all" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.perfomer').click(function(){
+          var title  = $(this).attr('title');
+
+          if(title == 'Follow performer'){
+              $(this).attr('title', 'unFollow performer');
+              $(this).html('unFollow performer');
+
+              $.ajax({
+                  type: "GET",
+                  url: "/follow/" + $(this).attr('rel'),
+                  dataType: "json"
+              }).done(function( msg ) {
+                          //alert( msg );
+                      });
+
+          }else if(title == 'unFollow performer'){
+              $(this).attr('title', 'Follow performer');
+              $(this).html('Follow performer');
+
+              $.ajax({
+                  type: "GET",
+                  url: "/unfollow/" + $(this).attr('rel'),
+                  dataType: "json"
+              }).done(function( msg ) {
+                          //alert( msg );
+                      });
+          }
+
+          if($(this).html() == 'follow'){
+              $(this).html('unfollow');
+              $.ajax({
+                  type: "GET",
+                  url: "/follow/" + $(this).attr('title'),
+                  dataType: "json"
+              }).done(function( msg ) {
+                          //alert( msg );
+                      });
+          }else if($(this).html() == 'unfollow'){
+              $(this).html('follow');
+              $.ajax({
+                  type: "GET",
+                  url: "/unfollow/" + $(this).attr('title'),
+                  dataType: "json"
+              }).done(function( msg ) {
+                          //alert( msg );
+                      });
+          }
+
+          return false;
+      });
+  });
+</script>
+<style>
+    .box-fr{
+        font-family: 'Amatic SC', cursive;
+        font-weight: 800;
+    }
+
+    .text{
+        background: url('../images/sprite-forms.png') -17px -221px no-repeat;
+        width: 339px;
+        border: none;
+        height: 62px;
+        padding: 0px 5px 0px 15px;
+        font-size: 21px;
+        margin-bottom: 13px;
+        margin-left: 9px;
+        -webkit-appearance: none;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 400;
+    }
+    .img-block{
+        float: left;
+        width: 200px;
+    }
+    .rowline{
+        float:left;
+        width: 230px;
+        padding-left: 25px;
+        height: 200px;
+    }
+    .rowline span{
+        color: #D94601;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    h2{
+        margin: 0;
+        font-size: 40px;
+    }
+
+    h3{
+        font-size: 30px;
+        margin: 0;
+        margin-top: 6px;
+    }
+   .button {
+        background: url(../images/img_sprite.png) no-repeat -288px top;
+        width: 221px;
+        height: 70px;
+        font-size: 46px;
+        font-weight: bold;
+        line-height: 60px;
+        float: left;
+    }
+    .button a {
+        background: url(../images/ic_user.png) no-repeat 22px 27px;
+        display: block;
+        padding: 0 0 0 76px;
+        color: #000;
+        text-decoration: none;
+    }
+    .button2 {
+        margin: 0 0 0 15px;
+    }
+    .button2 a {
+        background: url(../images/ic_mail.png) no-repeat 13px 23px;
+        padding-left: 51px;
+    }
+    .clear{
+        clear: both;
+        width: 300px;
+        height: 20px;
+    }
+</style>
+<div class="box-fr">
+    <section class="img-block">
+
+        <% if !@user.image_fb.nil? %>
+            <%= image_tag @user.image_fb.gsub("square", "large"), :width => 200, :alt => @user.name %>
+        <% else %>
+            <%= image_tag @user.image('profile'), :width => 250, :alt => @user.name %>
+        <% end %>
+    </section>
+    <section class="rowline">
+        <h2><%= @user.name%></h2>
+        <span><% if !@user.hometown.nil? %><%= image_tag 'ic_location.png', :alt => 'location' %><%= @user.hometown%><% end %></span>
+        <h3>About me</h3>
+        <p><%= @user.about%> </p>
+    </section>
+    <section class="clear"></section>
+    <% if current_user && current_user.id != @user.id %>
+      <% f = Follower.find(:first, :conditions => ['user_id = ? AND leader = ?',current_user.id,Digest::MD5.hexdigest(@user.id.to_s) ]) %>
+      <% if f.nil? %>
+          <section class="button"><%= link_to 'follow', '#', :class => 'perfomer', :title => Digest::MD5.hexdigest(@user.id.to_s) %></section>
+      <% else  %>
+          <section class="button"><%= link_to 'unfollow', '#', :class => 'perfomer', :title => Digest::MD5.hexdigest(@user.id.to_s) %></section>
+      <% end %>
+
+      <section class="button button2"><a href="#" title="send message">send message</a></section>
+      <section class="clear"></section>
+  <% end  %>
+</div>
